@@ -1,0 +1,30 @@
+h1 {
+    margin: 0;
+}
+
+.header, .footer {
+    padding: 0 1rem;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    background-color: lightgray;
+    font-weight: bold;
+}
+
+.header {
+    border-bottom: 2px gray solid;
+}
+
+.log-in {
+    margin: auto auto auto 20px;
+}
+
+.footer {
+    margin-top: 20px;
+    border-top: 2px gray solid;
+}
+
+.app-header-div, .footer-label {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
