@@ -2,13 +2,16 @@
 import React from 'react';
 
 // here are the context providers
-import { ItemsContextProvider } from './ItemsContext'
+import { ItemsContextProvider } from './ItemsContext';
+import { SessionContextProvider } from './SessionContext';
 
 const AuthContextProvider = (props) => {
     return (
-        <ItemsContextProvider>
-            { props.children }
-        </ItemsContextProvider>
+        <SessionContextProvider>
+            <ItemsContextProvider>
+                { props.children }
+            </ItemsContextProvider>
+        </SessionContextProvider>
     )};
 
 export default AuthContextProvider;

@@ -4,6 +4,9 @@ import React, {
     useReducer
 } from "react";
 
+// service
+import TokenService from '../services/token-service';
+
 let UserContext = createContext();
 
 let initialState = {
@@ -21,6 +24,7 @@ let reducer = (state, action) => {
                 fetched: true
             };
         case "logout":
+            TokenService.clearAuthToken();
             return {
                 // logs user out
                 name: '',

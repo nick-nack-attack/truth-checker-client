@@ -15,6 +15,9 @@ import Footer from '../../structure/Footer';
 // Views
 import MainFeed from '../../components/views/MainFeed/MainFeed';
 import AddFactForm from '../../components/views/AddFactForm/AddFactForm';
+import AdminLogin from '../../components/views/AdminLogin/AdminLogin';
+
+// contexts
 import AuthContextProvider from '../../contexts/AuthContextProvider';
 
 const LoggedOut = () => {
@@ -28,8 +31,12 @@ const LoggedOut = () => {
                     component={ MainFeed }
                 />
                 <PublicRoute
-                    exact path={'/submit-fact'}
+                    path={'/submit-fact'}
                     component={ AddFactForm }
+                />
+                <PublicRoute
+                    path={'/admin-login'}
+                    component={ AdminLogin }
                 />
             </Switch>
         </AppWrapper>

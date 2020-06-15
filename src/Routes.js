@@ -2,15 +2,20 @@
 import React, { useContext, useEffect } from 'react';
 
 // Services
-// import TokenService from 'services'
+import TokenService from './services/token-service';
 
 // contexts
 import { UserContext } from './contexts/UserContext';
-import { ItemsContext } from './contexts/ItemsContext';
 
+// secondary routers for logged out or logged in
+import LoggedIn from './routes/LoggedOut/LoggedIn';
 import LoggedOut from './routes/LoggedOut/LoggedOut';
 
+// styling
+import './index.css';
+
 export const Routes = () => {
+    
     let { state } = useContext(UserContext);
 
     useEffect(() => {
@@ -18,6 +23,10 @@ export const Routes = () => {
     }, [state] );
     return (
         <div className='Routes-div'>
+            { TokenService.hasAuthToken() 
+                ?   <LoggedIn/>
+                :   <LoggedOut/>
+            }
             <LoggedOut/>
         </div>
     )
