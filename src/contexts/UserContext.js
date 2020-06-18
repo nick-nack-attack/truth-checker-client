@@ -28,7 +28,7 @@ let reducer = (state, action) => {
             return {
                 // logs user out
                 name: '',
-                isLoggedIn: '',
+                isLoggedIn: false,
                 fetched: false
             }
         default:

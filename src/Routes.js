@@ -21,13 +21,15 @@ export const Routes = () => {
     useEffect(() => {
 
     }, [state] );
+
     return (
-        <div className='Routes-div'>
-            { TokenService.hasAuthToken() 
-                ?   <LoggedIn/>
-                :   <LoggedOut/>
-            }
-            <LoggedOut/>
-        </div>
+    
+            <div className='Routes-div'>
+                { TokenService.hasAuthToken() 
+                    ?   <LoggedIn/>
+                    :   <LoggedOut/>
+                }
+            </div>
+        
     )
 }

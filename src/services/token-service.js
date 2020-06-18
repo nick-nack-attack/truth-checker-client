@@ -14,6 +14,7 @@ const TokenService = {
   // Remove the authentication token
   clearAuthToken: () => {
     window.localStorage.removeItem(config.TOKEN_KEY)
+    window.localStorage.removeItem("user_id")
   },
   // Boolean response if the user has an authentication token
   hasAuthToken: () => {

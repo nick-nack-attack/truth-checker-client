@@ -26,6 +26,7 @@ let reducer = (state, action) => {
             }
             // update only the facts
             case 'set-facts':
+                console.log(`set-facts running...`)
                 return {
                     ...state,
                     facts: action.payload,

@@ -2,7 +2,6 @@ form {
     width: 400px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 20px;
     text-align: center;
 }
 
@@ -13,12 +12,17 @@ input {
     text-align: center;
 }
 
-.center {
+input[type='date'] {
+    width: 160px;
     text-align: center;
 }
 
+.admin-button {
+    width: 100px;
+}
+
 .main-feed {
-    align-items: center;
+    margin-top: 20px;
 }
 
 .main-feed-fact {

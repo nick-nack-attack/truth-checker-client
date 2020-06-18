@@ -3,6 +3,7 @@ import React, { useContext, useEffect } from 'react';
 
 // services
 import FactsApiService from '../services/facts-service';
+import TokenService from '../services/token-service';
 
 // contexts
 import { ItemsContext } from '../contexts/ItemsContext';
@@ -21,24 +22,36 @@ const AppWrapper = (props) => {
         data: settings
     });
 
+    let checkUserLoggedIn = () => {
+      return (
+        TokenService.getAuthToken
+        ? login()
+        : ''
+      );
+    };
+
     useEffect(() => {
+      console.log(`USEEFFECT: Fetched in State?`, itemsContext.state.fetched)
+      console.log(`FETCH IN STATE CHANGED! Running...`)
       Promise.all([
         FactsApiService.getFacts()
       ])
       .then(([facts]) => {
         // set the contxt with the data that's returned
+        console.log(`Dispatching set-facts...`)
         itemsContext.dispatch({
           type: 'set-facts',
           payload: facts
-        })
+        });
+        checkUserLoggedIn()
       })
     }, [itemsContext.state.fetched])
 
   return (
     <>
-    <main>
-      {props.children}
-    </main>
+    <div>
+      { props.children }
+    </div>
       {/* {ItemsContext.state.fetched
         ? (<main className="Main_wrapper">
             { props.children }

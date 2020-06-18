@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 // Contexts
 import { UserContext } from '../../../contexts/UserContext';
 import { ItemsContext } from '../../../contexts/ItemsContext';
-import { prettyDate } from '../../../helpers/helpers'
+import { prettyDate, inputDateFormat } from '../../../helpers/helpers'
 
 // Helpers
 import { updateTimeStrings } from '../../../helpers/helpers';
@@ -31,7 +31,6 @@ const MainFeed = () => {
   const [ searchTerm, setSearchTerm ] = React.useState("");
   const [ searchResults, setSearchResults ] = React.useState([]);
   const [ statusSelected, setstatusSelected ] = React.useState("All");
-  const [ showAddFactForm, setShowAddFactForm ] = React.useState(false)
 
   // update state when search term changes
   const handleChange = (event) => {
@@ -84,8 +83,14 @@ const MainFeed = () => {
 
   }, [statusSelected] );
 
-  return (
+  useEffect(() => {
+    // if something is deleted, reset the results to the updated state
+    const results = itemsContext.state.facts;
+    setSearchResults(results)
+  }, [itemsContext.state.fetched])
 
+  return (
+    
     <div className="main-feed">
 
       <form onSubmit={e => e.preventDefault()}>
@@ -111,7 +116,7 @@ const MainFeed = () => {
         <button onClick={handleClickAddFact}>Add New Fact</button>
       </div>
       
-        { (searchResults.length === 0 && searchTerm === "" ? itemsContext.state.facts : searchResults).map(fact => 
+        { (searchResults.length === 0 && searchTerm === "" ? itemsContext.state.facts : searchResults).sort((a,b) => a.fact_id - b.fact_id).map(fact => 
           {
             return (
               <div className={'main-feed-fact'}>
@@ -132,7 +137,22 @@ const MainFeed = () => {
                 </p>
             { fact.date_under_review ? <p><span className={factLabel}>Under Review</span>{prettyDate(fact.date_under_review)}</p> : '' }
                 { fact.date_approved ? <p><span className={factLabel}>Approved</span>{prettyDate(fact.date_approved)}</p> : '' }
-                { fact.date_not_true ? <p><span className={factLabel}>Not Approved</span>{prettyDate(fact.date_not_true)}</p>  : '' }
+                { fact.date_not_true ? <p><span className={factLabel}>Not True</span>{prettyDate(fact.date_not_true)}</p>  : '' }
+                
+            { userContext.state.isLoggedIn 
+              ?   (
+                    <>
+                      <button
+                        onClick={e => history.push(`/facts/id/${fact.fact_id}/edit`)}
+                      >
+                        Edit
+                      </button>
+                    </>
+                  )
+              : '' 
+            
+            }
+
               </div>
             )
           }) 

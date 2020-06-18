@@ -30,7 +30,37 @@ const FactsApiService = {
                 ? res.json().then(e => Promise.reject(e)) 
                 : res.json())
         )
-    }
+    },
+
+    // update fact
+    updateFact: (fact_id, updatedFact) => {
+        return fetch(`${config.API_ENDPOINT}/facts/id/${fact_id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updatedFact)
+        })
+        .then(res => 
+            (!res.ok 
+                ? res.json().then(e => Promise.reject(e)) 
+                : res.json())
+        )
+    },
+
+    deleteFact: (fact_id) => {
+        return fetch(`${config.API_ENDPOINT}/facts/id/${fact_id}`, {
+            method: 'DELETE',
+            headers: {
+                'content-type': 'application/json'
+            }
+        })
+        .then(res =>
+            (!res.ok)
+              ? res.json().then(e => Promise.reject(e))
+              : ""
+          )
+    },
 
 }
 

@@ -1,11 +1,9 @@
 .App {
   text-align: center;
-  height: calc(100vh);
 }
 
 .Main {
   background-color: aquamarine;
-  height: calc(100vh);
 }
 
 .App-logo {
@@ -23,8 +21,8 @@
   font-weight: bold;
 }
 
-.Routes-div {
-  height: 100vh;
+.center {
+  text-align: center;
 }
 
 button {
@@ -52,6 +50,11 @@ input[type="checkbox"] {
 
 .align-left {
   text-align: left;
+}
+
+header {
+  background-color: turquoise;
+  
 }
 
 @media (prefers-reduced-motion: no-preference) {

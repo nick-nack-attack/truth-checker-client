@@ -1,5 +1,5 @@
 // This is the app header
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState, useRef } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
 // User context
@@ -7,9 +7,12 @@ import { UserContext } from '../contexts/UserContext';
 
 // Components
 import Burger from '../components/utils/Burger';
+import Menu from '../components/utils/Menu';
 
 // Files
 import './Header.scss';
+
+import { useOnClickOutside } from '../components/utils/hooks';
 
 const Header = () => {
 
@@ -24,6 +27,12 @@ const Header = () => {
         history.push("/admin-login")
     };
 
+    const handleLogoutClick = () => {
+        userContext.dispatch({
+            type: "logout"
+        })
+    }
+
     // toggle header style if logged in or out
     return (
 
@@ -37,7 +46,13 @@ const Header = () => {
             </div>
             <div className='app-header-div'>
                 { userContext.state.isLoggedIn 
-                    ?   <Burger/>
+                    ?   <>
+                        <button
+                            onClick={handleLogoutClick}
+                        >
+                            Logout
+                        </button>
+                        </>
                     :   (
                             <button 
                                 className='log-in'
@@ -46,11 +61,10 @@ const Header = () => {
                                 Admin Login
                             </button>
                         )
-                    
                 }
-                
             </div>
         </header>
+
     )
 
 };

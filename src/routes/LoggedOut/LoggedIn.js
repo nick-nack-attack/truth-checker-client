@@ -1,6 +1,6 @@
 // logged in router for user
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 
 // context
 import AuthContextProvider from '../../contexts/AuthContextProvider';
@@ -32,6 +32,7 @@ const LoggedIn = () => {
                     />
                 </Switch>
             </AppWrapper>
+            <Footer/>
         </AuthContextProvider>
     )
 
