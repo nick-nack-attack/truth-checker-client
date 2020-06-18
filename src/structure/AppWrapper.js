@@ -22,11 +22,16 @@ const AppWrapper = (props) => {
         data: settings
     });
 
+    let logout = (settings) => dispatch({
+      type: 'logout',
+      data: settings
+    })
+
     let checkUserLoggedIn = () => {
       return (
         TokenService.getAuthToken
         ? login()
-        : ''
+        : logout()
       );
     };
 

@@ -91,9 +91,13 @@ const MainFeed = () => {
 
   return (
     
-    <div className="main-feed">
+    <div 
+      className="main-feed"
+    >
 
-      <form onSubmit={e => e.preventDefault()}>
+      <form 
+        onSubmit={e => e.preventDefault()}
+      >
         <input
           placeholder="Search for Fact"
           type="text"
@@ -102,7 +106,10 @@ const MainFeed = () => {
         />
         <br/>
         <label>Status</label>
-        <select value={statusSelected} onChange={handleSelect}>
+        <select 
+          value={statusSelected} 
+          onChange={handleSelect}
+        >
           <option value='All'>Show All</option>
           <option value='Pending'>Pending</option>
           <option value='Under Review'>Under Review</option>
@@ -119,27 +126,56 @@ const MainFeed = () => {
         { (searchResults.length === 0 && searchTerm === "" ? itemsContext.state.facts : searchResults).sort((a,b) => a.fact_id - b.fact_id).map(fact => 
           {
             return (
-              <div className={'main-feed-fact'}>
+              <>
+              <div 
+                className={'main-feed-fact'}
+                onClick={() => history.push(`/facts/id/${fact.fact_id}`)}
+              >
                 <p>
                   <span className={factLabel}>Fact</span>
                   { fact.title }
                 </p>
                 <p>
-                  <span className={factLabel}>Status</span>
-                  { fact.status }
+                  <span 
+                    className={factLabel}
+                  >
+                    Status
+                  </span>
+                    { fact.status }
+                </p>
+                <p>
+                  <span 
+                    className={factLabel}
+                  >
+                    Date
+                  </span>
+                {  
+                      fact.status === 'Pending' 
+                        ? prettyDate(fact.date_submitted)
+                        : fact.status === 'Under Review'
+                        ? prettyDate(fact.date_submitted)
+                        : fact.status === 'Approved'
+                        ? prettyDate(fact.date_approved)
+                        : fact.status === 'Not True'
+                        ? prettyDate(fact.date_not_true)
+                        : ''
+                    }
                 </p>
                 <p>
                   <span className={factLabel}>Id</span>
                     { fact.fact_id }
                 </p>
-                <p><span className={factLabel}>Submitted</span>
+                {/* <p><span className={factLabel}>Submitted</span>
                     { prettyDate(fact.date_submitted) }
-                </p>
-            { fact.date_under_review ? <p><span className={factLabel}>Under Review</span>{prettyDate(fact.date_under_review)}</p> : '' }
-                { fact.date_approved ? <p><span className={factLabel}>Approved</span>{prettyDate(fact.date_approved)}</p> : '' }
-                { fact.date_not_true ? <p><span className={factLabel}>Not True</span>{prettyDate(fact.date_not_true)}</p>  : '' }
+                </p> */}
+                {/* { fact.date_under_review ? <p><span className={factLabel}>Under Review</span>{prettyDate(fact.date_under_review)}</p> : '' } */}
+                {/* { fact.date_approved ? <p><span className={factLabel}>Approved</span>{prettyDate(fact.date_approved)}</p> : '' }
+                { fact.date_not_true ? <p><span className={factLabel}>Not True</span>{prettyDate(fact.date_not_true)}</p>  : '' } */}
                 
-            { userContext.state.isLoggedIn 
+          
+
+              </div>
+              { userContext.state.isLoggedIn 
               ?   (
                     <>
                       <button
@@ -150,10 +186,8 @@ const MainFeed = () => {
                     </>
                   )
               : '' 
-            
             }
-
-              </div>
+              </>
             )
           }) 
         }

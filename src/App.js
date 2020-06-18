@@ -16,6 +16,7 @@ import Footer from './structure/Footer';
 import AddFactForm from './components/views/AddFactForm/AddFactForm';
 import EditFactForm from './components/views/EditFactForm/EditFactForm';
 import AdminLogin from './components/views/AdminLogin/AdminLogin';
+import ViewFact from './components/views/ViewFact/ViewFact';
 
 function App() {
 
@@ -42,8 +43,18 @@ function App() {
               path={'/submit-fact'}
               component={ AddFactForm }
             />
+            <PublicRoute
+              exact path={'/facts/id/:fact_id'}
+              component={(props) => {
+                return (
+                  <ViewFact
+                    fact_id={props.match.params.fact_id}
+                  />
+                )
+              }}
+            />
             <PrivateRoute
-              path={'/facts/id/:fact_id/edit'}
+              exact path={'/facts/id/:fact_id/edit'}
               component={(props) => {
                 return (
                   <EditFactForm
