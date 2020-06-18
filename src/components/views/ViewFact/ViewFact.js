@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { ItemsContext } from '../../../contexts/ItemsContext';
 import { useHistory } from 'react-router-dom';
 import { findFactById } from '../../../helpers/helpers';
+import Report from '../../utils/Report';
 
 const ViewFact = (props) => {
     // bring in itemsContext
@@ -37,6 +38,11 @@ const ViewFact = (props) => {
             >
                 Back
             </button>
+            <br/>
+            <br/>
+            <Report
+                fact_id={fact.fact_id} 
+            />
         </div>
     )
 }

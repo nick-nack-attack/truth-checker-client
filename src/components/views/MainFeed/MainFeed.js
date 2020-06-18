@@ -7,6 +7,9 @@ import { UserContext } from '../../../contexts/UserContext';
 import { ItemsContext } from '../../../contexts/ItemsContext';
 import { prettyDate, inputDateFormat } from '../../../helpers/helpers'
 
+// Components
+import Report from '../../utils/Report';
+
 // Helpers
 import { updateTimeStrings } from '../../../helpers/helpers';
 
@@ -185,7 +188,11 @@ const MainFeed = () => {
                       </button>
                     </>
                   )
-              : '' 
+              :   <div>
+                    <Report
+                      fact_id={fact.fact_id} 
+                    />
+                  </div> 
             }
               </>
             )
