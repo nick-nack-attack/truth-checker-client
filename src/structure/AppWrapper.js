@@ -36,18 +36,20 @@ const AppWrapper = (props) => {
     };
 
     useEffect(() => {
-      console.log(`USEEFFECT: Fetched in State?`, itemsContext.state.fetched)
-      console.log(`FETCH IN STATE CHANGED! Running...`)
       Promise.all([
-        FactsApiService.getFacts()
+        FactsApiService.getFacts(),
+        FactsApiService.getReports()
       ])
-      .then(([facts]) => {
+      .then(([facts, reports]) => {
         // set the contxt with the data that's returned
-        console.log(`Dispatching set-facts...`)
         itemsContext.dispatch({
           type: 'set-facts',
           payload: facts
         });
+        itemsContext.dispatch({
+          type: 'set-reports',
+          payload: reports
+        })
         checkUserLoggedIn()
       })
     }, [itemsContext.state.fetched])

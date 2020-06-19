@@ -1,5 +1,5 @@
 // View component - Root page for logged in users
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 // Contexts
@@ -31,9 +31,9 @@ const MainFeed = () => {
   const factLabel = 'main-feed-fact-label';
 
   // set local state for search term, results, and status selected
-  const [ searchTerm, setSearchTerm ] = React.useState("");
-  const [ searchResults, setSearchResults ] = React.useState([]);
-  const [ statusSelected, setstatusSelected ] = React.useState("All");
+  const [ searchTerm, setSearchTerm ] = useState("");
+  const [ searchResults, setSearchResults ] = useState([]);
+  const [ statusSelected, setstatusSelected ] = useState("All");
 
   // update state when search term changes
   const handleChange = (event) => {

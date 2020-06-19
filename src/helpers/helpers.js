@@ -61,7 +61,13 @@ const updateTimeStrings = (items) => {
 };
 
 // Adds properties we'll need that the API doesn't serve
-const addAdditionalProperties = (projects, tasks) => {
+const addAdditionalProperties = (facts, reports) => {
+
+  // modify facts
+  let factsModifier = facts.map(fact => {
+
+
+  })
 
   // Adds type of projects, how many tasks exist for the project, and the tasks for the project to the projects array
   // let projectsModifier = projects.map(cur => {

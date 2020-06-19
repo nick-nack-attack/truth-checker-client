@@ -9,6 +9,7 @@ let ItemsContext = createContext();
 let initialState = {
     fetched: false,
     facts: [],
+    reports: [],
     all: [],
     error: null
 };
@@ -22,14 +23,19 @@ let reducer = (state, action) => {
                 ...state,
                 fetched: true,
                 facts: action.payload.facts,
-                // all: action.payload.all
+                reports: action.payload.reports,
+                all: action.payload.all
             }
             // update only the facts
             case 'set-facts':
-                console.log(`set-facts running...`)
                 return {
                     ...state,
                     facts: action.payload,
+                }
+            case 'set-reports':
+                return {
+                    ...state,
+                    reports: action.payload,
                     fetched: true
                 }
             // set all items

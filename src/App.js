@@ -17,6 +17,7 @@ import AddFactForm from './components/views/AddFactForm/AddFactForm';
 import EditFactForm from './components/views/EditFactForm/EditFactForm';
 import AdminLogin from './components/views/AdminLogin/AdminLogin';
 import ViewFact from './components/views/ViewFact/ViewFact';
+import ReportFeed from './components/views/ReportFeed/ReportFeed';
 
 function App() {
 
@@ -62,6 +63,10 @@ function App() {
                   />
                 )
               }}
+            />
+            <PrivateRoute
+              exact path={'/reports'}
+              component={ ReportFeed }
             />
           </Switch>
           </body>
