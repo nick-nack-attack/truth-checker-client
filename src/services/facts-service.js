@@ -3,7 +3,6 @@ import config from '../config';
 
 const FactsApiService = {
     
-    // Get all facts
     getFacts: () => {
         return fetch(`${config.API_ENDPOINT}/facts`, {
             headers: {
@@ -32,7 +31,6 @@ const FactsApiService = {
         )
     },
 
-    // update fact
     updateFact: (fact_id, updatedFact) => {
         return fetch(`${config.API_ENDPOINT}/facts/id/${fact_id}`, {
             method: 'PATCH',
@@ -61,6 +59,21 @@ const FactsApiService = {
               : ""
           )
     },
+
+    reportFact: (fact_id) => {
+        return fetch(`${config.API_ENDPOINT}/reports`, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(fact_id)
+        })
+        .then(res => 
+            (!res.ok 
+                ? res.json().then(e => Promise.reject(e)) 
+                : res.json())
+        )
+    }
 
 }
 

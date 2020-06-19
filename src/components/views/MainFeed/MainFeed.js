@@ -168,15 +168,6 @@ const MainFeed = () => {
                   <span className={factLabel}>Id</span>
                     { fact.fact_id }
                 </p>
-                {/* <p><span className={factLabel}>Submitted</span>
-                    { prettyDate(fact.date_submitted) }
-                </p> */}
-                {/* { fact.date_under_review ? <p><span className={factLabel}>Under Review</span>{prettyDate(fact.date_under_review)}</p> : '' } */}
-                {/* { fact.date_approved ? <p><span className={factLabel}>Approved</span>{prettyDate(fact.date_approved)}</p> : '' }
-                { fact.date_not_true ? <p><span className={factLabel}>Not True</span>{prettyDate(fact.date_not_true)}</p>  : '' } */}
-                
-          
-
               </div>
               { userContext.state.isLoggedIn 
               ?   (
