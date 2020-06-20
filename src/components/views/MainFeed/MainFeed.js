@@ -97,10 +97,10 @@ const MainFeed = () => {
     <div 
       className="main-feed"
     >
-
       <form 
         onSubmit={e => e.preventDefault()}
       >
+        <label>Search</label><br/>
         <input
           placeholder="Search for Fact"
           type="text"
@@ -108,7 +108,9 @@ const MainFeed = () => {
           onChange={handleChange}
         />
         <br/>
+        <br/>
         <label>Status</label>
+        <br/>
         <select 
           value={statusSelected} 
           onChange={handleSelect}
@@ -126,7 +128,7 @@ const MainFeed = () => {
         <button onClick={handleClickAddFact}>Add New Fact</button>
       </div>
       
-        { (searchResults.length === 0 && searchTerm === "" ? itemsContext.state.facts : searchResults).sort((a,b) => a.fact_id - b.fact_id).map(fact => 
+        { ( searchResults.length === 0 && searchTerm === "" ? itemsContext.state.facts : searchResults).sort((a,b) => a.fact_id - b.fact_id).map(fact => 
           {
             return (
               <>

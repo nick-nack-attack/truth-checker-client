@@ -47,7 +47,14 @@ const Header = () => {
             <div className='app-header-div'>
                 { userContext.state.isLoggedIn 
                     ?   <>
+                    <Link to='/'>
+                        <p>View Facts</p>
+                    </Link>
+                    <Link to='/reports'>
+                        <p>View Reports</p>
+                    </Link>
                         <button
+                            className='header-button'
                             onClick={handleLogoutClick}
                         >
                             Logout

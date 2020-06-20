@@ -1,5 +1,6 @@
 h1 {
     margin: 0;
+    font-size: larger;
 }
 
 .header, .footer {
@@ -27,4 +28,8 @@ h1 {
 .app-header-div, .footer-label {
     padding-top: 20px;
     padding-bottom: 20px;
+}
+
+.header-button {
+    width: 100px;
 }

@@ -43,6 +43,8 @@ const ViewFact = (props) => {
             <Report
                 fact_id={fact.fact_id} 
             />
+            <br/>
+            <br/>
         </div>
     )
 }

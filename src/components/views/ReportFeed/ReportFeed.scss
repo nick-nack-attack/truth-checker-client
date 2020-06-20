@@ -1,0 +1,19 @@
+.main-feed-fact-label {
+    background-color: black;
+    color: white;
+    margin-right: 10px;
+    padding: 5px;
+}
+
+.report-label {
+    border: 2px solid black;
+    margin-right: 10px;
+    padding: 5px;
+}
+
+.report-conntainer:nth-child(even) {
+    background-color: lightgrey;
+    padding: 10px;
+}
+
+

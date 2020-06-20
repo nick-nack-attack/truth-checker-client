@@ -87,6 +87,20 @@ const FactsApiService = {
                 ? res.json().then(e => Promise.reject(e)) 
                 : res.json())
         )
+    },
+
+    deleteReport: (report_id) => {
+        return fetch(`${config.API_ENDPOINT}/reports/id/${report_id}`, {
+            method: 'DELETE',
+            headers: {
+                'content-type': 'application/json'
+            }
+        })
+        .then(res => 
+            (!res.ok 
+                ? res.json().then(e => Promise.reject(e)) 
+                : res.json())
+        )
     }
 
 }
