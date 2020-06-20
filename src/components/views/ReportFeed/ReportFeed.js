@@ -36,8 +36,6 @@ const ReportFeed = () => {
        
     }, [itemsContext.state.fetched]);
 
-    console.log()
-
     return (
 
         <div
