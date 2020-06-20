@@ -1,40 +1,76 @@
-<html>
+<!DOCTYPE HTML>
+<html lang="eng">
+
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>repl.it</title>
+    <meta name="viewport" content="width=device-width initial-scale=1">
+    <meta name="description" content="These are wireframes for the Truthchecker app.">
+    <title>Truth Checker Wireframes</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="reset.css" rel="stylesheet" type="text/css" />
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous">
+    </script>
   </head>
+
   <body>
-      <div class='nav'>
-        NAV BAR
-      </div>
-      <div class='bar'>
-        Search
-      </div>
-      <div class='bar'>
-        Filter by status
-      </div>
-      <div class='bar'>
-        Submit New Fact
-      </div>
-      <div class='card'>
-        FACT
-        status
-        time/date submitted
-        serial number
-      </div>
-      <div class='card'>
-        FACT
-        status
-        time/date submitted
-        serial number
-      </div>
-      <div class='card'>
-        FACT
-        status
-        time/date submitted
-        serial number
-      </div>
+    <header class='nav'>
+      <ul>
+          <li>Truth Checker</li>
+          <li><a href="./index.html">Facts</a></li>
+          <li><a href="./reports.html">Reports</a></li>
+          <li><a href="./login.html">Login</a></li>
+      </ul>
+    </header>
+      <br/>
+      <h2>Facts</h2>
+      <br/>
+      <input placeholder='Search'/>
+      <br/>
+      <br/>
+      <label>Filter</label>
+      <select>
+        <option>All</option>
+        <option>Pending</option>
+        <option>Under Review</option>
+        <option>Approved</option>
+        <option>Not True</option>
+      </select>
+      <br/>
+      <br/>
+      <a class='link-button' href="./new-fact.html">Add New Fact</a>
+      <br/>
+      <br/>
+        <h2>Facts</h2>
+        <br/>
+      <ul>
+        <li class='card'>
+            <p>Fact: The Moon is Made of Cheese</p>
+            <p>Status: Pending</p>
+            <p>Submitted: June 12, 2020</p>
+            <p>Fact id: 1</p>
+            <button disabled>Report Fact</button>
+            <a class='link-button' href="./edit.html">Edit Fact</a>
+        </li>
+        <li class='card'>
+          <p>Fact: Red is Red</p>
+          <p>Status: Pending</p>
+          <p>Submitted: June 10, 2020</p>
+          <p>Fact id: 2</p>
+          <button disabled>Report Fact</button>
+          <button disabled>Edit Fact</button>
+      </li>
+      <li class='card'>
+        <p>Fact: Outer Space is cold</p>
+        <p>Status: Pending</p>
+        <p>Submitted: June 5, 2020</p>
+        <p>Fact id: 3</p>
+        <button disabled>Report Fact</button>
+        <button disabled>Edit Fact</button>
+    </li>
+    </ul>
   </body>
+
 </html>
