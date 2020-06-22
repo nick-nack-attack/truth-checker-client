@@ -14,7 +14,11 @@ import Report from '../../utils/Report';
 import { updateTimeStrings } from '../../../helpers/helpers';
 
 // Element components
-// import Button from 'components/elements/Button/Button';
+import FormMainFeed from '../../utils/FormMainFeed/FormMainFeed';
+import Button from '../../utils/Button/Button';
+import Input from '../../utils/Input/Input';
+import Select from '../../utils/Select/Select';
+import Fact from '../../utils/Fact/Fact';
 
 // Files
 import './MainFeed.scss';
@@ -90,104 +94,36 @@ const MainFeed = () => {
     // if something is deleted, reset the results to the updated state
     const results = itemsContext.state.facts;
     setSearchResults(results)
-  }, [itemsContext.state.fetched])
+  }, [itemsContext.state.fetched]);
+
+  const arrayForSelect = ['All', 'Pending', 'Under Review', 'Approved', 'Not True'];
 
   return (
     
     <div 
       className="main-feed"
     >
-      <form 
-        onSubmit={e => e.preventDefault()}
-      >
-        <label>Search</label><br/>
-        <input
-          placeholder="Search for Fact"
-          type="text"
-          value={searchTerm}
-          onChange={handleChange}
-        />
-        <br/>
-        <br/>
-        <label>Status</label>
-        <br/>
-        <select 
-          value={statusSelected} 
-          onChange={handleSelect}
-        >
-          <option value='All'>Show All</option>
-          <option value='Pending'>Pending</option>
-          <option value='Under Review'>Under Review</option>
-          <option value='Approved'>Approved</option>
-          <option value='Not True'>Not True</option>
-        </select>
-      </form>
+
+    <FormMainFeed
+      searchValue={searchTerm}
+      searchOnChange={handleChange}
+      selectValue={statusSelected}
+      selectOnChange={handleSelect}
+    />
 
       <br/>
       <div className='center'>
-        <button onClick={handleClickAddFact}>Add New Fact</button>
+        <Button
+          onClick={handleClickAddFact}
+          className="submit-btn"
+          text="Add New Fact"
+        />
       </div>
       
         { ( searchResults.length === 0 && searchTerm === "" ? itemsContext.state.facts : searchResults).sort((a,b) => a.fact_id - b.fact_id).map(fact => 
           {
-            return (
-              <>
-              <div 
-                className={'main-feed-fact'}
-                onClick={() => history.push(`/facts/id/${fact.fact_id}`)}
-              >
-                <p>
-                  <span className={factLabel}>Fact</span>
-                  { fact.title }
-                </p>
-                <p>
-                  <span 
-                    className={factLabel}
-                  >
-                    Status
-                  </span>
-                    { fact.status }
-                </p>
-                <p>
-                  <span 
-                    className={factLabel}
-                  >
-                    Date
-                  </span>
-                {  
-                      fact.status === 'Pending' 
-                        ? prettyDate(fact.date_submitted)
-                        : fact.status === 'Under Review'
-                        ? prettyDate(fact.date_submitted)
-                        : fact.status === 'Approved'
-                        ? prettyDate(fact.date_approved)
-                        : fact.status === 'Not True'
-                        ? prettyDate(fact.date_not_true)
-                        : ''
-                    }
-                </p>
-                <p>
-                  <span className={factLabel}>Id</span>
-                    { fact.fact_id }
-                </p>
-              </div>
-              { userContext.state.isLoggedIn 
-              ?   (
-                    <>
-                      <button
-                        onClick={e => history.push(`/facts/id/${fact.fact_id}/edit`)}
-                      >
-                        Edit
-                      </button>
-                    </>
-                  )
-              :   <div>
-                    <Report
-                      fact_id={fact.fact_id} 
-                    />
-                  </div> 
-            }
-              </>
+            return ( 
+              <Fact key={fact.fact_id} fact={fact}/>
             )
           }) 
         }

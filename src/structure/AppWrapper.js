@@ -29,8 +29,8 @@ const AppWrapper = (props) => {
 
     let checkUserLoggedIn = () => {
       return (
-        TokenService.getAuthToken
-        ? login()
+        TokenService.hasAuthToken()
+        ? login() 
         : logout()
       );
     };

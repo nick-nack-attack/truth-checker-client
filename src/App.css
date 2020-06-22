@@ -6,6 +6,10 @@
   background-color: aquamarine;
 }
 
+.main-feed {
+  background-color: rgb(230, 230, 230);
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -23,23 +27,6 @@
 
 .center {
   text-align: center;
-}
-
-button {
-  border: 2px black solid;
-  font-size: 16px;
-  padding: 10px;
-  width: 200px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: rgb(235, 235, 235);
-}
-
-input[type="checkbox"] {
-  width: unset;
-  margin-right: 10px;
 }
 
 .terms-and-conditions {

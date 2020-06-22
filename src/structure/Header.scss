@@ -1,3 +1,5 @@
+@import '../themes/dtf';
+
 h1 {
     margin: 0;
     font-size: larger;
@@ -5,15 +7,14 @@ h1 {
 
 .header, .footer {
     padding: 0 1rem;
-    display: flex;
     justify-content: center;
     position: relative;
-    background-color: lightgray;
+    background-color: $gray;
     font-weight: bold;
 }
 
 .header {
-    border-bottom: 2px gray solid;
+    border-bottom: 2px $dark-gray;
 }
 
 .log-in {
@@ -22,14 +23,40 @@ h1 {
 
 .footer {
     margin-top: 20px;
-    border-top: 2px gray solid;
+    border-top: 2px $dark-gray;
 }
 
-.app-header-div, .footer-label {
-    padding-top: 20px;
-    padding-bottom: 20px;
+.open {
+    display: none;
 }
 
 .header-button {
     width: 100px;
 }
+
+.title-text {
+    font-family: 'Crimson Text';
+    width: 200px;
+}
+
+.header-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    & > h1 {
+        margin-left: 20px;
+    }
+}
+
+.main-dtf-logo {
+    padding-top: 20px;
+}
+
+.last {
+    margin-bottom: 10px;
+}
+
+
+
+  

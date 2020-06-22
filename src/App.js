@@ -1,11 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { Switch } from 'react-router-dom';
 
-import { ThemeProvider } from 'styled-components';
-
-import Burger from './components/utils/Burger';
-import Menu from './components/utils/Menu';
-
 import FocusLock from 'react-focus-lock';
 import './App.css';
 import PublicRoute from './utils/PublicRoute';
@@ -21,15 +16,11 @@ import ReportFeed from './components/views/ReportFeed/ReportFeed';
 
 function App() {
 
-  const [open, setOpen] = useState(false);
-  const node = useRef();
-  const menuId = "main-menu";
-
   return (
     
       <>
          <Header/>
-          <body>
+          <main>
           <Switch>
             <PublicRoute
               exact path ={ '/' }
@@ -68,7 +59,7 @@ function App() {
               component={ ReportFeed }
             />
           </Switch>
-          </body>
+          </main>
           <Footer/>
       </>
     

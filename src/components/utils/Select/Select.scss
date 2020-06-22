@@ -1,0 +1,14 @@
+@import '../../../themes/dtf';
+
+.select-div {
+    padding-top: 15px;
+    & > label {
+        display: block;
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+    & > select {
+        font-size: 20px;
+    }
+}
+

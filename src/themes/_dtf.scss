@@ -1,0 +1,38 @@
+// SCSS variables file
+
+// Colors
+
+$gold: rgb(255, 203, 67);
+$orange: rgb(245, 170, 0);
+$brown: rgb(151, 97, 0);
+
+$tan: #C2B9B0;
+$dark-brown: #705027;
+
+$light-blue: #7DB7DB;
+$blue: #7EAEF2;
+$dark-blue: #2d5b6b;
+
+$light-green: #AFD275;
+$green: #7DD65D;
+$dark-green: #7b7d2a;
+
+$pink: #E7717D;
+$red: #EB3429;
+
+$success: #7DD65D;
+$error: #ff6262;
+
+$light-gray: #e6e6e6;
+$gray: #C2CAD0;
+$medium-gray: #cacaca;
+$dark-gray: #8a8a8a;
+$black: #131313;
+$white: #fefefe;
+
+// Fonts
+// Use with font-family: 'Titillium Web', ;
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web&display=swap');
+
+// Used by Material UI DateTimePicker component
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
