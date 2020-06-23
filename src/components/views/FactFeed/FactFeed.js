@@ -9,21 +9,22 @@ import { prettyDate, inputDateFormat } from '../../../helpers/helpers'
 
 // Components
 import Report from '../../utils/Report';
+import NoResult from '../../utils/NoResult/NoResult'
 
 // Helpers
 import { updateTimeStrings } from '../../../helpers/helpers';
 
 // Element components
-import FormMainFeed from '../../utils/FormMainFeed/FormMainFeed';
+import Form from '../../utils/Form/Form';
 import Button from '../../utils/Button/Button';
 import Input from '../../utils/Input/Input';
 import Select from '../../utils/Select/Select';
 import Fact from '../../utils/Fact/Fact';
 
 // Files
-import './MainFeed.scss';
+import './FactFeed.scss';
 
-const MainFeed = () => {
+const FactFeed = () => {
 
   // set the two contexts
   let userContext = useContext(UserContext);
@@ -47,10 +48,6 @@ const MainFeed = () => {
   // update state when status selected changes
   const handleSelect = (event) => {
     setstatusSelected(event.target.value)
-  };
-
-  const handleClickAddFact = () => {
-    history.push("/submit-fact")
   };
 
   useEffect(() => {
@@ -96,7 +93,7 @@ const MainFeed = () => {
     setSearchResults(results)
   }, [itemsContext.state.fetched]);
 
-  const arrayForSelect = ['All', 'Pending', 'Under Review', 'Approved', 'Not True'];
+  const noResults = <NoResult/>
 
   return (
     
@@ -104,28 +101,36 @@ const MainFeed = () => {
       className="main-feed"
     >
 
-    <FormMainFeed
+    <Form
+      id="main-feed-form"
+      formType='Main-Feed'
       searchValue={searchTerm}
       searchOnChange={handleChange}
       selectValue={statusSelected}
       selectOnChange={handleSelect}
     />
 
-      <br/>
-      <div className='center'>
-        <Button
-          onClick={handleClickAddFact}
-          className="submit-btn"
-          text="Add New Fact"
-        />
-      </div>
+      <div className='number-of-results'>Showing {searchResults.length} facts</div>
       
-        { ( searchResults.length === 0 && searchTerm === "" ? itemsContext.state.facts : searchResults).sort((a,b) => a.fact_id - b.fact_id).map(fact => 
-          {
-            return ( 
-              <Fact key={fact.fact_id} fact={fact}/>
-            )
-          }) 
+        { 
+          ( searchResults.length === 0 && searchTerm === "" 
+            ? itemsContext.state.facts 
+            : searchResults).sort((a,b) => a.fact_id - b.fact_id).map(fact => 
+              {
+                return ( 
+                  <Fact 
+                    key={fact.fact_id} 
+                    fact={fact}
+                  />
+                )
+              }
+            ) 
+        }
+        {
+          ( searchResults.length === 0 && searchTerm !== ""
+            ? <NoResult searchTerm={searchTerm}/>
+            : ''
+          )
         }
 
     </div>
@@ -134,4 +139,4 @@ const MainFeed = () => {
 
 };
 
-export default MainFeed;
+export default FactFeed;

@@ -3,7 +3,7 @@
 .main-feed-fact {
     background-color: $white;
     padding: 15px;
-    max-width: 80%;
+    width: 80%;
     margin: 20px auto auto auto;
     border-radius: 10px;
     text-align: left;
@@ -12,13 +12,16 @@
 
 .main-feed-fact > div {
     margin-bottom: 20px;
-}
+};
 
 .fact-title {
     font-size: 30px;
-}
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-top: 10px;
+};
 
 .fact-logo {
     float: right;
     margin-top: -75px;
-}
+};

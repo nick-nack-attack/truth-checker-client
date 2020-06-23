@@ -1,0 +1,18 @@
+@import '../themes/dtf';
+
+.Footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 15px;
+    &>div {
+        text-decoration: none;
+    }
+}
+
+#dtf_logo_alt {
+    height: 50px;
+    margin-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

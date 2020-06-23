@@ -11,13 +11,14 @@ import { inputDateFormat, findFactById } from '../../../helpers/helpers';
 
 // components
 import ErrorMessage from '../../utils/ErrorMessage'
+import Form from '../../utils/Form/Form';
 
 // service
 import FactsApiService from '../../../services/facts-service';
 
-import './EditFactForm.scss'
+import './EditFact.scss'
 
-const EditFactForm = (props) => {
+const EditFact = (props) => {
 
     // bring in itemsContext
     const itemsContext = useContext(ItemsContext);
@@ -52,7 +53,8 @@ const EditFactForm = (props) => {
         }
     }, [itemsContext.state.fetched]);
 
-    const handleClickDelete = (fact_id) => {
+    const handleClickDelete = (fact_id, e) => {
+        e.preventDefault()
         if (window.confirm(`Are you sure you want to delete this Fact?`)) {
             FactsApiService.deleteFact(fact_id)
                 .then(res => {
@@ -70,12 +72,10 @@ const EditFactForm = (props) => {
         let errors = {};
 
         // if title isn't set then set error
-        /*
         if ( title.length !== 0 && input.title !== undefined && input.title !== '' ) {
             errors.title = { message: "Title is required" }
-        }
-        */
-
+        };
+        
         // if there is more than zero errors, set them
         // otherwise submit the form
         if (Object.keys(errors).length !== 0) {
@@ -107,94 +107,30 @@ const EditFactForm = (props) => {
 
     return (
         <>
-        <form
-            id="Add_Fact_Form"
-            onSubmit={e => validateEditFactForm(e)}
-        >
-            <legend><h2>Edit Fact Form</h2></legend>
-            <p>Fact id: {factId}</p>
-            <label htmlFor="title-field">Title </label>
-            <input
-                type="text"
-                id="title-field"
-                name="title"
-                onChange={handleInputChange}
-                defaultValue={title}
-                placeholder="Title"
-            />
-            <br/>
-            <label htmlFor="text-field">Text </label>
-            <input
-                type="text"
-                id="text-field"
-                name="text"
-                onChange={handleInputChange}
-                defaultValue={text}
-                placeholder="additional text (optional) "
-            />
-            <br/>
-            <p> Today is { inputDateFormat(new Date()) } </p>
-            <p> Dates below are dd/mm/yyyy </p>
-            <label>Submitted </label>
-            <input 
-                type="date" 
-                name="date_submitted"
-                onChange={handleInputChange}
-                defaultValue={submitted}
-            />
-            <br/>
-            <label>Under Review </label>
-            <input 
-                type="date" 
-                name="date_under_review"
-                onChange={handleInputChange}
-                defaultValue={underReview}
-            />
-            <br/>
-            <label>Approved </label>
-            <input 
-                type="date" 
-                name="date_approved"
-                onChange={handleInputChange}
-                defaultValue={approved}
-            />
-            <br/>
-            <label>Not True </label>
-            <input 
-                type="date" 
-                name="date_not_true"
-                onChange={handleInputChange}
-                defaultValue={notTrue}
-            />
-            <br/>
-            <br/>
-            <br/>
-            { errors.title 
+
+        <Form
+            formType="Edit-Fact"
+            validateEditFactForm={e => validateEditFactForm(e)}
+            handleInputChange={handleInputChange}
+            title={title}
+            submitted={submitted}
+            underReview={underReview}
+            approved={approved}
+            notTrue={notTrue}
+            handleCancelClick={() => history.push('/')}
+            handleClickDelete={e => handleClickDelete(factId, e)}
+        />
+
+        { errors.title 
                 ?   <ErrorMessage
                         message={errors.title.message}
                     />
             : ""
             }
-            <br/>
-            <button type='submit'>Update</button>
-            <br/>
-            <br/>
-            <button 
-                onClick={() => history.push('/')}
-            >
-                Cancel
-            </button>
-            <br/>
-            <br/>
-        </form>
-        <button
-                onClick={e => handleClickDelete(factId)}
-            >
-                Delete
-        </button>
+
         </>
     )
 
 }
 
-export default EditFactForm;
+export default EditFact;

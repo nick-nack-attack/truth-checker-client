@@ -1,10 +1,3 @@
-form {
-    width: 400px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-}
-
 .admin-button {
     width: 100px;
 }
@@ -14,4 +7,13 @@ form {
     color: white;
     margin-right: 10px;
     padding: 5px;
+}
+
+.number-of-results {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.main-feed {
+    width: 100vw;
 }

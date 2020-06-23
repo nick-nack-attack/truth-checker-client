@@ -12,7 +12,7 @@ import { ItemsContext } from '../contexts/ItemsContext';
 import { addAdditionalProperties as modifyQuery } from '../helpers/helpers';
 import { UserContext } from '../contexts/UserContext';
 
-const AppWrapper = (props) => {
+const ApiWrapper = (props) => {
     let itemsContext = useContext(ItemsContext);
     let { dispatch } = useContext(UserContext);
 
@@ -55,20 +55,21 @@ const AppWrapper = (props) => {
     }, [itemsContext.state.fetched])
 
   return (
-    <>
+  
     <div>
-      { props.children }
+      { itemsContext.state.fetched 
+          ? ( <div className="wrapper">
+                { props.children }
+              </div>
+            )
+          : ( <div className="wrapper">
+                <p className="fetching">Fetching data. Please wait...</p>
+              </div>
+            )
+      }
     </div>
-      {/* {ItemsContext.state.fetched
-        ? (<main className="Main_wrapper">
-            { props.children }
-          </main>)
-        : (<main className="Main_wrapper">
-            <p className="fetching">Fetching data. Please wait...</p>
-          </main>)
-      } */}
-    </>
+   
   );
 };
 
-export default AppWrapper;
+export default ApiWrapper;

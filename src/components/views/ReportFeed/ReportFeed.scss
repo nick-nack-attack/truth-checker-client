@@ -1,19 +1,26 @@
-.main-feed-fact-label {
-    background-color: black;
-    color: white;
-    margin-right: 10px;
-    padding: 5px;
+@import '../../../themes/dtf';
+
+.report-feed > h2 {
+    margin: 20px auto;
+    text-align: center;
 }
 
 .report-label {
-    border: 2px solid black;
+    background-color: $black;
+    color: $white;
     margin-right: 10px;
     padding: 5px;
 }
 
+.report-conntainer {
+    padding: 30px;
+    & > p {
+        margin-bottom: 15px;
+    }
+}
+
 .report-conntainer:nth-child(even) {
-    background-color: lightgrey;
-    padding: 10px;
+    background-color: $gray;
 }
 
 

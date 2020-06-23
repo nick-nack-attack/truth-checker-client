@@ -6,15 +6,21 @@ import { UserContext } from '../../../contexts/UserContext';
 
 // components
 import  ErrorMessage from '../../utils/ErrorMessage';
+import Form from '../../utils/Form/Form';
 import { useHistory } from 'react-router-dom';
 import { UseInputChange } from '../../utils/UseInputChange'
 
 import UsersService from '../../../services/users-service';
 import TokenService from '../../../services/token-service';
 
+import sticky_note from '../../../assets/sticky_note.png';
+
+import './Login.scss'
+
 const Login = () => {
     
     let { dispatch } = useContext(UserContext);
+    const [ helperText, setHelperText ] = useState('Welcome back!');
     const [ errors, setErrors ] = useState({});
     
     // logs user in
@@ -30,6 +36,8 @@ const Login = () => {
 
     // validate form
     const validateAdminLoginForm = (e) => {
+        setErrors({});
+        setHelperText('Validating form...');
         e.preventDefault();
         let errors = {};
         // if ( input["email"] === undefined || input["email"] === '' ) {
@@ -48,9 +56,14 @@ const Login = () => {
         }
     };
 
+    const handleCancelClick = () => {
+        history.push('/')
+    };
+
     // submits form if creds are provided
     const submitLogin = () => {
-        
+        setErrors({});
+        setHelperText('Submitting login...');
         // set login credentials
         const loginCreds = {
             email: "admin@dtf.gov",
@@ -78,52 +91,23 @@ const Login = () => {
     };
 
     return (
-
-        <form
-            onSubmit={e => validateAdminLoginForm(e)}
-        >
-            <legend>Login</legend>
-            <br/>
-            <br/>
-            <label>Email</label>
-            <input
-                id="email-field"
-                type="email"
-                name="email"
-                autoComplete="email"
-                value ="admin@dtf.gov"
-                onChange={handleInputChange}
+        <>
+            <Form
+                formType="Login-Form"
+                validateAdminLoginForm={e => validateAdminLoginForm(e)}
+                handleInputChange={handleInputChange}
+                handleCancelClick={handleCancelClick}
             />
-            <br/>
-            <br/>
-            <label>Password</label>
-            <input
-                id="password-field"
-                type="password"
-                name="password"
-                autoComplete="current-password"
-                onChange={handleInputChange}
-            />
-            <br/>
-            <p>password is certainly not password</p>
-            <br/>
-            <button>Submit</button>
-            { errors.error 
-                ?   <ErrorMessage message={errors.error}
-                    />
-                :   ""
-            }
-            <br/>
-            <br/>
-            <button
-                onClick={e => history.push('/')}
-            >
-                Cancel
-            </button>
-        </form>
 
-    )
+                <div className="helper-text-div">{ errors.error ? <ErrorMessage message={errors.error}/> : helperText}</div>
 
-}
+            <p className="disclaimer-text">
+                <img id="stick_note" src={sticky_note} alt="sticky note with 'admin@dtf.gov password' on it"/>
+                DISCLAIMER: ANY UNGRANTED ACCESS GAINED INTO THIS SYSTEM WILL RESULT IN VARIOUS TRIVIAL AND/OR ABITRARY PUNISHMENTS IN ORDER TO PUBLICLY SHAME YOU AND/OR RUIN YOUR LIFE TO MAKE IT LOOK LIKE JUSTICE IS BEING SERVED AND/OR WE'RE KEEPING OUR (NOT YOUR) COMMUNITY SAFE.
+            </p>
+        </>
+    );
+
+};
 
 export default Login;

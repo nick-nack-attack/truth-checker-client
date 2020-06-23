@@ -1,34 +1,42 @@
 @import '../../../themes/dtf';
 
 button {
-    border: 2px $black solid;
-    font-size: 16px;
-    padding: 10px;
-    width: 200px;
-    cursor: pointer;
-    border-radius: 10px;
-  };
+  border: 2px $gray solid;
+  font-size: 16px;
+  padding: 10px;
+  width: 200px;
+  cursor: pointer;
+  border-radius: 10px;
+  background-color: $white;
+  &:hover {
+    background-color: $gold;
+  }
+};
 
-  .menu-item {
-    width: 100%;
-    border: none;
-    border-top: 2px $gray solid;
+.menu-item {
+  width: 100%;
+  border: none;
+  margin-bottom: 3px;
+  &:hover {
+    background-color: $light-gray;
   }
 
-  button:hover {
-    background-color: rgb(235, 235, 235);
-  }
+};
 
 .menu-button {
   font-size: 14px;
   width: 40%;
-  margin-left: 10%;
+  margin-left: 3%;
+};
+
+.add-fact {
+  background-color: $orange;
 }
 
 .on {
-  background-color: $gray;
-}
+  background-color: $white;
+};
 
 .off {
-  background-color: $dark-gray;
-}
+  background-color: transparent;
+};

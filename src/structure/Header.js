@@ -2,6 +2,8 @@
 import React, { useContext, useEffect, useState, useRef } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
+import config from '../config';
+
 // components
 import Button from '../components/utils/Button/Button';
 import Label from '../components/utils/Label/Label';
@@ -25,29 +27,44 @@ const Header = () => {
     
     // redirect to admin login
     const handleLoginClick = () => {
-        history.push("/admin-login")
+        history.push(config.LOGIN_PAGE)
+        setOpen(!open)
     };
 
+    // log user out
     const handleLogoutClick = () => {
         userContext.dispatch({
             type: "logout"
         })
+        setOpen(!open)
+    };
+
+    // return to root 
+    const handleGotoRootClick = () => {
+        history.push("/")
+        setOpen(!open)
+    };
+
+    const handleReportsClick = () => {
+        history.push(config.REPORTS_PAGE)
+        setOpen(!open)
+    };
+
+    // Go to Add Fact Page
+    const handleAddNewFactClick = () => {
+        history.push(config.SUBMIT_FACT_PAGE)
+        setOpen(!open)
     };
 
     // context labels
     const menuButtonLabel = open ? <Label type="openedMenu"/> : <Label type="closedMenu"/>
     const addNewFact = <Label type="addFact"/>
 
-
-    const handleGotoRootClick = () => {
-        history.push("/")
-    }
-
     // toggle header style if logged in or out
     return (
 
         <header 
-            className={`header Header_wrapper ${!userContext.state.isLoggedIn ? "launch" : "" }`}
+            className={`header Header_wrapper ${userContext.state.isLoggedIn ? 'admin' : '' }`}
         >
             <div className='header-div main-dtf-logo' onClick={handleGotoRootClick}>
                 <img src={dtf_logo} alt="dtf logo"/>
@@ -61,23 +78,32 @@ const Header = () => {
                     onClick={e=> setOpen(!open)}
                 />
             </div>
-            <div className='app-header-div'>
+            <div className={`app-header-div ${userContext.state.isLoggedIn ? 'admin-header-div' : '' }`}>
                 { userContext.state.isLoggedIn 
                     ?   <>
-                    <Link to='/'>
-                        <p>View Facts</p>
-                    </Link>
-                    <Link to='/reports'>
-                        <p>View Reports</p>
-                    </Link>
-                        <button
-                            className='header-button'
-                            onClick={handleLogoutClick}
-                        >
-                            Logout
-                        </button>
+                            <Button 
+                                className={`menu-item ${open ? 'open' : 'closed'}`}
+                                text='View Facts'
+                                onClick={handleGotoRootClick}
+                            />
+                            <Button 
+                                className={`menu-item ${open ? 'open' : 'closed'}`}
+                                text='View Reports'
+                                onClick={handleReportsClick}
+                            />
+                            <Button 
+                                className={`menu-item ${open ? 'open' : 'closed'}`}
+                                text='Logout'
+                                onClick={handleLogoutClick}
+                            />
+                            <Button
+                                className={`menu-item ${open ? 'open' : 'closed'}`}
+                                text={addNewFact}
+                                onClick={handleAddNewFactClick}
+                            />
+                            <div class='admin-header-label'><Label type="admin"/></div>
                         </>
-                    :   ( <>
+                    :   <>
                             <Button 
                                 className={`menu-item ${open ? 'open' : 'closed'}`}
                                 text='About Truth Checker'
@@ -94,11 +120,12 @@ const Header = () => {
                                 onClick={handleLoginClick}
                             />
                             <Button
-                                className={`menu-item last ${open ? 'open' : 'closed'}`}
+                                className={`menu-item add-fact last ${open ? 'open' : 'closed'}`}
                                 text={addNewFact}
+                                onClick={handleAddNewFactClick}
                             />
-                            </>
-                        )
+                        </>
+                        
                 }
             </div>
         </header>

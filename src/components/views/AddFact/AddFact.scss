@@ -1,0 +1,19 @@
+.terms-and-conditions {
+    margin-top: 20px;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    &>h3 {
+        margin-bottom: 20px;
+        font-weight: bold;
+    }
+}
+
+ol {
+    list-style: square;
+}
+
+.strike {
+    text-decoration: line-through wavy;
+}
+

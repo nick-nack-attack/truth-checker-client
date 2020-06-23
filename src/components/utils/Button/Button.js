@@ -4,6 +4,7 @@ import React from 'react';
 // files
 import './Button.scss';
 
+// requires 'text' from props
 const Button = (props) => {
     return (
         <button {...props}>

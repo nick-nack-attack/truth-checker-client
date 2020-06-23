@@ -5,7 +5,7 @@ h1 {
     font-size: larger;
 }
 
-.header, .footer {
+.header {
     padding: 0 1rem;
     justify-content: center;
     position: relative;
@@ -21,17 +21,8 @@ h1 {
     margin: auto auto auto 20px;
 }
 
-.footer {
-    margin-top: 20px;
-    border-top: 2px $dark-gray;
-}
-
 .open {
     display: none;
-}
-
-.header-button {
-    width: 100px;
 }
 
 .title-text {
@@ -49,14 +40,28 @@ h1 {
     }
 }
 
+.admin {
+    background-color: $gold;
+}
+
+.admin-header-div, .app-header-div {
+    padding-bottom: 10px;
+}
+
+.admin-header-label {
+    margin-top: 10px;
+    font-style: italic;
+    font-weight: bold;
+    text-align: center;
+}
+
 .main-dtf-logo {
     padding-top: 20px;
 }
 
-.last {
-    margin-bottom: 10px;
+.app-header-div {
+    padding-top: 10px;
 }
-
 
 
   

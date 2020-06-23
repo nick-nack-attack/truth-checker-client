@@ -9,6 +9,8 @@
     }
     & > select {
         font-size: 20px;
+        border: 2px $gray solid;
+        width: 200px;
     }
 }
 

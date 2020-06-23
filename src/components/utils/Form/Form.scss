@@ -1,0 +1,30 @@
+@import '../../../themes/dtf';
+
+form {
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    &>Button, legend {
+        margin-top: 20px;
+    }
+    
+}
+
+.todays-date {
+    margin-top: 10px;
+}
+
+.checkbox-title {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.checkbox {
+    text-align: left;
+}
+
+.checkboxes-div {   
+    margin-left: 50px;
+    text-align: left;
+}

@@ -1,16 +1,18 @@
 import React, { useState, useRef } from 'react';
 import { Switch } from 'react-router-dom';
 
+import config from './config';
+
 import FocusLock from 'react-focus-lock';
 import './App.css';
-import PublicRoute from './utils/PublicRoute';
-import PrivateRoute from './utils/PrivateRoute';
-import MainFeed from './components/views/MainFeed/MainFeed';
+import PublicRoute from './routes/PublicRoute';
+import PrivateRoute from './routes/PrivateRoute';
+import FactFeed from './components/views/FactFeed/FactFeed';
 import Header from './structure/Header';
 import Footer from './structure/Footer';
-import AddFactForm from './components/views/AddFactForm/AddFactForm';
-import EditFactForm from './components/views/EditFactForm/EditFactForm';
-import AdminLogin from './components/views/AdminLogin/AdminLogin';
+import AddFact from './components/views/AddFact/AddFact';
+import EditFact from './components/views/EditFact/EditFact';
+import Login from './components/views/Login/Login';
 import ViewFact from './components/views/ViewFact/ViewFact';
 import ReportFeed from './components/views/ReportFeed/ReportFeed';
 
@@ -18,24 +20,23 @@ function App() {
 
   return (
     
-      <>
+      <div id="Truth-Checker">
          <Header/>
-          <main>
           <Switch>
             <PublicRoute
               exact path ={ '/' }
-              component={ MainFeed }
+              component={ FactFeed }
             />
             <PublicRoute
-              path={'/admin-login'}
-              component={ AdminLogin }
+              path={ config.LOGIN_PAGE }
+              component={ Login }
             />
             <PublicRoute
-              path={'/submit-fact'}
-              component={ AddFactForm }
+              path={ config.SUBMIT_FACT_PAGE }
+              component={ AddFact }
             />
             <PublicRoute
-              exact path={'/facts/id/:fact_id'}
+              exact path={ config.FACT_PAGE }
               component={(props) => {
                 return (
                   <ViewFact
@@ -45,23 +46,22 @@ function App() {
               }}
             />
             <PrivateRoute
-              exact path={'/facts/id/:fact_id/edit'}
+              exact path={ config.EDIT_FACT_PAGE }
               component={(props) => {
                 return (
-                  <EditFactForm
+                  <EditFact
                     fact_id={props.match.params.fact_id}
                   />
                 )
               }}
             />
             <PrivateRoute
-              exact path={'/reports'}
+              exact path={ config.REPORTS_PAGE }
               component={ ReportFeed }
             />
           </Switch>
-          </main>
           <Footer/>
-      </>
+      </div>
     
   );
 }

@@ -8,15 +8,15 @@ import { UserContextProvider } from './contexts/UserContext';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import AppWrapper from './structure/AppWrapper';
+import ApiWrapper from './structure/ApiWrapper';
 
 ReactDOM.render(
   <Router>
     <AuthContextProvider>
       <UserContextProvider>
-        <AppWrapper>
+        <ApiWrapper>
           <App/>
-        </AppWrapper>
+        </ApiWrapper>
       </UserContextProvider>
     </AuthContextProvider>
   </Router>,
