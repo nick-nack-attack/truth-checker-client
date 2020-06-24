@@ -33,10 +33,12 @@ const Header = () => {
 
     // log user out
     const handleLogoutClick = () => {
-        userContext.dispatch({
-            type: "logout"
-        })
-        setOpen(!open)
+        if (window.confirm(`Are you sure you want to log out?`)) {
+            userContext.dispatch({
+                type: "logout"
+            })
+            setOpen(!open)
+        }
     };
 
     // return to root 
@@ -56,14 +58,13 @@ const Header = () => {
     };
 
     // Go to Add Fact Page
-    const handleAddNewFactClick = () => {
+    const handleAddFactClick = () => {
         history.push(config.SUBMIT_FACT_PAGE)
         setOpen(!open)
     };
 
     // context labels
     const menuButtonLabel = open ? <Label type="openedMenu"/> : <Label type="closedMenu"/>
-    const addNewFact = <Label type="addFact"/>
 
     // toggle header style if logged in or out
     return (
@@ -85,49 +86,52 @@ const Header = () => {
             </div>
             <div className={`app-header-div ${userContext.state.isLoggedIn ? 'admin-header-div' : '' }`}>
                 { userContext.state.isLoggedIn 
+                // if the user is logged in as admin, show admin buttons
                     ?   <>
                             <Button 
                                 className={`menu-item ${open ? 'open' : 'closed'}`}
-                                text='View Facts'
+                                text={<Label type="view-facts"/>}
                                 onClick={handleGotoRootClick}
                             />
                             <Button 
                                 className={`menu-item ${open ? 'open' : 'closed'}`}
-                                text='View Reports'
+                                text={<Label type="view-reports"/>}
                                 onClick={handleReportsClick}
                             />
                             <Button 
                                 className={`menu-item ${open ? 'open' : 'closed'}`}
-                                text='Logout'
+                                text={<Label type="logout"/>}
                                 onClick={handleLogoutClick}
                             />
                             <Button
                                 className={`menu-item ${open ? 'open' : 'closed'}`}
-                                text={addNewFact}
-                                onClick={handleAddNewFactClick}
+                                text={<Label type="addFact"/>}
+                                onClick={handleAddFactClick}
                             />
                             <div class='admin-header-label'><Label type="admin"/></div>
                         </>
-                    :   <>
+                    :   
+                // else, if user is not admin, show public-facing buttons
+                        <>
                             <Button 
                                 className={`menu-item ${open ? 'open' : 'closed'}`}
-                                text='About Truth Checker'
+                                text={<Label type="about"/>}
                                 onClick={handleClickAbout}
                             />
                             <Button 
                                 className={`menu-item ${open ? 'open' : 'closed'}`}
-                                text='View Facts'
+                                text={<Label type="view-facts"/>}
                                 onClick={handleGotoRootClick}
                             />
                             <Button 
                                 className={`menu-item last ${open ? 'open' : 'closed'}`}
-                                text='Admin Login'
+                                text={<Label type="login"/>}
                                 onClick={handleLoginClick}
                             />
                             <Button
                                 className={`menu-item add-fact last ${open ? 'open' : 'closed'}`}
-                                text={addNewFact}
-                                onClick={handleAddNewFactClick}
+                                text={<Label type="addFact"/>}
+                                onClick={handleAddFactClick}
                             />
                         </>
                         

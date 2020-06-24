@@ -1,27 +1,45 @@
 @import '../../../themes/dtf';
 
-.main-feed-fact {
-    background-color: $white;
-    padding: 15px;
-    width: 80%;
-    margin: 20px auto auto auto;
-    border-radius: 10px;
-    text-align: left;
-    cursor: pointer;
+@media only screen and (min-width: 320px) {
+
+    .main-feed-fact {
+        background-color: $white;
+        padding: 15px;
+        width: 80%;
+        max-width: 350px;
+        margin: 20px auto auto auto;
+        border-radius: 10px;
+        text-align: left;
+        cursor: pointer;
+    };
+    
+    .main-feed-fact > div {
+        margin-bottom: 20px;
+    };
+    
+    .fact-title {
+        font-size: 30px;
+        margin-bottom: 20px;
+        margin-left: 10px;
+        margin-top: 10px;
+    };
+    
+    .fact-logo {
+        float: right;
+        margin-top: -30px;
+    };
+
 };
 
-.main-feed-fact > div {
-    margin-bottom: 20px;
+@media only screen and (min-width: 550px) {
+
+    .main-feed-fact {
+        max-width: 325px;
+        min-width: 325px;
+    }
+
 };
 
-.fact-title {
-    font-size: 30px;
-    margin-bottom: 20px;
-    margin-left: 10px;
-    margin-top: 10px;
-};
+@media only screen and (min-width: 800px) {
 
-.fact-logo {
-    float: right;
-    margin-top: -75px;
 };

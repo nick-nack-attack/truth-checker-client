@@ -2,6 +2,9 @@
 import React, { useContext } from 'react';
 import { bool, func } from 'prop-types';
 
+// components
+import Label from '../Label/Label';
+
 // contexts
 import { SessionContext } from '../../../contexts/SessionContext';
 import FactsApiService from '../../../services/facts-service';
@@ -33,7 +36,7 @@ const Report = (props) => {
             <button
                 onClick={e => handleReportClick(props.fact_id)}
             >
-                Report Fact
+                <Label type="report"/>
             </button>
     );
 

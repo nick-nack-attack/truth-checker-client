@@ -1,8 +1,8 @@
 import React from 'react';
 
-import './ErrorMessage.scss';
+import './Error.scss';
 
-const ErrorMessage = (props) => {
+const Error = (props) => {
     return (
         <div className="error-message">
             <p className="form-error-label">
@@ -12,4 +12,4 @@ const ErrorMessage = (props) => {
     )
 }
 
-export default ErrorMessage;
+export default Error;

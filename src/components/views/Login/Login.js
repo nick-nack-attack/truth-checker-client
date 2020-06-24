@@ -5,7 +5,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../../contexts/UserContext';
 
 // components
-import  ErrorMessage from '../../utils/ErrorMessage';
+import  Error from '../../utils/Error/Error';
 import Form from '../../utils/Form/Form';
 import { useHistory } from 'react-router-dom';
 import { UseInputChange } from '../../utils/UseInputChange'
@@ -91,21 +91,22 @@ const Login = () => {
     };
 
     return (
-        <>
+        <div className='login-page-div'>
             <Form
                 formType="Login-Form"
                 validateAdminLoginForm={e => validateAdminLoginForm(e)}
                 handleInputChange={handleInputChange}
                 handleCancelClick={handleCancelClick}
             />
+            <div>
+                <div className="helper-text-div">{ errors.error ? <Error message={errors.error}/> : helperText}</div>
 
-                <div className="helper-text-div">{ errors.error ? <ErrorMessage message={errors.error}/> : helperText}</div>
-
-            <p className="disclaimer-text">
-                <img id="stick_note" src={sticky_note} alt="sticky note with 'admin@dtf.gov password' on it"/>
-                DISCLAIMER: ANY UNGRANTED ACCESS GAINED INTO THIS SYSTEM WILL RESULT IN VARIOUS TRIVIAL AND/OR ABITRARY PUNISHMENTS IN ORDER TO PUBLICLY SHAME YOU AND/OR RUIN YOUR LIFE TO MAKE IT LOOK LIKE JUSTICE IS BEING SERVED AND/OR WE'RE KEEPING OUR (NOT YOUR) COMMUNITY SAFE.
-            </p>
-        </>
+                <p className="disclaimer-text">
+                    <img id="stick_note" src={sticky_note} alt="sticky note with 'admin@dtf.gov password' on it"/>
+                        DISCLAIMER: ANY UNGRANTED ACCESS GAINED INTO THIS SYSTEM WILL RESULT IN VARIOUS TRIVIAL AND/OR ABITRARY PUNISHMENTS IN ORDER TO PUBLICLY SHAME YOU AND/OR RUIN YOUR LIFE TO MAKE IT LOOK LIKE JUSTICE IS BEING SERVED AND/OR WE'RE KEEPING OUR (NOT YOUR) COMMUNITY SAFE.
+                </p>
+            </div>
+        </div>
     );
 
 };

@@ -16,6 +16,9 @@ const Footer = () => {
                     <div className='footer-label'>Admin Login</div>
                 </Link>
             </div>
+            <div>
+                <p className="footer-disclaimer">This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/3.0/" target="_blank">Creative Commons Attribution-ShareAlike 3.0 Unported License.</a></p>
+            </div>
         </footer>
     )
 }

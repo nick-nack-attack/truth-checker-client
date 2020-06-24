@@ -29,11 +29,6 @@ const FactFeed = () => {
   // set the two contexts
   let userContext = useContext(UserContext);
   let itemsContext = useContext(ItemsContext);
-  
-  const history = useHistory();
-
-  // shorten class name for card labels
-  const factLabel = 'main-feed-fact-label';
 
   // set local state for search term, results, and status selected
   const [ searchTerm, setSearchTerm ] = useState("");
@@ -93,24 +88,27 @@ const FactFeed = () => {
     setSearchResults(results)
   }, [itemsContext.state.fetched]);
 
-  const noResults = <NoResult/>
-
   return (
     
     <div 
       className="main-feed"
     >
 
-    <Form
-      id="main-feed-form"
-      formType='Main-Feed'
-      searchValue={searchTerm}
-      searchOnChange={handleChange}
-      selectValue={statusSelected}
-      selectOnChange={handleSelect}
-    />
+      <div className="search-bar-div">
 
+      <Form
+        id="main-feed-form"
+        formType='Main-Feed'
+        searchValue={searchTerm}
+        searchOnChange={handleChange}
+        selectValue={statusSelected}
+        selectOnChange={handleSelect}
+      />
+</div>
       <div className='number-of-results'>Showing {searchResults.length} facts</div>
+
+      
+      <div className="list-of-facts-div">
       
         { 
           ( searchResults.length === 0 && searchTerm === "" 
@@ -132,6 +130,8 @@ const FactFeed = () => {
             : ''
           )
         }
+
+</div>
 
     </div>
     

@@ -28,9 +28,19 @@
     color: $black;
 }
 
+.bold {
+    font-weight: bold;
+}
+
 .fact-label {
     border-radius: 10px;
-    font-weight: bold;
     padding: 5px 10px;
     margin: 10px;
+};
+
+.classified-label {
+    padding: 5px 10px;
+    background-color: $black;
+    color: $white;
+    font-size: 12px;
 }

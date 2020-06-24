@@ -10,7 +10,7 @@ import { UseInputChange } from '../../utils/UseInputChange'
 import { inputDateFormat, findFactById } from '../../../helpers/helpers';
 
 // components
-import ErrorMessage from '../../utils/ErrorMessage'
+import Error from '../../utils/Error/Error'
 import Form from '../../utils/Form/Form';
 
 // service
@@ -122,7 +122,7 @@ const EditFact = (props) => {
         />
 
         { errors.title 
-                ?   <ErrorMessage
+                ?   <Error
                         message={errors.title.message}
                     />
             : ""

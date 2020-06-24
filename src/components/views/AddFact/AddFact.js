@@ -1,37 +1,35 @@
-// to add a fact
-import React, { useContext, useEffect, useState } from 'react';
+// Public user can submit a fact
+import React, { useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 // contexts and hooks
 import { ItemsContext } from '../../../contexts/ItemsContext';
 import { UseInputChange } from '../../utils/UseInputChange';
 
-// utils
-import { prettyDate } from '../../../helpers/helpers';
-
 // components
 import Form from '../../utils/Form/Form';
-import ApprovedFact from '../../utils/ApprovedFact';
-import ErrorMessage from '../../utils/ErrorMessage';
+import Error from '../../utils/Error/Error';
 
 // service
 import FactsApiService from '../../../services/facts-service';
 
+// style
 import './AddFact.scss'
 
 const AddFact = () => {
 
+    // initialize hooks and contexts
     const history = useHistory();
-
     const [ input, handleInputChange ] = UseInputChange();
-
     const itemsContext = useContext(ItemsContext);
 
+    // set local state for form
     const [ isUSCitizen, setIsUSCitizen ] = useState(false);
     const [ isNotTerrorist, setIsNotTerrorist ] = useState(false);
     const [ hasReadTerms, setHasReadTerms ] = useState(false);
     const [ errors, setErrors ] = useState({});
 
+    // validate submission before sending to server
     const validateAddFact = (e) => {
         e.preventDefault();
         let errors = {};
@@ -48,7 +46,7 @@ const AddFact = () => {
         }
     }
 
-    // submit form is validation is passed
+    // submit form if validation is passed
     const submitForm = () => {
         const factProperties = {
             ...input,
@@ -63,35 +61,40 @@ const AddFact = () => {
         });
     };
 
+    // return user to root (facts feed)
     const handleCancelClick = () => {
         history.push("/")
     };
 
     return (
 
-        <>
-        <Form 
-            formType='Add-Fact'
-            // text inputs
-            handleInputChange={ handleInputChange }
-            handleCancelClick={ handleCancelClick }
-            // check boxes
-            isUSCitizen={ isUSCitizen }
-            setIsUSCitizen={ () => setIsUSCitizen(!isUSCitizen) }
-            isNotTerrorist={ isNotTerrorist }
-            setIsNotTerrorist={ () => setIsNotTerrorist(!isNotTerrorist) }
-            hasReadTerms={ hasReadTerms }
-            setHasReadTerms={ () => setHasReadTerms(!hasReadTerms) }
-            // valid form
-            validateAddFact={ (e) => validateAddFact(e) }
-        />
+        <div className="add-fact-div">
 
-        { errors.title 
-                ?   <ErrorMessage
-                        message={errors.title.message}
-                    />
-            : ""
-            }
+            <div>
+                <Form 
+                    // this form is structured in Form.js
+                    formType='Add-Fact'
+                    // text input
+                    handleInputChange={ handleInputChange }
+                    // check boxes
+                    isUSCitizen={ isUSCitizen }
+                    setIsUSCitizen={ () => setIsUSCitizen(!isUSCitizen) }
+                    isNotTerrorist={ isNotTerrorist }
+                    setIsNotTerrorist={ () => setIsNotTerrorist(!isNotTerrorist) }
+                    hasReadTerms={ hasReadTerms }
+                    setHasReadTerms={ () => setHasReadTerms(!hasReadTerms) }
+                    // handle submit and cancel buttons
+                    validateAddFact={ (e) => validateAddFact(e) }
+                    handleCancelClick={ handleCancelClick }
+                />
+
+                { errors.title 
+                        ?   <Error
+                                message={errors.title.message}
+                            />
+                    : ""
+                    }
+            </div>
         
             <ol className='terms-and-conditions'>
                 <h3>Terms and Conditions</h3>
@@ -107,8 +110,7 @@ const AddFact = () => {
                 <li>This is all a joke. None of this is true.</li>
             </ol>
         
-
-        </>
+        </div>
 
     )
 
