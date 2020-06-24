@@ -50,6 +50,11 @@ const Header = () => {
         setOpen(!open)
     };
 
+    const handleClickAbout = () => {
+        history.push(config.ABOUT_PAGE)
+        setOpen(!open)
+    };
+
     // Go to Add Fact Page
     const handleAddNewFactClick = () => {
         history.push(config.SUBMIT_FACT_PAGE)
@@ -107,7 +112,7 @@ const Header = () => {
                             <Button 
                                 className={`menu-item ${open ? 'open' : 'closed'}`}
                                 text='About Truth Checker'
-                                onClick={handleGotoRootClick}
+                                onClick={handleClickAbout}
                             />
                             <Button 
                                 className={`menu-item ${open ? 'open' : 'closed'}`}

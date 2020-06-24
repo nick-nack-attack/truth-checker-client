@@ -3,8 +3,8 @@ import React, { useContext } from 'react';
 import { bool, func } from 'prop-types';
 
 // contexts
-import { SessionContext } from '../../contexts/SessionContext';
-import FactsApiService from '../../services/facts-service';
+import { SessionContext } from '../../../contexts/SessionContext';
+import FactsApiService from '../../../services/facts-service';
 
 // styling
 //import './Burger.scss';
@@ -33,7 +33,7 @@ const Report = (props) => {
             <button
                 onClick={e => handleReportClick(props.fact_id)}
             >
-                Report Fact # {fact_id}
+                Report Fact
             </button>
     );
 

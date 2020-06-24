@@ -14,6 +14,7 @@ import { UserContext } from '../../../contexts/UserContext';
 // components
 import Button from '../Button/Button';
 import Label from '../Label/Label';
+import Report from '../Report/Report';
 
 // files
 import './Fact.scss'
@@ -70,10 +71,7 @@ const Fact = (props) => {
                     onClick={() => history.push(`/facts/id/${props.fact.fact_id}/edit`)}
                 /> 
                 :   
-                <Button
-                    text={<Label type="report"/>}
-                    onClick={props.handleReportFact(props.fact.fact_id)}    
-                />
+                <Report fact_id={props.fact.fact_id}/>
             }
 
         </div>

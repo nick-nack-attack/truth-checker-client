@@ -5,5 +5,6 @@ export default {
     LOGIN_PAGE: '/admin-login',
     FACT_PAGE: '/facts/id/:fact_id',
     EDIT_FACT_PAGE: '/facts/id/:fact_id/edit',
-    REPORTS_PAGE: '/reports'
+    REPORTS_PAGE: '/reports',
+    ABOUT_PAGE: '/about-truth-checker'
   }

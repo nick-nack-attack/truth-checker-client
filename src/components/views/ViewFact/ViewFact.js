@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { ItemsContext } from '../../../contexts/ItemsContext';
 import { useHistory } from 'react-router-dom';
 import { findFactById } from '../../../helpers/helpers';
-import Report from '../../utils/Report';
+import Report from '../../utils/Report/Report';
 
 const ViewFact = (props) => {
     // bring in itemsContext

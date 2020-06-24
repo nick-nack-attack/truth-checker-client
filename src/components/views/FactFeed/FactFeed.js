@@ -8,7 +8,7 @@ import { ItemsContext } from '../../../contexts/ItemsContext';
 import { prettyDate, inputDateFormat } from '../../../helpers/helpers'
 
 // Components
-import Report from '../../utils/Report';
+import Report from '../../utils/Report/Report';
 import NoResult from '../../utils/NoResult/NoResult'
 
 // Helpers

@@ -15,6 +15,7 @@ import EditFact from './components/views/EditFact/EditFact';
 import Login from './components/views/Login/Login';
 import ViewFact from './components/views/ViewFact/ViewFact';
 import ReportFeed from './components/views/ReportFeed/ReportFeed';
+import About from './components/views/About/About';
 
 function App() {
 
@@ -26,6 +27,10 @@ function App() {
             <PublicRoute
               exact path ={ '/' }
               component={ FactFeed }
+            />
+            <PublicRoute
+              exact path = { '/about-truth-checker' }
+              component = { About }
             />
             <PublicRoute
               path={ config.LOGIN_PAGE }
