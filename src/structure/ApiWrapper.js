@@ -12,6 +12,10 @@ import { ItemsContext } from '../contexts/ItemsContext';
 import { addAdditionalProperties as modifyQuery } from '../helpers/helpers';
 import { UserContext } from '../contexts/UserContext';
 
+import gif from '../assets/loading.gif';
+
+import './ApiWrapper.scss';
+
 const ApiWrapper = (props) => {
     let itemsContext = useContext(ItemsContext);
     let { dispatch } = useContext(UserContext);
@@ -58,14 +62,21 @@ const ApiWrapper = (props) => {
   
     <div>
       { itemsContext.state.fetched 
-          ? ( <div className="wrapper">
+          ? 
+            ( <div className="wrapper">
                 { props.children }
               </div>
             )
-          : ( <div className="wrapper">
+          : 
+          ( 
+            <div className="wrapper">
+              <div className='loading-div'>
+                <img id="loading-gif" src={gif}/>
+                <h1>Department of Truth and Facts</h1>
                 <p className="fetching">Fetching data. Please wait...</p>
               </div>
-            )
+           </div>
+         )
       }
     </div>
    

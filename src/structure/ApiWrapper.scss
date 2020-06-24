@@ -1,0 +1,17 @@
+@import '../themes/dtf';
+
+.loading-div {
+    width: 150px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 200px;
+    &>p {
+        margin-top: 20px;
+    }
+};
+
+#loading-gif {
+    height: 50px;
+    margin-bottom: 30px;
+}

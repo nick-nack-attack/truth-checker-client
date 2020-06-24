@@ -1,43 +1,62 @@
 @import '../../../themes/dtf';
 
-button {
-  border: 2px $gray solid;
-  font-size: 16px;
-  padding: 10px;
-  width: 200px;
-  cursor: pointer;
-  border-radius: 10px;
-  background-color: $white;
-  &:hover {
-    background-color: $gold;
+@media only screen and (min-width: 320px) {
+
+  button {
+    border: 2px $gray solid;
+    font-size: 16px;
+    padding: 10px;
+    width: 200px;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: $white;
+    &:hover {
+      background-color: $gold;
+    }
+  };
+  
+  .menu-item {
+    width: 100%;
+    max-width: 350px;
+    border: none;
+    margin-bottom: 3px;
+    &:hover {
+      background-color: $light-gray;
+    }
+  
+  };
+  
+  .menu-button {
+    font-size: 14px;
+    width: 40%;
+    margin-left: 3%;
+  };
+  
+  .add-fact {
+    background-color: $orange;
   }
+  
+  .on {
+    background-color: $white;
+  };
+  
+  .off {
+    background-color: transparent;
+    border: 2px solid $dark-gray;
+  };
+
 };
 
-.menu-item {
-  width: 100%;
-  border: none;
-  margin-bottom: 3px;
-  &:hover {
-    background-color: $light-gray;
+@media only screen and (min-width: 550px) {
+  
+  .menu-item {
+    border: 2px $gray solid;
+    font-size: 12px;
+    width: unset;
   }
 
 };
 
-.menu-button {
-  font-size: 14px;
-  width: 40%;
-  margin-left: 3%;
-};
+@media only screen and (min-width: 800px) {
 
-.add-fact {
-  background-color: $orange;
-}
-
-.on {
-  background-color: $white;
-};
-
-.off {
-  background-color: transparent;
-  border: 2px solid $dark-gray;
 };

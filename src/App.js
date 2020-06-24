@@ -3,7 +3,6 @@ import { Switch } from 'react-router-dom';
 
 import config from './config';
 
-import FocusLock from 'react-focus-lock';
 import './App.css';
 import PublicRoute from './routes/PublicRoute';
 import PrivateRoute from './routes/PrivateRoute';
@@ -13,7 +12,6 @@ import Footer from './structure/Footer';
 import AddFact from './components/views/AddFact/AddFact';
 import EditFact from './components/views/EditFact/EditFact';
 import Login from './components/views/Login/Login';
-import ViewFact from './components/views/ViewFact/ViewFact';
 import ReportFeed from './components/views/ReportFeed/ReportFeed';
 import About from './components/views/About/About';
 
@@ -39,16 +37,6 @@ function App() {
             <PublicRoute
               path={ config.SUBMIT_FACT_PAGE }
               component={ AddFact }
-            />
-            <PublicRoute
-              exact path={ config.FACT_PAGE }
-              component={(props) => {
-                return (
-                  <ViewFact
-                    fact_id={props.match.params.fact_id}
-                  />
-                )
-              }}
             />
             <PrivateRoute
               exact path={ config.EDIT_FACT_PAGE }

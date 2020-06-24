@@ -72,6 +72,7 @@ const Header = () => {
         <header 
             className={`header Header_wrapper ${userContext.state.isLoggedIn ? 'admin' : '' }`}
         >
+            <div className="header-without-menu-items">
             <div className='header-div main-dtf-logo' onClick={handleGotoRootClick}>
                 <img src={dtf_logo} alt="dtf logo"/>
                 <h1 className='title-text'>DEPARTMENT OF TRUTH AND FACTS</h1>
@@ -83,6 +84,7 @@ const Header = () => {
                     text={menuButtonLabel}
                     onClick={e=> setOpen(!open)}
                 />
+            </div>
             </div>
             <div className={`app-header-div ${userContext.state.isLoggedIn ? 'admin-header-div' : '' }`}>
                 { userContext.state.isLoggedIn 

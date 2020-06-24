@@ -31,22 +31,22 @@ const Label = (props) => {
                 ? <span className="fact-label bold white id"> Fact Id</span> 
         // menu labels
             : props.type === 'openedMenu' 
-                ? <span className="fact-label black menu"><FontAwesomeIcon icon={faBars}/> Menu </span>
+                ? <span className="black menu"><FontAwesomeIcon icon={faBars}/> Menu </span>
             : props.type === 'closedMenu'
-                ? <span className="fact-label black menu"><FontAwesomeIcon icon={faTimes}/> Menu </span>
+                ? <span className="black menu"><FontAwesomeIcon icon={faTimes}/> Menu </span>
         // menu option labels
             : props.type === "about" 
-                ? <span className="fact-label black menu"><FontAwesomeIcon icon={faInfoCircle}/> About Truth Checker </span>
+                ? <span className="black menu"><FontAwesomeIcon icon={faInfoCircle}/> About Truth Checker </span>
             : props.type === 'addFact'
-                ? <span className="fact-label black menu"><FontAwesomeIcon icon={faPlusSquare}/> New Fact </span>
+                ? <span className="black menu"><FontAwesomeIcon icon={faPlusSquare}/> New Fact </span>
             : props.type === "view-facts"
-                ? <span className="fact-label black menu"><FontAwesomeIcon icon={faCheckDouble}/> View Facts </span>
+                ? <span className="black menu"><FontAwesomeIcon icon={faCheckDouble}/> View Facts </span>
             : props.type === "view-reports"
-                ? <span className="fact-label black menu"><FontAwesomeIcon icon={faExclamationCircle}/> View Reports </span>
+                ? <span className="black menu"><FontAwesomeIcon icon={faExclamationCircle}/> View Reports </span>
             : props.type === "logout"
-                ? <span className="fact-label black menu"><FontAwesomeIcon icon={faSignOutAlt}/> Log out </span>
+                ? <span className="black menu"><FontAwesomeIcon icon={faSignOutAlt}/> Log out </span>
             : props.type === "login"
-                ? <span className="fact-label black menu"><FontAwesomeIcon icon={faSignInAlt}/> Secure Admin Login </span>
+                ? <span className="black menu"><FontAwesomeIcon icon={faSignInAlt}/> Secure Admin Login </span>
         // info labels
             : props.type === 'noResults'
                 ? <span className="fact-label black"><FontAwesomeIcon icon={faEyeSlash}/> No Results Found </span>

@@ -30,7 +30,7 @@ let reducer = (state, action) => {
                 name: '',
                 isLoggedIn: false,
                 fetched: false
-            }
+            };
         default:
             return initialState
     }
