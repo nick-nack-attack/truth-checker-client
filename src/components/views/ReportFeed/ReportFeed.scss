@@ -1,26 +1,59 @@
 @import '../../../themes/dtf';
 
-.report-feed > h2 {
-    margin: 20px auto;
-    text-align: center;
-}
+@media only screen and (min-width: 320px) {
 
-.report-label {
-    background-color: $black;
-    color: $white;
-    margin-right: 10px;
-    padding: 5px;
-}
+    .report-feed > h2 {
+        margin: 20px auto;
+        text-align: center;
+        max-width: 700px;
+    };
 
-.report-conntainer {
-    padding: 30px;
-    & > p {
-        margin-bottom: 15px;
+    .list-of-reports {
+        display: flex;
+        flex-flow: wrap;
+
     }
-}
+    
+    .report-label {
+        background-color: $black;
+        color: $white;
+        margin-right: 10px;
+        padding: 5px;
+    };
+    
+    .report-conntainer {
+        padding: 30px;
+        max-width: 280px;
+        margin-left: auto;
+        margin-right: auto;
+        & > p {
+            margin-bottom: 15px;
+        };
+    };
+    
+    .report-conntainer:nth-child(even) {
+        background-color: $gray;
+    };
 
-.report-conntainer:nth-child(even) {
-    background-color: $gray;
-}
+};
 
+@media only screen and (min-width: 550px) {
+
+    .list-of-reports {
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+};
+
+@media only screen and (min-width: 800px) {
+
+    .list-of-reports {
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+};
 

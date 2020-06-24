@@ -40,6 +40,7 @@ const ReportFeed = () => {
             className="report-feed"
         >
             <h2>Reported Facts</h2>
+            <div className="list-of-reports">
             { reportedFacts.sort((a,b) => b.number_of_reports - a.number_of_reports).map(ft => {
                 return (
                     <div className='report-conntainer'>
@@ -60,6 +61,7 @@ const ReportFeed = () => {
                     </div>
                 )
             })}
+        </div>
         </div>
     )
 
