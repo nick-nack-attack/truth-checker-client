@@ -1,17 +1,23 @@
+// layer with nested contexts
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
+import * as serviceWorker from './serviceWorker';
 
+// set context providers
 import AuthContextProvider from './contexts/AuthContextProvider';
 import { UserContextProvider } from './contexts/UserContext';
 
+// components
+import ApiWrapper from './components/utils/ApiWrapper/ApiWrapper';
+import App from './components/utils/App/App';
+
+// styling
 import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
-import ApiWrapper from './structure/ApiWrapper';
 
 ReactDOM.render(
   <Router>
+    <ErrorBoundary>
     <AuthContextProvider>
       <UserContextProvider>
         <ApiWrapper>
@@ -19,11 +25,9 @@ ReactDOM.render(
         </ApiWrapper>
       </UserContextProvider>
     </AuthContextProvider>
+    </ErrorBoundary>
   </Router>,
   document.getElementById('root')
 );
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();

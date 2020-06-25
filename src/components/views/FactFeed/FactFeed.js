@@ -1,33 +1,20 @@
-// View component - Root page for logged in users
+// view and search for facts - Root page for logged in users
 import React, { useContext, useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
 
-// Contexts
-import { UserContext } from '../../../contexts/UserContext';
+// contexts
 import { ItemsContext } from '../../../contexts/ItemsContext';
-import { prettyDate, inputDateFormat } from '../../../helpers/helpers'
 
-// Components
-import Report from '../../utils/Report/Report';
+// components
 import NoResult from '../../utils/NoResult/NoResult'
-
-// Helpers
-import { updateTimeStrings } from '../../../helpers/helpers';
-
-// Element components
 import Form from '../../utils/Form/Form';
-import Button from '../../utils/Button/Button';
-import Input from '../../utils/Input/Input';
-import Select from '../../utils/Select/Select';
 import Fact from '../../utils/Fact/Fact';
 
-// Files
+// styling
 import './FactFeed.scss';
 
 const FactFeed = () => {
 
-  // set the two contexts
-  let userContext = useContext(UserContext);
+  // set context variable
   let itemsContext = useContext(ItemsContext);
 
   // set local state for search term, results, and status selected
@@ -45,6 +32,7 @@ const FactFeed = () => {
     setstatusSelected(event.target.value)
   };
 
+  // update state when SEARCH TERM or STATUS is changed by user
   useEffect(() => {
       
     // set the results to the facts that include the searchTerm
@@ -63,67 +51,52 @@ const FactFeed = () => {
     setSearchResults(filteredResults);
       
       // if the searchTerm or statusSelected changes, then re-run useEffect
-  }, [searchTerm] );
-
-  useEffect(() => {
-    
-    const results = itemsContext.state.facts.filter(fact =>
-      fact.title.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-
-    // then filter results by that status of the fact
-    // if "All" is selected then don't filter
-    const filteredResults = ( statusSelected === "All" 
-      ? results
-      : results.filter(fact => fact.status === statusSelected)
-    );
-
-    setSearchResults(filteredResults);
-
-  }, [statusSelected] );
-
-  useEffect(() => {
-    // if something is deleted, reset the results to the updated state
-    const results = itemsContext.state.facts;
-    setSearchResults(results)
-  }, [itemsContext.state.fetched]);
+  }, 
+    [
+      searchTerm,
+      statusSelected,
+      // if fact is deleted, refetched facts
+      itemsContext.state.fetched,
+      itemsContext.state.facts
+    ] 
+  );
 
   return (
     
-    <div 
-      className="main-feed"
-    >
-
+    <div className="main-feed">
       <div className="search-bar-div">
-
-      <Form
-        id="main-feed-form"
-        formType='Main-Feed'
-        searchValue={searchTerm}
-        searchOnChange={handleChange}
-        selectValue={statusSelected}
-        selectOnChange={handleSelect}
-      />
-</div>
-      <div className='number-of-results'>Showing {searchResults.length} facts</div>
-
-      
-      <div className="list-of-facts-div">
-      
+        <Form
+          id="main-feed-form"
+          formType='Main-Feed'
+          searchValue={searchTerm}
+          searchOnChange={handleChange}
+          selectValue={statusSelected}
+          selectOnChange={handleSelect}
+        />
+      </div>
+  
+      <div className='number-of-results'>
+        Showing {searchResults.length} facts
+      </div>
+    
+      <div className="list-of-facts-div">      
         { 
           ( searchResults.length === 0 && searchTerm === "" 
             ? itemsContext.state.facts 
-            : searchResults).sort((a,b) => a.fact_id - b.fact_id).map(fact => 
-              {
-                return ( 
-                  <Fact 
-                    key={fact.fact_id} 
-                    fact={fact}
-                  />
-                )
-              }
-            ) 
+            : searchResults)
+                .sort((a,b) => a.fact_id - b.fact_id)
+                .map(fact => 
+                  {
+                    return ( 
+                      <Fact 
+                        key={fact.fact_id} 
+                        fact={fact}
+                      />
+                    );
+                  }
+                ) 
         }
+
         {
           ( searchResults.length === 0 && searchTerm !== ""
             ? <NoResult searchTerm={searchTerm}/>
@@ -131,7 +104,7 @@ const FactFeed = () => {
           )
         }
 
-</div>
+      </div>
 
     </div>
     

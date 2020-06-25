@@ -1,5 +1,6 @@
-@import '../themes/dtf';
+@import '../../../themes/_dtf.scss';
 
+// contains loading gif and text
 .loading-div {
     width: 150px;
     text-align: center;
@@ -8,10 +9,10 @@
     padding-top: 200px;
     &>p {
         margin-top: 20px;
-    }
+    };
 };
 
 #loading-gif {
     height: 50px;
     margin-bottom: 30px;
-}
+};

@@ -1,11 +1,11 @@
-@import '../themes/dtf';
+@import '../../../themes/dtf';
 
 @media only screen and (min-width: 320px) {
 
     h1 {
         margin: 0;
         font-size: larger;
-    }
+    };
     
     .header {
         padding: 0 1rem;
@@ -13,24 +13,24 @@
         position: relative;
         background-color: $gray;
         font-weight: bold;
-    }
+    };
     
     .header {
         border-bottom: 2px $dark-gray;
-    }
+    };
     
     .log-in {
         margin: auto auto auto 20px;
-    }
+    };
     
     .open {
         display: none;
-    }
+    };
     
     .title-text {
         font-family: 'Crimson Text';
         width: 200px;
-    }
+    };
     
     .header-div {
         display: flex;
@@ -41,32 +41,32 @@
         margin-right: auto;
         & > h1 {
             margin-left: 20px;
-        }
-    }
+        };
+    };
     
     .admin {
         background-color: $gold;
-    }
+    };
     
     .admin-header-div, .app-header-div {
         padding-bottom: 10px;
-    }
+    };
     
     .admin-header-label {
         margin-top: 10px;
         font-style: italic;
         font-weight: bold;
         text-align: center;
-    }
+    };
     
     .main-dtf-logo {
         padding-top: 20px;
-    }
+    };
     
     .app-header-div {
         padding-top: 10px;
         text-align: center;
-    } 
+    };
 
 };
 
@@ -74,26 +74,37 @@
 
     header {
         text-align: center;
-    }
+    };
 
     .app-header-div {
         display: inline-flex;
-    }
+    };
 
     .header-without-menu-items {
         display: flex;
         max-width: 650px;
         margin-left: auto;
         margin-right: auto;
-
     };
 
     .header-div {
         flex: auto;
-    }
+    };
 
 };
 
 @media only screen and (min-width: 800px) {
+
+    .menu-button {
+        display: none;
+    };
+
+    .open {
+        display: unset;
+    };
+
+    .admin-header-label {
+        padding-left: 20px;
+    };
 
 };

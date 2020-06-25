@@ -1,21 +1,16 @@
-// Global SCSS variables file
-
-// Colors
-
-// dtf theme colors
 $tan: #FFE4AB;
 $gold: #FFCA51;
 $orange: #F2A900;
 $beige: #966000;
 $brown: #4F2E00;
 
-// etc colors
 $light-blue: #7DB7DB;
 $blue: #7EAEF2;
 $dark-blue: #2d5b6b;
 
 $light-green: #AFD275;
 $green: #7DD65D;
+$teal: rgb(0, 128, 128);
 $dark-green: #7b7d2a;
 
 $pink: #E7717D;
@@ -31,9 +26,6 @@ $dark-gray: #8a8a8a;
 $black: #131313;
 $white: #fefefe;
 
-// Fonts
-// Use with font-family: 'Titillium Web', ;
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web&display=swap');
 
-// Used by Material UI DateTimePicker component
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');

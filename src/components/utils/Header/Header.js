@@ -1,72 +1,76 @@
-// This is the app header
-import React, { useContext, useEffect, useState, useRef } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
-import config from '../config';
+// import app routes from config file
+import config from '../../../config';
 
 // components
-import Button from '../components/utils/Button/Button';
-import Label from '../components/utils/Label/Label';
+import Button from '../Button/Button';
+import Label from '../Label/Label';
 
 // User context
-import { UserContext } from '../contexts/UserContext';
-import dtf_logo from '../assets/DTF_logo.png';
+import { UserContext } from '../../../contexts/UserContext';
+import logo from '../../../assets/logo-DTF.png';
 
-// Files
+// styling
 import './Header.scss';
 
 const Header = () => {
 
-    // set up use history
+    // set variables
     const history = useHistory();
+    // track if menu is open or closed
+    const [open, setOpen] = useState(true);
 
-    // set up context as user context
+    // set contexts
     let userContext = useContext(UserContext);
-
-    const [open, setOpen] = useState(true)
     
-    // redirect to admin login
+    // redirect user to admin login page
     const handleLoginClick = () => {
-        history.push(config.LOGIN_PAGE)
-        setOpen(!open)
+        history.push(config.LOGIN_PAGE);
+        setOpen(!open);
     };
 
-    // log user out
+    // logs user out after confirmation
     const handleLogoutClick = () => {
         if (window.confirm(`Are you sure you want to log out?`)) {
             userContext.dispatch({
                 type: "logout"
-            })
-            setOpen(!open)
-        }
+            });
+            setOpen(!open);
+        };
     };
 
     // return to root 
     const handleGotoRootClick = () => {
-        history.push("/")
-        setOpen(!open)
+        history.push("/");
+        setOpen(!open);
     };
 
+    // redirect user to reports page
     const handleReportsClick = () => {
-        history.push(config.REPORTS_PAGE)
-        setOpen(!open)
+        history.push(config.REPORTS_PAGE);
+        setOpen(!open);
     };
 
+    // redirect user to about page
     const handleClickAbout = () => {
-        history.push(config.ABOUT_PAGE)
-        setOpen(!open)
+        history.push(config.ABOUT_PAGE);
+        setOpen(!open);
     };
 
     // Go to Add Fact Page
     const handleAddFactClick = () => {
-        history.push(config.SUBMIT_FACT_PAGE)
-        setOpen(!open)
+        history.push(config.SUBMIT_FACT_PAGE);
+        setOpen(!open);
     };
 
     // context labels
-    const menuButtonLabel = open ? <Label type="openedMenu"/> : <Label type="closedMenu"/>
+    const menuButtonLabel = open 
+        ? <Label type="openedMenu"/> 
+        : <Label type="closedMenu"/>
 
-    // toggle header style if logged in or out
+    // header will change color and menu options if user logs in as admin
     return (
 
         <header 
@@ -74,11 +78,15 @@ const Header = () => {
         >
             <div className="header-without-menu-items">
             <div className='header-div main-dtf-logo' onClick={handleGotoRootClick}>
-                <img src={dtf_logo} alt="dtf logo"/>
-                <h1 className='title-text'>DEPARTMENT OF TRUTH AND FACTS</h1>
+                <img src={logo} alt="dtf logo"/>
+                <h1 className='title-text'>
+                    DEPARTMENT OF TRUTH AND FACTS
+                </h1>
             </div>
             <div className='header-div'>
-                <h2>Truth Checker</h2>
+                <h2>
+                    Truth Checker
+                </h2>
                 <Button
                     className={`menu-button ${open ? 'on' : 'off'}`}
                     text={menuButtonLabel}
@@ -113,7 +121,7 @@ const Header = () => {
                             <div class='admin-header-label'><Label type="admin"/></div>
                         </>
                     :   
-                // else, if user is not admin, show public-facing buttons
+                        // else, if user is not admin, show public-facing buttons
                         <>
                             <Button 
                                 className={`menu-item ${open ? 'open' : 'closed'}`}

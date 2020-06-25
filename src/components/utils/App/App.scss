@@ -1,3 +1,5 @@
+@import '../../../themes/_dtf.scss';
+
 .Truth-Checker {
   min-width: 100vw;
   min-height: 100vh;
@@ -21,14 +23,6 @@
 
 .terms-and-conditions {
   text-align: left;
-}
-
-.approved-fact-label {
-  padding: 2px;
-  font-size: 10px;
-  background-color: teal;
-  color: white;
-  font-weight: bold;
 }
 
 .align-left {

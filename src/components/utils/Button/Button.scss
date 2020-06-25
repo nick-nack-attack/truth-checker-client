@@ -33,7 +33,7 @@
   };
   
   .add-fact {
-    background-color: $orange;
+    border: 3px solid $orange
   }
   
   .on {
@@ -58,5 +58,7 @@
 };
 
 @media only screen and (min-width: 800px) {
+
+  // Not changes needed for desktop
 
 };

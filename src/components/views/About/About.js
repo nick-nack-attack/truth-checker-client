@@ -1,11 +1,13 @@
 // about page
-import React, { useContext } from 'react';
-import { bool, func } from 'prop-types';
+import React from 'react';
 
+// component
 import Label from '../../utils/Label/Label';
 
+// styling
 import './About.scss';
 
+// usual formatting not used on this page as it's all text
 const About = () => {
 
     return (
@@ -36,11 +38,11 @@ const About = () => {
             <p>The DTF has <Label type="classified"/> Board Members, each nominated by the President and confirmed by the Senate to serve <Label type="classified"/>-year terms. A <Label type="classified"/> is designated by the President as <Label type="classified"/> and another as <Label type="classified"/> for <Label type="classified"/>-year terms. The <Label type="classified"/> requires separate Senate confirmation. When there is no designated <Label type="classified"/>, the <Label type="classified"/> serves as Acting <Label type="classified"/>.</p>
         </div>
         <div>
-            <h3>NTSB History</h3>
+            <h3>DTF History</h3>
             <p>The DTF originated in the N.O. F.E.A.R. Act 2020, in which the U.S. Congress charged the U.S. Department of Homeland Security with investigating the causes of Fake News™ accidents.</p>
         </div>
         <div>
-            <h3>Employment at NTSB</h3>
+            <h3>Employment at DTF</h3>
             <p>The DTF has approximately <Label type="classified"/> employees located in its Headquarters in Washington, DC, and in regional field offices in <Label type="classified"/>, <Label type="classified"/>, <Label type="classified"/>, and <Label type="classified"/>.</p>
         </div>
         </div>

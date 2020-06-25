@@ -3,7 +3,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
 // assets
-import DTF_logo from '../../../assets/DTF_logo.png';
+import logo from '../../../assets/logo-DTF.png';
 
 // utils
 import { prettyDate } from '../../../helpers/helpers';
@@ -17,7 +17,7 @@ import Label from '../Label/Label';
 import Report from '../Report/Report';
 
 // files
-import './Fact.scss'
+import './Fact.scss';
 
 // Fact takes the argument 'fact'
 // 'title', 'status', 'fact_id', and 'date'
@@ -62,7 +62,7 @@ const Fact = (props) => {
                 { props.fact.fact_id }
             </div>
             <div>
-                <img className = "fact-logo" src={DTF_logo} alt="dtf logo"/>
+                <img className = "fact-logo" src={logo} alt="dtf logo"/>
             </div>
 
             { isAdmin ? 

@@ -6,7 +6,7 @@
         margin-top: 0;
         margin-left: 0;
         position: absolute;
-    }
+    };
     
     .disclaimer-text {
         font-size: 14px;
@@ -14,21 +14,24 @@
         margin-top: 30px;
         margin-left: auto;
         margin-right: auto;
-    }
+    };
     
     .helper-text-div {
         font-style: italic;
         margin-top: 30px;
         text-align: center;
-    }
+    };
 
-}
+};
 
 @media only screen and (min-width: 550px) {
+
+    // No changes on tablet
 
 }
 
 @media only screen and (min-width: 800px) {
+
     .login-page-div {
         display: flex;
         align-items: center;
@@ -37,5 +40,6 @@
         margin-left: auto;
         margin-right: auto;
         
-    }
-}
+    };
+
+};

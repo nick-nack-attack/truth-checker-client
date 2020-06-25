@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 
 // contexts and hooks
 import { ItemsContext } from '../../../contexts/ItemsContext';
-import { UseInputChange } from '../../utils/UseInputChange';
+import { UseInputChange } from '../../../hooks/UseInputChange';
 
 // components
 import Form from '../../utils/Form/Form';
@@ -57,6 +57,7 @@ const AddFact = () => {
             itemsContext.dispatch({
                 type: 'refetch'
             });
+            window.alert(`Your fact has been submitted! We won't let you know when it is or isn't approved for abitrary security reasons to protect the community.`);
             history.push('/');
         });
     };

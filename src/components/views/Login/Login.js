@@ -1,5 +1,6 @@
-// ADMIN LOGIN COMPONENT
-import React, { useContext, useEffect, useState } from 'react';
+// login to the admin portal
+
+import React, { useContext, useState } from 'react';
 
 // contexts
 import { UserContext } from '../../../contexts/UserContext';
@@ -8,19 +9,23 @@ import { UserContext } from '../../../contexts/UserContext';
 import  Error from '../../utils/Error/Error';
 import Form from '../../utils/Form/Form';
 import { useHistory } from 'react-router-dom';
-import { UseInputChange } from '../../utils/UseInputChange'
+import { UseInputChange } from '../../../hooks/UseInputChange';
 
+// services
 import UsersService from '../../../services/users-service';
 import TokenService from '../../../services/token-service';
 
-import sticky_note from '../../../assets/sticky_note.png';
-
-import './Login.scss'
+// styling and assets
+import './Login.scss';
+import stickynote from '../../../assets/sticky-note.png';
 
 const Login = () => {
     
+    // set variables
     let { dispatch } = useContext(UserContext);
+    const history = useHistory();
     const [ helperText, setHelperText ] = useState('Welcome back!');
+    const [ input, handleInputChange ] = UseInputChange();
     const [ errors, setErrors ] = useState({});
     
     // logs user in
@@ -29,12 +34,7 @@ const Login = () => {
         data: data
     });
 
-    const history = useHistory();
-
-    // initialize input context
-    const [ input, handleInputChange ] = UseInputChange();
-
-    // validate form
+    // validate form submission
     const validateAdminLoginForm = (e) => {
         setErrors({});
         setHelperText('Validating form...');
@@ -56,11 +56,12 @@ const Login = () => {
         }
     };
 
+    // return user to root on cancel login
     const handleCancelClick = () => {
         history.push('/')
     };
 
-    // submits form if creds are provided
+    // submits form if validation is passed
     const submitLogin = () => {
         setErrors({});
         setHelperText('Submitting login...');
@@ -69,7 +70,6 @@ const Login = () => {
             email: "admin@dtf.gov",
             password: input["password"]
         };
-
         // use service to post the login
         UsersService.postLogin(loginCreds)
         .then(res => {
@@ -90,6 +90,7 @@ const Login = () => {
 
     };
 
+    // show login form, helper/error text, and disclaimer text
     return (
         <div className='login-page-div'>
             <Form
@@ -99,10 +100,13 @@ const Login = () => {
                 handleCancelClick={handleCancelClick}
             />
             <div>
-                <div className="helper-text-div">{ errors.error ? <Error message={errors.error}/> : helperText}</div>
-
+                <div className="helper-text-div">
+                    { errors.error 
+                        ? <Error message={errors.error}/> 
+                        : helperText}
+                </div>
                 <p className="disclaimer-text">
-                    <img id="stick_note" src={sticky_note} alt="sticky note with 'admin@dtf.gov password' on it"/>
+                    <img id="stick_note" src={stickynote} alt="sticky note with 'admin@dtf.gov password' on it"/>
                         DISCLAIMER: ANY UNGRANTED ACCESS GAINED INTO THIS SYSTEM WILL RESULT IN VARIOUS TRIVIAL AND/OR ABITRARY PUNISHMENTS IN ORDER TO PUBLICLY SHAME YOU AND/OR RUIN YOUR LIFE TO MAKE IT LOOK LIKE JUSTICE IS BEING SERVED AND/OR WE'RE KEEPING OUR (NOT YOUR) COMMUNITY SAFE.
                 </p>
             </div>

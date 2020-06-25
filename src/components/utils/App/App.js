@@ -1,19 +1,26 @@
-import React, { useState, useRef } from 'react';
+// holds all the routes for the app
+import React from 'react';
 import { Switch } from 'react-router-dom';
 
-import config from './config';
+// get app routes from config file
+import config from '../../../config';
 
+// get public and private routes
+import PrivateRoute from '../../../routes/PrivateRoute';
+import PublicRoute from '../../../routes/PublicRoute';
+
+// get app views
+import About from '../../views/About/About';
+import AddFact from '../../views/AddFact/AddFact';
+import EditFact from '../../views/EditFact/EditFact';
+import FactFeed from '../../views/FactFeed/FactFeed';
+import Footer from '../Footer/Footer';
+import Header from '../Header/Header';
+import Login from '../../views/Login/Login';
+import ReportFeed from '../../views/ReportFeed/ReportFeed';
+
+// styling 
 import './App.css';
-import PublicRoute from './routes/PublicRoute';
-import PrivateRoute from './routes/PrivateRoute';
-import FactFeed from './components/views/FactFeed/FactFeed';
-import Header from './structure/Header';
-import Footer from './structure/Footer';
-import AddFact from './components/views/AddFact/AddFact';
-import EditFact from './components/views/EditFact/EditFact';
-import Login from './components/views/Login/Login';
-import ReportFeed from './components/views/ReportFeed/ReportFeed';
-import About from './components/views/About/About';
 
 function App() {
 
@@ -23,11 +30,11 @@ function App() {
          <Header/>
           <Switch>
             <PublicRoute
-              exact path ={ '/' }
+              exact path ={ config.FACTS_FEED }
               component={ FactFeed }
             />
             <PublicRoute
-              exact path = { '/about-truth-checker' }
+              exact path = { config.ABOUT_PAGE }
               component = { About }
             />
             <PublicRoute
@@ -53,7 +60,7 @@ function App() {
               component={ ReportFeed }
             />
           </Switch>
-          <Footer/>
+        <Footer/>
       </div>
     
   );

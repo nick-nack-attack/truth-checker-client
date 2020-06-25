@@ -1,45 +1,47 @@
-// hamburger menu
-import React, { useContext } from 'react';
-import { bool, func } from 'prop-types';
+// handle when user reports a specific fact
+import React from 'react';
+import PropTypes from 'prop-types';
 
 // components
 import Label from '../Label/Label';
 
 // contexts
-import { SessionContext } from '../../../contexts/SessionContext';
 import FactsApiService from '../../../services/facts-service';
 
-// styling
-//import './Burger.scss';
-
+// send report after user confirms
 const Report = (props) => {
 
-    // Using the session context to control menu state
-    const { state, dispatch } = useContext(SessionContext);
-    const fact_id = props.fact_id;
-
+    // submit report of a particular fact to be reviewed by an admin
     const handleReportClick = (id) => {
-        if (window.confirm(`Are you sure you want to report Fact #${fact_id}?`)) {
+        if (window.confirm(`Are you sure you want to report Fact #${props.fact_id}?`)) {
             const reportedFact = {
                 fact_id: id
             };
+            // send report to server
             FactsApiService.reportFact(
                 reportedFact    
             )
-            .then(result => {
+            .then(() => {
+                // let user know when report has been submitted
                 window.alert("Your report has been submitted")
             })
-        }
+            .catch(() => {
+                // handle error if some issue happens
+                window.alert("An error has occured when sending your report.")
+            })
+        };
     };
 
     return (
-            <button
-                onClick={e => handleReportClick(props.fact_id)}
-            >
+            <button onClick={e => handleReportClick(props.fact_id)}>
                 <Label type="report"/>
             </button>
     );
 
+};
+
+Report.propTypes = {
+    fact_id: PropTypes.number,
 };
 
 export default Report;
