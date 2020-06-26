@@ -38,7 +38,7 @@ along with finding middle ground rather than seeking to be 'right' about somethi
 ![Screenshots 7-9](./docs/screenshots/screenshots7-9.jpg)
 
 
-![Screenshots 10-12](./screenshots/screenshots10-12.jpg)
+![Screenshots 10-12](./docs/screenshots/screenshots10-12.jpg)
 
 
 ## Requirements
