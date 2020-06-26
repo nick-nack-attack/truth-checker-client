@@ -115,7 +115,7 @@ const Form = (props) => {
             id="Add_Fact_Form"
             onSubmit={props.validateEditFactForm}
         >
-            <legend>Edit Fact Form</legend>
+            <legend className="center">Edit Fact Form</legend>
             <Input
                 label="Title"
                 inputtype="text"
@@ -179,7 +179,7 @@ const Form = (props) => {
             id="Login_Form"
             onSubmit={props.validateAdminLoginForm}
         >
-            <legend>Admin Login</legend>
+            <legend className="center">Admin Login</legend>
             <Input
                 inputtype="text"
                 id="email-field"
