@@ -2,35 +2,35 @@
 
 .white {
     color: $white;
-}
+};
 
 .black {
     color: $black;
-}
+};
 
 .disabled {
     color: $gray
-}
+};
 
 .status {
-    background-color: $gold;
-}
+    background-color: $orange;
+};
 
 .date {
-    background-color: $orange;
-}
+    background-color: $brown;
+};
 
 .id {
-    background-color: $brown;
-}
+    background-color: $black;
+};
 
 .menu {
     color: $black;
-}
+};
 
 .bold {
     font-weight: bold;
-}
+};
 
 .fact-label {
     border-radius: 10px;
@@ -43,4 +43,4 @@
     background-color: $black;
     color: $white;
     font-size: 12px;
-}
+};

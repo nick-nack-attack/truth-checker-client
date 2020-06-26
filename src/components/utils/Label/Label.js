@@ -9,7 +9,7 @@ import {
     faCheckDouble, 
     faBars, 
     faTimes, 
-    faPlusSquare, 
+    faPlus, 
     faEyeSlash, 
     faLock, 
     faTrash, 
@@ -38,7 +38,7 @@ const Label = (props) => {
             : props.type === "about" 
                 ? <span className="black menu"><FontAwesomeIcon icon={faInfoCircle}/> About Truth Checker </span>
             : props.type === 'addFact'
-                ? <span className="black menu"><FontAwesomeIcon icon={faPlusSquare}/> New Fact </span>
+                ? <span className="black menu"><FontAwesomeIcon icon={faPlus}/> New Fact </span>
             : props.type === "view-facts"
                 ? <span className="black menu"><FontAwesomeIcon icon={faCheckDouble}/> View Facts </span>
             : props.type === "view-reports"
