@@ -6,19 +6,23 @@ import Input from './Input';
 import { UserContextProvider } from '../../../contexts/UserContext'
 import AuthContextProvider from '../../../contexts/AuthContextProvider';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  
-  ReactDOM.render(
-    <Router>
-        <UserContextProvider>
-            <AuthContextProvider>
-                <Input/>
-            </AuthContextProvider>
-        </UserContextProvider>
-    </Router>,
-    div
-  );
+describe('Input Component', () => {
 
-  ReactDOM.unmountComponentAtNode(div);
+  it('renders without crashing', () => {
+    const div = document.createElement('div');
+    
+    ReactDOM.render(
+      <Router>
+          <UserContextProvider>
+              <AuthContextProvider>
+                  <Input/>
+              </AuthContextProvider>
+          </UserContextProvider>
+      </Router>,
+      div
+    );
+
+    ReactDOM.unmountComponentAtNode(div);
+  });
+
 });

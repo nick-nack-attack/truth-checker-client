@@ -6,23 +6,27 @@ import Select from './Select';
 import { UserContextProvider } from '../../../contexts/UserContext'
 import AuthContextProvider from '../../../contexts/AuthContextProvider';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  const arrayForSelect = ['All', 'Pending', 'Under Review', 'Approved', 'Not True'];
-  ReactDOM.render(
-    <Router>
-        <UserContextProvider>
-            <AuthContextProvider>
-                <Select 
-                  array={arrayForSelect}
-                  value='All'
-                  onChange={() => {}} 
-                />
-            </AuthContextProvider>
-        </UserContextProvider>
-    </Router>,
-    div
-  );
+describe('Select Component', () => {
 
-  ReactDOM.unmountComponentAtNode(div);
+  it('renders without crashing', () => {
+    const div = document.createElement('div');
+    const arrayForSelect = ['All', 'Pending', 'Under Review', 'Approved', 'Not True'];
+    ReactDOM.render(
+      <Router>
+          <UserContextProvider>
+              <AuthContextProvider>
+                  <Select 
+                    array={arrayForSelect}
+                    value='All'
+                    onChange={() => {}} 
+                  />
+              </AuthContextProvider>
+          </UserContextProvider>
+      </Router>,
+      div
+    );
+
+    ReactDOM.unmountComponentAtNode(div);
+  });
+
 });

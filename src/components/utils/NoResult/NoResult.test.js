@@ -6,19 +6,23 @@ import NoResult from './NoResult';
 import { UserContextProvider } from '../../../contexts/UserContext'
 import AuthContextProvider from '../../../contexts/AuthContextProvider';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  
-  ReactDOM.render(
-    <Router>
-        <UserContextProvider>
-            <AuthContextProvider>
-                <NoResult/>
-            </AuthContextProvider>
-        </UserContextProvider>
-    </Router>,
-    div
-  );
+describe('NoResult Component', () => {
 
-  ReactDOM.unmountComponentAtNode(div);
+  it('renders without crashing', () => {
+    const div = document.createElement('div');
+    
+    ReactDOM.render(
+      <Router>
+          <UserContextProvider>
+              <AuthContextProvider>
+                  <NoResult/>
+              </AuthContextProvider>
+          </UserContextProvider>
+      </Router>,
+      div
+    );
+
+    ReactDOM.unmountComponentAtNode(div);
+  });
+
 });

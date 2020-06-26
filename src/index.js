@@ -4,6 +4,9 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 
+// error boundary
+import ErrorBoundary from './ErrorBoundary';
+
 // set context providers
 import AuthContextProvider from './contexts/AuthContextProvider';
 import { UserContextProvider } from './contexts/UserContext';

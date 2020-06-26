@@ -6,6 +6,8 @@ import App from './App';
 import { UserContextProvider } from '../../../contexts/UserContext'
 import AuthContextProvider from '../../../contexts/AuthContextProvider';
 
+describe('App Component', () => {
+
 it('renders without crashing', () => {
   const div = document.createElement('div');
   
@@ -22,3 +24,5 @@ it('renders without crashing', () => {
 
   ReactDOM.unmountComponentAtNode(div);
 });
+
+})

@@ -6,19 +6,23 @@ import Error from './Error';
 import { UserContextProvider } from '../../../contexts/UserContext'
 import AuthContextProvider from '../../../contexts/AuthContextProvider';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  
-  ReactDOM.render(
-    <Router>
-        <UserContextProvider>
-            <AuthContextProvider>
-                <Error/>
-            </AuthContextProvider>
-        </UserContextProvider>
-    </Router>,
-    div
-  );
+describe('Error Component', () => {
 
-  ReactDOM.unmountComponentAtNode(div);
+    it('renders without crashing', () => {
+    const div = document.createElement('div');
+    
+    ReactDOM.render(
+        <Router>
+            <UserContextProvider>
+                <AuthContextProvider>
+                    <Error/>
+                </AuthContextProvider>
+            </UserContextProvider>
+        </Router>,
+        div
+    );
+
+    ReactDOM.unmountComponentAtNode(div);
+    });
+
 });

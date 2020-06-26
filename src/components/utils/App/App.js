@@ -20,7 +20,7 @@ import Login from '../../views/Login/Login';
 import ReportFeed from '../../views/ReportFeed/ReportFeed';
 
 // styling 
-import './App.css';
+import './App.scss';
 
 function App() {
 

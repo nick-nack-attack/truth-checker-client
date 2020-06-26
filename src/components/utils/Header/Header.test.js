@@ -6,19 +6,23 @@ import Header from './Header';
 import { UserContextProvider } from '../../../contexts/UserContext'
 import AuthContextProvider from '../../../contexts/AuthContextProvider';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  
-  ReactDOM.render(
-    <Router>
-        <UserContextProvider>
-            <AuthContextProvider>
-                <Header/>
-            </AuthContextProvider>
-        </UserContextProvider>
-    </Router>,
-    div
-  );
+describe('Header Component', () => {
 
-  ReactDOM.unmountComponentAtNode(div);
+  it('renders without crashing', () => {
+    const div = document.createElement('div');
+    
+    ReactDOM.render(
+      <Router>
+          <UserContextProvider>
+              <AuthContextProvider>
+                  <Header/>
+              </AuthContextProvider>
+          </UserContextProvider>
+      </Router>,
+      div
+    );
+
+    ReactDOM.unmountComponentAtNode(div);
+  });
+
 });

@@ -33,7 +33,7 @@ const EditFact = (props) => {
     // set hooks
     const [ input, handleInputChange ] = UseInputChange({});
     // fact variables
-    const currentFact = findFactById(props.fact_id, itemsContext.state.facts);
+    const currentFact = findFactById(props.fact_id, itemsContext.state.facts) || {title: ''};
     const [ title, setTitle ] = useState();
     const [ factId, setFactId ] = useState();
     const [ submitted, setSubmitted ] = useState();

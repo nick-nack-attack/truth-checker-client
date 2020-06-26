@@ -6,24 +6,28 @@ import Fact from './Fact';
 import { UserContextProvider } from '../../../contexts/UserContext'
 import AuthContextProvider from '../../../contexts/AuthContextProvider';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  let fact = {
-      title: 'title',
-      fact_id: 1,
-      status: 'Pending',
-      date_submitted: new Date()
-  }
-  ReactDOM.render(
-    <Router>
-        <UserContextProvider>
-            <AuthContextProvider>
-                <Fact fact={fact}/>
-            </AuthContextProvider>
-        </UserContextProvider>
-    </Router>,
-    div
-  );
+describe('Fact Component', () => {
 
-  ReactDOM.unmountComponentAtNode(div);
+  it('renders without crashing', () => {
+    const div = document.createElement('div');
+    let fact = {
+        title: 'title',
+        fact_id: 1,
+        status: 'Pending',
+        date_submitted: new Date()
+    }
+    ReactDOM.render(
+      <Router>
+          <UserContextProvider>
+              <AuthContextProvider>
+                  <Fact fact={fact}/>
+              </AuthContextProvider>
+          </UserContextProvider>
+      </Router>,
+      div
+    );
+
+    ReactDOM.unmountComponentAtNode(div);
+  });
+
 });

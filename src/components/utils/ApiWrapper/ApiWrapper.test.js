@@ -6,6 +6,8 @@ import ApiWrapper from './ApiWrapper';
 import { UserContextProvider } from '../../../contexts/UserContext'
 import AuthContextProvider from '../../../contexts/AuthContextProvider';
 
+describe('Api Wrapper Component', () => {
+
 it('renders without crashing', () => {
 
     const div = document.createElement('div');
@@ -25,3 +27,5 @@ it('renders without crashing', () => {
     ReactDOM.unmountComponentAtNode(div);
 
 });
+
+})
