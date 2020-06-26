@@ -29,14 +29,17 @@ along with finding middle ground rather than seeking to be 'right' about somethi
 [Wireframes](https://nick-nack-attack.github.io/truth-checker-client/) made in HTML
 
 ## Images
-![Screenshots 1-3](./docs/screenshots/screenshots1-3/.jpg)
-• Main Feed, Facts, Menu
-![Screenshots 4-6](./docs/screenshots/screenshots4-6/.jpg)
-• About, Add Fact, Admin Login
-![Screenshots 7-9](./docs/screenshots/screenshots7-9/.jpg)
-• Admin Logged, Admin Menu, Reported Facts
-![Screenshots 10-12](./docs/screenshots/screenshots10-12/.jpg)
-• Edit Fact, Footer, Confirm Log Out
+![Screenshots 1-3](./docs/screenshots/screenshots1-3.jpg)
+
+
+![Screenshots 4-6](./docs/screenshots/screenshots4-6.jpg)
+
+
+![Screenshots 7-9](./docs/screenshots/screenshots7-9.jpg)
+
+
+![Screenshots 10-12](./screenshots/screenshots10-12.jpg)
+
 
 ## Requirements
 - Your app must do something interesting or useful
