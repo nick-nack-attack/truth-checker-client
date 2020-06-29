@@ -1,6 +1,7 @@
 # Truth Checker - a parody database for the truth
 
 ## Description
+
 This application is a promotion piece for a music album.
 Users can submit facts to be approved by the administrator.
 The admin login is purposely left public to allow for users to approved or disapprove their own facts.
@@ -8,16 +9,19 @@ The app hopefully highlights the issues with a central place of truth and advoca
 along with finding middle ground rather than seeking to be 'right' about something.
 
 ## Live Site
-[Truth Checker](https://truth-checker.vercel.app)
+
+https://truth-checker.vercel.app
 
 ## Table of Contents
-*  [Technologies](#technologies)
-*  [Planning](#planning)
-*  [Screenshots](#screenshots)
-*  [Requirements](#requirements)
-*  [Available Scripts](#available-scripts)
+
+1. [Technologies](#technologies)
+2. [Planning](#planning)
+3. [Screenshots](#screenshots)
+4. [Requirements](#requirements)
+5. [Available Scripts](#available-scripts)
 
 ## Technology
+
 - HTML5
 - CSS 3
 - React (16.13.1)
@@ -26,9 +30,11 @@ along with finding middle ground rather than seeking to be 'right' about somethi
 - PostgreSQL (12.3)
 
 ## Planning
+
 [Wireframes](https://nick-nack-attack.github.io/truth-checker-client/) made in HTML
 
-## Images
+## Screenshots
+
 ![Screenshots 1-3](../docs/screenshots/screenshots1-3/.jpg)
 • Main Feed, Facts, Menu
 ![Screenshots 4-6](../docs/screenshots/screenshots4-6/.jpg)
@@ -39,6 +45,7 @@ along with finding middle ground rather than seeking to be 'right' about somethi
 • Edit Fact, Footer, Confirm Log Out
 
 ## Requirements
+
 - Your app must do something interesting or useful
 - Your app must be a full-stack app using React, CSS, Node, Express, and PostgreSQL.
 - The client and API should be deployed separately and stored in separate GitHub repos.
@@ -62,23 +69,23 @@ In the project directory, you can run:
 
 ### `npm start`
 
-Runs the app in the development mode.<br />
+Runs the app in the development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
+The page will reload if you make edits.
 You will also see any lint errors in the console.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.<br />
+Launches the test runner in the interactive watch mode.
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.<br />
+Builds the app for production to the `build` folder.
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
+The build is minified and the filenames include the hashes.
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
