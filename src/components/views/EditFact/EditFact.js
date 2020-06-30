@@ -32,7 +32,8 @@ const EditFact = (props) => {
 
     // set hooks
     const [ input, handleInputChange ] = UseInputChange({});
-    // fact variables
+
+    // set fact variables
     const currentFact = findFactById(props.fact_id, itemsContext.state.facts) || {title: ''};
     const [ title, setTitle ] = useState();
     const [ factId, setFactId ] = useState();
@@ -40,7 +41,8 @@ const EditFact = (props) => {
     const [ underReview, setUnderReview ] = useState();
     const [ approved, setApproved ] = useState();
     const [ notTrue, setNotTrue ] = useState();
-    // errors
+    
+    // set errors
     const [ errors, setErrors ] = useState({});
 
     // when facts are fetched, set the current fact data
@@ -69,13 +71,15 @@ const EditFact = (props) => {
     const handleClickDelete = (fact_id, e) => {
         e.preventDefault()
         if (window.confirm(`Are you sure you want to delete this Fact?`)) {
-            FactsApiService.deleteFact(fact_id)
-                .then(() => {
-                    itemsContext.dispatch({
-                        type: 'refetch'
-                    });
-                    history.push(config.FACTS_FEED)
+            FactsApiService.deleteFact(
+                fact_id
+            )
+            .then(() => {
+                itemsContext.dispatch({
+                    type: 'refetch'
                 });
+                history.push(config.FACTS_FEED)
+            });
         };
     };
 
@@ -134,7 +138,7 @@ const EditFact = (props) => {
                 underReview={underReview}
                 approved={approved}
                 notTrue={notTrue}
-                handleCancelClick={() => history.push('/')}
+                handleCancelClick={() => history.push(config.FACTS_FEED)}
                 handleClickDelete={e => handleClickDelete(factId, e)}
             />
 

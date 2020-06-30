@@ -58,29 +58,20 @@ const ApiWrapper = (props) => {
       })
         checkUserLoggedIn();
     })
+    .catch(err => {
+      console.log(`catch ran`, err)
+    })
   }, [itemsContext.state.fetched] );
 
   return (
   
     // when data is fetched, hide loading screen and show App
     <div>
-      { itemsContext.state.fetched 
-          ? 
-            ( <div className="wrapper">
-                { props.children }
-              </div>
-            )
-          : 
-            ( 
-              <div className="wrapper">
-                <div className="loading-div">
-                  <img id="loading-gif" src={gif} alt="loading gif"/>
-                  <h1>Department of Truth and Facts</h1>
-                  <p className="fetching">Fetching data. Please wait...</p>
-                </div>
-              </div>
-            )
-      }
+
+    <div className="wrapper">
+      { props.children }
+    </div>
+      
     </div>
    
   );

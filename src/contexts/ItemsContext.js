@@ -11,7 +11,8 @@ let initialState = {
     facts: [],
     reports: [],
     all: [],
-    error: null
+    error: null,
+    notification: []
 };
 
 // Allows dispatch actions to update state
@@ -50,11 +51,22 @@ let reducer = (state, action) => {
                     ...state,
                     fetched: false
                 }
+            case 'refetch-after-add':
+                return {
+                    ...state,
+                    notification: 'Fact has been submitted!',
+                    fetched: false
+                }
             // set error in state
             case 'set-error':
                 return {
                     ...state,
                     error: action.payload
+                }
+            // clear notification
+            case 'clear-notification':
+                return {
+                    notification: ''
                 }
             default:
                 return initialState

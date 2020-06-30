@@ -1,5 +1,7 @@
 // a feed showing all reported facts for admin to review
 import React, { useContext, useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import config from '../../../config'
 
 // context
 import { ItemsContext } from '../../../contexts/ItemsContext';
@@ -21,6 +23,9 @@ const ReportFeed = () => {
     // set context
     let itemsContext = useContext(ItemsContext);
 
+    // initialize history
+    const history = useHistory();
+
     // set local state 
     const [ reportedFacts, setReportedFacts ] = useState([]);
 
@@ -31,7 +36,10 @@ const ReportFeed = () => {
                 fact_id
             )
             .then(() => {
-                window.alert("The Fact, which never existed, has been deleted. Which is impossible. But you don't know that.");
+                itemsContext.dispatch({
+                    type: 'refetch'
+                });
+                history.push(config.FACTS_FEED);
             })
         }
     };

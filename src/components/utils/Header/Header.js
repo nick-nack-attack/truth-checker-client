@@ -24,12 +24,6 @@ const Header = () => {
 
     // set contexts
     let userContext = useContext(UserContext);
-    
-    // redirect user to admin login page
-    const handleLoginClick = () => {
-        history.push(config.LOGIN_PAGE);
-        setOpen(!open);
-    };
 
     // logs user out after confirmation
     const handleLogoutClick = () => {
@@ -41,29 +35,12 @@ const Header = () => {
         };
     };
 
-    // return to root 
-    const handleGotoRootClick = () => {
-        history.push("/");
+    // redirect user to selected page using endpoints
+    // in config file
+    const handleMenuClick = (url) => {
+        history.push(url);
         setOpen(!open);
-    };
-
-    // redirect user to reports page
-    const handleReportsClick = () => {
-        history.push(config.REPORTS_PAGE);
-        setOpen(!open);
-    };
-
-    // redirect user to about page
-    const handleClickAbout = () => {
-        history.push(config.ABOUT_PAGE);
-        setOpen(!open);
-    };
-
-    // Go to Add Fact Page
-    const handleAddFactClick = () => {
-        history.push(config.SUBMIT_FACT_PAGE);
-        setOpen(!open);
-    };
+    }
 
     // context labels
     const menuButtonLabel = open 
@@ -77,7 +54,7 @@ const Header = () => {
             className={`header Header_wrapper ${userContext.state.isLoggedIn ? 'admin' : '' }`}
         >
             <div className="header-without-menu-items">
-            <div className='header-div main-dtf-logo' onClick={handleGotoRootClick}>
+            <div className='header-div main-dtf-logo' onClick={() => handleMenuClick(config.ROOT)}>
                 <img src={logo} alt="dtf logo"/>
                 <h1 className='title-text'>
                     DEPARTMENT OF TRUTH AND FACTS
@@ -101,12 +78,12 @@ const Header = () => {
                             <Button 
                                 className={`menu-item ${open ? 'open' : 'closed'}`}
                                 text={<Label type="view-facts"/>}
-                                onClick={handleGotoRootClick}
+                                onClick={() => handleMenuClick(config.FACTS_FEED)}
                             />
                             <Button 
                                 className={`menu-item ${open ? 'open' : 'closed'}`}
                                 text={<Label type="view-reports"/>}
-                                onClick={handleReportsClick}
+                                onClick={() => handleMenuClick(config.REPORTS_PAGE)}
                             />
                             <Button 
                                 className={`menu-item ${open ? 'open' : 'closed'}`}
@@ -116,7 +93,7 @@ const Header = () => {
                             <Button
                                 className={`menu-item ${open ? 'open' : 'closed'}`}
                                 text={<Label type="addFact"/>}
-                                onClick={handleAddFactClick}
+                                onClick={() => handleMenuClick(config.SUBMIT_FACT_PAGE)}
                             />
                             <div class='admin-header-label'><Label type="admin"/></div>
                         </>
@@ -126,22 +103,22 @@ const Header = () => {
                             <Button 
                                 className={`menu-item ${open ? 'open' : 'closed'}`}
                                 text={<Label type="about"/>}
-                                onClick={handleClickAbout}
+                                onClick={() => handleMenuClick(config.ABOUT_PAGE)}
                             />
                             <Button 
                                 className={`menu-item ${open ? 'open' : 'closed'}`}
                                 text={<Label type="view-facts"/>}
-                                onClick={handleGotoRootClick}
+                                onClick={() => handleMenuClick(config.FACTS_FEED)}
                             />
                             <Button 
                                 className={`menu-item last ${open ? 'open' : 'closed'}`}
                                 text={<Label type="login"/>}
-                                onClick={handleLoginClick}
+                                onClick={() => handleMenuClick(config.LOGIN_PAGE)}
                             />
                             <Button
                                 className={`menu-item add-fact last ${open ? 'open' : 'closed'}`}
                                 text={<Label type="addFact"/>}
-                                onClick={handleAddFactClick}
+                                onClick={() => handleMenuClick(config.SUBMIT_FACT_PAGE)}
                             />
                         </>
                         

@@ -1,0 +1,20 @@
+@import '../../../themes/_dtf.scss';
+
+.note-title {
+    background-color: $white;
+    color: $teal;
+    font-weight: bold;
+    padding: 5px 10px;
+    margin-right: 10px;
+}
+
+.notification-div {
+    color: $white;
+    background-color: $teal;
+    display: flex;
+    place-content: center;
+    align-items: center;
+    padding: 10px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}

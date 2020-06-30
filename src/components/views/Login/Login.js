@@ -1,6 +1,7 @@
 // login to the admin portal
 
 import React, { useContext, useState } from 'react';
+import config from '../../../config';
 
 // contexts
 import { UserContext } from '../../../contexts/UserContext';
@@ -24,9 +25,10 @@ const Login = () => {
     // set variables
     let { dispatch } = useContext(UserContext);
     const history = useHistory();
+
     const [ helperText, setHelperText ] = useState('Welcome back!');
     const [ input, handleInputChange ] = UseInputChange();
-    const [ errors, setErrors ] = useState({});
+    const [ errors, setErrors ] = useState('bob');
     
     // logs user in
     let login = (data) => dispatch({
@@ -40,6 +42,7 @@ const Login = () => {
         setHelperText('Validating form...');
         e.preventDefault();
         let errors = {};
+        // email hard-coded to admin email
         // if ( input["email"] === undefined || input["email"] === '' ) {
         //     errors = { error: "Email is required" }
         // }
@@ -58,18 +61,20 @@ const Login = () => {
 
     // return user to root on cancel login
     const handleCancelClick = () => {
-        history.push('/')
+        history.push(config.FACTS_FEED)
     };
 
     // submits form if validation is passed
     const submitLogin = () => {
         setErrors({});
         setHelperText('Submitting login...');
+
         // set login credentials
         const loginCreds = {
             email: "admin@dtf.gov",
             password: input["password"]
         };
+
         // use service to post the login
         UsersService.postLogin(loginCreds)
         .then(res => {
@@ -81,12 +86,16 @@ const Login = () => {
             // Once the token and id are posted
             // go to the root
             login(res)
-            history.push('/');
+            history.push(config.FACTS_FEED);
         })
-        .catch(res => {
+        .catch((res) => {
             // update error text if there's an issue
             setErrors(res)
         })
+
+        setTimeout(() => {
+            setHelperText('Connection issue. Try again.');
+        }, 6000)
 
     };
 

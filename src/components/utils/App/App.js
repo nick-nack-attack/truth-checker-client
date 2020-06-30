@@ -16,6 +16,7 @@ import EditFact from '../../views/EditFact/EditFact';
 import FactFeed from '../../views/FactFeed/FactFeed';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
+import LandingPage from '../../views/LandingPage/LandingPage';
 import Login from '../../views/Login/Login';
 import ReportFeed from '../../views/ReportFeed/ReportFeed';
 
@@ -30,24 +31,28 @@ function App() {
          <Header/>
           <Switch>
             <PublicRoute
-              exact path ={ config.FACTS_FEED }
-              component={ FactFeed }
+              exact path = { config.ROOT }
+              component = { LandingPage }
+            />
+            <PublicRoute
+              exact path = { config.FACTS_FEED }
+              component = { FactFeed }
             />
             <PublicRoute
               exact path = { config.ABOUT_PAGE }
               component = { About }
             />
             <PublicRoute
-              path={ config.LOGIN_PAGE }
-              component={ Login }
+              path = { config.LOGIN_PAGE }
+              component = { Login }
             />
             <PublicRoute
-              path={ config.SUBMIT_FACT_PAGE }
-              component={ AddFact }
+              path = { config.SUBMIT_FACT_PAGE }
+              component = { AddFact }
             />
             <PrivateRoute
-              exact path={ config.EDIT_FACT_PAGE }
-              component={(props) => {
+              exact path = { config.EDIT_FACT_PAGE }
+              component = {(props) => {
                 return (
                   <EditFact
                     fact_id={props.match.params.fact_id}
@@ -56,8 +61,8 @@ function App() {
               }}
             />
             <PrivateRoute
-              exact path={ config.REPORTS_PAGE }
-              component={ ReportFeed }
+              exact path = { config.REPORTS_PAGE }
+              component = { ReportFeed }
             />
           </Switch>
         <Footer/>

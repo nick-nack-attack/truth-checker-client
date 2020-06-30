@@ -1,6 +1,7 @@
 // Public user can submit a fact
 import React, { useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import config from '../../../config';
 
 // contexts and hooks
 import { ItemsContext } from '../../../contexts/ItemsContext';
@@ -36,35 +37,41 @@ const AddFact = () => {
         if (input.title === undefined || input.title === '') {
             errors.title = {message: "Title is required"}
         } else if (!isUSCitizen || !isNotTerrorist || !hasReadTerms) {
-            errors.title = {message: "Must select all checkboxes"}
+            errors.title = { message: "Must select all checkboxes" }
         }
 
         if (Object.keys(errors).length !== 0) {
             return (setErrors(errors))
         } else {
-            submitForm()
+            submitForm();
         }
-    }
+    };
 
     // submit form if validation is passed
     const submitForm = () => {
+        
+        let errors = {};
         const factProperties = {
             ...input,
             user_id: 2
         };
+
         FactsApiService.addFact(factProperties)
-        .then(res => {
-            itemsContext.dispatch({
-                type: 'refetch'
-            });
-            window.alert(`Your fact has been submitted! We won't let you know when it is or isn't approved for abitrary security reasons to protect the community.`);
-            history.push('/');
-        });
+            .then(() => {
+                itemsContext.dispatch({
+                    type: 'refetch-after-add'
+                });
+                history.push(config.FACTS_FEED);
+            })
+            .catch(() => {
+                errors.title = { message: "Something went wrong!" };
+                setErrors(errors)
+            })
     };
 
     // return user to root (facts feed)
     const handleCancelClick = () => {
-        history.push("/")
+        history.push(config.FACTS_FEED);
     };
 
     return (
@@ -113,8 +120,8 @@ const AddFact = () => {
         
         </div>
 
-    )
+    );
 
-}
+};
 
 export default AddFact;
