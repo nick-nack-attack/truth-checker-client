@@ -59,7 +59,7 @@ const AddFact = () => {
         FactsApiService.addFact(factProperties)
             .then(() => {
                 itemsContext.dispatch({
-                    type: 'refetch-after-add'
+                    type: 'refetch'
                 });
                 history.push(config.FACTS_FEED);
             })

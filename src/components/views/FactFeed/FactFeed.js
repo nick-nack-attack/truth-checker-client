@@ -9,7 +9,6 @@ import NoResult from '../../utils/NoResult/NoResult';
 import Form from '../../utils/Form/Form';
 import Fact from '../../utils/Fact/Fact';
 import Loading from '../../utils/Loading/Loading';
-import Notification from '../../utils/Notification/Notification';
 
 // styling
 import './FactFeed.scss';
@@ -24,7 +23,6 @@ const FactFeed = () => {
   const [ searchTerm, setSearchTerm ] = useState("");
   const [ searchResults, setSearchResults ] = useState([]);
   const [ statusSelected, setstatusSelected ] = useState("All");
-  const [ notificationBlurb, setnotificationBlurb ] = useState(itemsContext.state.notifications);
 
   // update state when search term changes
   const handleChange = (event) => {
@@ -35,22 +33,6 @@ const FactFeed = () => {
   const handleSelect = (event) => {
     setstatusSelected(event.target.value)
   };
-
-  const handleNotification = () => {
-    setnotificationBlurb(<Notification flavor={flavor}/>)
-    setTimeout(() => {
-      setnotificationBlurb('')
-    }, 6000)
-  }
-
-  useEffect(() => {
-
-    setnotificationBlurb(<Notification flavor={notificationBlurb}/>)
-    setTimeout(() => {
-      setnotificationBlurb('')
-    }, 6000)
-
-  }, [itemsContext.state.notification])
 
   // update state when SEARCH TERM or STATUS is changed by user
   useEffect(() => {
@@ -99,9 +81,6 @@ const FactFeed = () => {
       <div className='number-of-results'>
         Showing {searchResults.length} facts
       </div>
-
-      { notificationBlurb }
-      <button onClick={() => handleNotification('logged-in')}></button>
 
       { !itemsContext.state.fetched 
         ? <Loading/>

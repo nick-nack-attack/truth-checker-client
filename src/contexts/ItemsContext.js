@@ -51,12 +51,6 @@ let reducer = (state, action) => {
                     ...state,
                     fetched: false
                 }
-            case 'refetch-after-add':
-                return {
-                    ...state,
-                    notification: 'Fact has been submitted!',
-                    fetched: false
-                }
             // set error in state
             case 'set-error':
                 return {
