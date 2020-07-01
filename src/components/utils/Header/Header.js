@@ -40,7 +40,7 @@ const Header = () => {
     const handleMenuClick = (url) => {
         history.push(url);
         setOpen(!open);
-    }
+    };
 
     // context labels
     const menuButtonLabel = open 
