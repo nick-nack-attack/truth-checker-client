@@ -10,11 +10,9 @@ Otherwise, you'll be connecting to the production backend and will be unable to 
 
 ## Description
 
-This application is a promotion piece for a music album.
-Users can submit facts to be approved by the administrator.
-The admin login is purposely left public to allow for users to approved or disapprove their own facts.
-The app hopefully highlights the issues with a central place of truth and advocates for First Ammendment Rights
-along with finding middle ground rather than seeking to be 'right' about something.
+This application is a promotion piece for a music album. Users can submit facts to be approved by the fictitious Department of Truth and Facts. The admin login is purposely left exposed so users can modify and change "the truth." 
+
+The app hopefully highlights the concerns associated with a "single-source-of-truth" and advocates for First Amendment Rights. I believe finding middle ground and fixing systems is better than seeking to be 'right' about something or finding someone to blame.
 
 ## Live Site
 
