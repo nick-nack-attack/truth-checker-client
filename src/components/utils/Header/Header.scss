@@ -43,6 +43,14 @@
             margin-left: 20px;
         };
     };
+
+    .hide {
+        display: none;
+    };
+
+    .show {
+        display: unset;
+    };
     
     .admin {
         background-color: $gold;

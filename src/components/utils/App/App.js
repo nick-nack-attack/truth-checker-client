@@ -1,5 +1,5 @@
 // holds all the routes for the app
-import React from 'react';
+import React, { useState } from 'react';
 import { Switch } from 'react-router-dom';
 
 // get app routes from config file
@@ -16,6 +16,7 @@ import EditFact from '../../views/EditFact/EditFact';
 import FactFeed from '../../views/FactFeed/FactFeed';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
+import Notification from '../../utils/Notification/Notification';
 import LandingPage from '../../views/LandingPage/LandingPage';
 import Login from '../../views/Login/Login';
 import ReportFeed from '../../views/ReportFeed/ReportFeed';
@@ -23,12 +24,31 @@ import ReportFeed from '../../views/ReportFeed/ReportFeed';
 // styling 
 import './App.scss';
 
-function App() {
+const App = () => {
+
+  const [ notification, setNotification ] = useState(null);
+
+  const handleNotification = notification => {
+    setNotification(notification);
+    setTimeout(() => {
+      setNotification(null);
+    }, 5000);
+  };
 
   return (
     
       <div id="Truth-Checker">
-         <Header/>
+        <Header
+          onSuccess={ev => handleNotification(ev)}
+        />
+
+        <div className={ notification ? "show" : "hide" }>
+          { notification 
+            ? <Notification flavor={ notification }/>
+            : '' 
+          }
+        </div>
+          
           <Switch>
             <PublicRoute
               exact path = { config.ROOT }
@@ -36,7 +56,13 @@ function App() {
             />
             <PublicRoute
               exact path = { config.FACTS_FEED }
-              component = { FactFeed }
+              component = { props => {
+                return (
+                  <FactFeed
+                    onSuccess={ev => handleNotification(ev)}
+                  />
+                )
+              } }
             />
             <PublicRoute
               exact path = { config.ABOUT_PAGE }
@@ -44,25 +70,44 @@ function App() {
             />
             <PublicRoute
               path = { config.LOGIN_PAGE }
-              component = { Login }
+              component = { props => {
+                return (
+                  <Login 
+                    onSuccess={ev => handleNotification(ev)}
+                  />
+                )
+              }}
             />
             <PublicRoute
               path = { config.SUBMIT_FACT_PAGE }
-              component = { AddFact }
+              component = { props => {
+                return (
+                  <AddFact 
+                    onSuccess={ev => handleNotification(ev)}
+                  />
+                )
+              }}
             />
             <PrivateRoute
               exact path = { config.EDIT_FACT_PAGE }
-              component = {(props) => {
+              component = { props => {
                 return (
                   <EditFact
                     fact_id={props.match.params.fact_id}
+                    onSuccess={ev => handleNotification(ev)}
                   />
                 )
               }}
             />
             <PrivateRoute
               exact path = { config.REPORTS_PAGE }
-              component = { ReportFeed }
+              component = { props => {
+                return (
+                  <ReportFeed
+                    onSuccess={ev => handleNotification(ev)}
+                  />
+                )
+              }}
             />
           </Switch>
         <Footer/>

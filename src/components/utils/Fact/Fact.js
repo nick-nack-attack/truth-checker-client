@@ -21,7 +21,7 @@ import './Fact.scss';
 
 // Fact takes the argument 'fact'
 // 'title', 'status', 'fact_id', and 'date'
-const Fact = (props) => {
+const Fact = props => {
 
     // set context
     let userContext = useContext(UserContext);
@@ -34,13 +34,13 @@ const Fact = (props) => {
         setIsAdmin(userContext.state.isLoggedIn)
     }, [userContext.state.isLoggedIn])
 
-    let primaryDate = props.fact.status === 'Not True'
+    let primaryDate = props.fact.status === "Not True"
         ? props.fact.date_not_true
-        : props.fact.status === 'Approved'
+        : props.fact.status === "Approved"
         ? props.fact.date_approved
-        : props.fact.status === 'Under Review'
+        : props.fact.status === "Under Review"
         ? props.fact.date_under_review
-        : props.fact.status === 'Pending'
+        : props.fact.status === "Pending"
         ? props.fact.date_submitted
         : new Date();
 
@@ -71,7 +71,10 @@ const Fact = (props) => {
                     onClick={() => history.push(`/facts/id/${props.fact.fact_id}/edit`)}
                 /> 
                 :   
-                <Report fact_id={props.fact.fact_id}/>
+                <Report 
+                    id={props.fact.fact_id}
+                    onSuccess={ev => props.onSuccess(ev)}
+                />
             }
 
         </div>

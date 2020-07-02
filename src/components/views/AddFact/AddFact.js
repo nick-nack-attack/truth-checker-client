@@ -17,7 +17,7 @@ import FactsApiService from '../../../services/facts-service';
 // style
 import './AddFact.scss'
 
-const AddFact = () => {
+const AddFact = props => {
 
     // initialize hooks and contexts
     const history = useHistory();
@@ -28,14 +28,17 @@ const AddFact = () => {
     const [ isUSCitizen, setIsUSCitizen ] = useState(false);
     const [ isNotTerrorist, setIsNotTerrorist ] = useState(false);
     const [ hasReadTerms, setHasReadTerms ] = useState(false);
+    const [ helperText, setHelperText ] = useState('Please enter a fact above');
     const [ errors, setErrors ] = useState({});
+    const recaptchaRef = React.createRef();
 
     // validate submission before sending to server
     const validateAddFact = (e) => {
         e.preventDefault();
+        setHelperText('Validating form...');
         let errors = {};
         if (input.title === undefined || input.title === '') {
-            errors.title = {message: "Title is required"}
+            errors.title = { message: "Please enter a fact above" }
         } else if (!isUSCitizen || !isNotTerrorist || !hasReadTerms) {
             errors.title = { message: "Must select all checkboxes" }
         }
@@ -47,9 +50,19 @@ const AddFact = () => {
         }
     };
 
+    const verifyHuman = () => {
+        <ReCAPTCHA
+            sitekey="6Lf3TqwZAAAAAAYhA94IBjNuYd4flJdPqZb8ER2a"
+            onChange={onChange}
+        />
+    }
+
     // submit form if validation is passed
     const submitForm = () => {
-        
+
+        setHelperText(
+            'Submitting fact...'
+            );
         let errors = {};
         const factProperties = {
             ...input,
@@ -61,11 +74,12 @@ const AddFact = () => {
                 itemsContext.dispatch({
                     type: 'refetch'
                 });
+                props.onSuccess('add-fact');
                 history.push(config.FACTS_FEED);
             })
             .catch(() => {
                 errors.title = { message: "Something went wrong!" };
-                setErrors(errors)
+                setErrors(errors);
             })
     };
 
@@ -96,12 +110,13 @@ const AddFact = () => {
                     handleCancelClick={ handleCancelClick }
                 />
 
-                { errors.title 
-                        ?   <Error
-                                message={errors.title.message}
-                            />
-                    : ""
+                <div className="helper-text-div">
+                    { errors.title 
+                        ?   <Error message={errors.title.message}/>
+                        : helperText
                     }
+                </div>
+
             </div>
         
             <ol className='terms-and-conditions'>

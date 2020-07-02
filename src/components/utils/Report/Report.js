@@ -1,43 +1,79 @@
 // handle when user reports a specific fact
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 
 // components
 import Label from '../Label/Label';
+import Button from '../Button/Button';
+import Menu from '../Menu/Menu';
 
 // contexts
+import { ItemsContext } from '../../../contexts/ItemsContext';
 import FactsApiService from '../../../services/facts-service';
 
+// styling
+import './Report.scss';
+
 // send report after user confirms
-const Report = (props) => {
+const Report = props => {
+
+    // set variables
+    const [ showMenu, setShowMenu ] = useState(false);
+
+    // bring in itemsContext
+    const itemsContext = useContext(ItemsContext);
+
+    const handleCancel = ev => {
+        ev.preventDefault();
+        setShowMenu(false);
+    };
+
+    const handleReportClick = ev => {
+        ev.preventDefault();
+        setShowMenu(true);
+        setTimeout(() => {
+            setShowMenu(false);
+        }, 7000);
+    };
 
     // submit report of a particular fact to be reviewed by an admin
-    const handleReportClick = (id) => {
-        if (window.confirm(`Are you sure you want to report Fact #${props.fact_id}?`)) {
+    const handleSubmit = ev => {
+            ev.preventDefault();
             const reportedFact = {
-                fact_id: id
+                fact_id: props.id
             };
             // send report to server
             FactsApiService.reportFact(
                 reportedFact    
             )
             .then(() => {
-                // let user know when report has been submitted
-                window.alert("Your report has been submitted")
+                itemsContext.dispatch({
+                    type: 'refetch'
+                });
+                // handle report success
+                props.onSuccess('report-fact');
             })
             .catch(() => {
                 // handle error if some issue happens
                 window.alert("An error has occured when sending your report.")
             })
-        };
     };
 
     return (
-            <button onClick={e => handleReportClick(props.fact_id)}>
-                <Label type="report"/>
-            </button>
+            <div>
+                <Button 
+                    text={<Label type="report"/>}
+                    onClick={ev => handleReportClick(ev)}
+                />
+                <div className={ showMenu ? 'show' : 'hide' }>
+                    <Menu
+                        text='Report this fact for inappropriate content or spam?'
+                        handleConfirm={ev => handleSubmit(ev)}
+                        handleCancel={ev => handleCancel(ev)}
+                    />
+                </div>
+            </div>
     );
-
 };
 
 Report.propTypes = {

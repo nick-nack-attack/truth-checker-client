@@ -64,7 +64,7 @@ const Form = (props) => {
                 To Submit, you must agree to the following
             </div>
 
-            <div className='checkboxes-div'>
+            <div className="checkboxes-div">
                 <Input
                     inputtype="checkbox"
                     type="checkbox"

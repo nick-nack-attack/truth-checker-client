@@ -23,21 +23,21 @@ import {
 const Label = (props) => {
     return (
         // fact item labels
-              props.type === 'status' 
+              props.type === "status"
                 ? <span className="fact-label bold white status"> Fact Status</span> 
-            : props.type === 'date' 
+            : props.type === "date" 
                 ? <span className="fact-label bold white date"> Date</span> 
-            : props.type === 'id' 
+            : props.type === "id" 
                 ? <span className="fact-label bold white id"> Fact Id</span> 
         // menu labels
-            : props.type === 'openedMenu' 
+            : props.type === "openedMenu"
                 ? <span className="black menu"><FontAwesomeIcon icon={faBars}/> Menu </span>
-            : props.type === 'closedMenu'
+            : props.type === "closedMenu"
                 ? <span className="black menu"><FontAwesomeIcon icon={faTimes}/> Menu </span>
         // menu option labels
             : props.type === "about" 
                 ? <span className="black menu"><FontAwesomeIcon icon={faInfoCircle}/> About Truth Checker </span>
-            : props.type === 'addFact'
+            : props.type === "addFact"
                 ? <span className="black menu"><FontAwesomeIcon icon={faPlus}/> New Fact </span>
             : props.type === "view-facts"
                 ? <span className="black menu"><FontAwesomeIcon icon={faCheckDouble}/> View Facts </span>
@@ -50,14 +50,14 @@ const Label = (props) => {
         // info labels
             : props.type === 'noResults'
                 ? <span className="fact-label black"><FontAwesomeIcon icon={faEyeSlash}/> No Results Found </span>
-            : props.type === 'admin'
+            : props.type === "admin"
                 ? <span><FontAwesomeIcon icon={faLock}/>{' '}Administrator Portal</span> 
             : props.type === "classified"
                 ? <span className="classified-label"> CLASSIFIED </span>
         // action labels
-            : props.type === 'delete'
+            : props.type === "delete"
                 ? <span className="fact-label"><FontAwesomeIcon icon={faTrash}/> Delete Fact </span>
-            : props.type === 'edit'
+            : props.type === "edit"
                 ? <span className="fact-label"><FontAwesomeIcon icon={faEdit}/> Edit Fact </span>
             : props.type === "report"
                 ? <span className="fact-label"><FontAwesomeIcon icon={faFlag}/> Report Fact </span>

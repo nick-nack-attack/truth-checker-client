@@ -10,7 +10,6 @@ import { ItemsContext } from '../../../contexts/ItemsContext';
 import { UserContext } from '../../../contexts/UserContext';
 
 // assets and styling
-import gif from '../../../assets/loading.gif';
 import './ApiWrapper.scss';
 
 // interacts with api and fetching content when needed

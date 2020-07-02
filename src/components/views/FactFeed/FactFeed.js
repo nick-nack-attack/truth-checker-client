@@ -12,9 +12,8 @@ import Loading from '../../utils/Loading/Loading';
 
 // styling
 import './FactFeed.scss';
-import { set } from 'date-fns';
 
-const FactFeed = () => {
+const FactFeed = props => {
 
   // set context variable
   let itemsContext = useContext(ItemsContext);
@@ -36,21 +35,24 @@ const FactFeed = () => {
 
   // update state when SEARCH TERM or STATUS is changed by user
   useEffect(() => {
-      
-    // set the results to the facts that include the searchTerm
-    const results = itemsContext.state.facts.filter(fact =>
-      fact.title.toLowerCase().includes(searchTerm.toLowerCase())
-    );
 
-    // then filter results by that status of the fact
-    // if "All" is selected then don't filter
-    const filteredResults = ( statusSelected === "All" 
-      ? results
-      : results.filter(fact => fact.status === statusSelected)
-    );
+    // first, get the facts that match the selected status
+    const filterByStatus = itemsContext.state.facts.filter(fact => {
+      return (statusSelected === "All"
+        ? fact
+        : fact.status === statusSelected
+      );
+    });
+
+    // second, filter out the facts that don't match the search term
+    const filterByText = filterByStatus.filter(ft => {
+      return (
+        ft.title.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    });
 
     // then set the search results to the filtered results
-    setSearchResults(filteredResults);
+    setSearchResults(filterByText);
       
       // if the searchTerm or statusSelected changes, then re-run useEffect
   }, 
@@ -79,7 +81,7 @@ const FactFeed = () => {
       </div>
   
       <div className='number-of-results'>
-        Showing {searchResults.length} facts
+        Showing { searchResults.length } {searchResults.length === 1 ? 'fact' : 'facts' }
       </div>
 
       { !itemsContext.state.fetched 
@@ -99,6 +101,7 @@ const FactFeed = () => {
                         <Fact 
                           key={fact.fact_id} 
                           fact={fact}
+                          onSuccess={ev => props.onSuccess(ev)}
                         />
                       );
                     }

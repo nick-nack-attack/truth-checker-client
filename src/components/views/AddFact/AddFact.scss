@@ -11,6 +11,12 @@
             font-weight: bold;
         };
     };
+
+    .helper-text-div {
+        font-style: italic;
+        margin-top: 30px;
+        text-align: center;
+    };
     
     ol.terms-and-conditions {
         list-style: lower-roman;
@@ -24,6 +30,7 @@
 @media only screen and (min-width: 550px) {
 
 }
+
 @media only screen and (min-width: 800px) {
     .add-fact-div {
         margin-top: 30px;

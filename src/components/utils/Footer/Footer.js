@@ -13,11 +13,11 @@ const Footer = () => {
 
     // return DTF logo and link to admin page
     return (
-        <footer className='Footer_wrapper'>
+        <footer className="Footer_wrapper">
             <div className="Footer">
                 <img id="dtf_logo_alt" src={logo} alt="Department of Truth and Facts alternative logo"/>
                 <Link to={config.LOGIN_PAGE}>
-                    <div className='footer-label'>
+                    <div className="footer-label">
                         Admin Login
                     </div>
                 </Link>

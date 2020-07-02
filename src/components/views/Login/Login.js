@@ -20,7 +20,7 @@ import TokenService from '../../../services/token-service';
 import './Login.scss';
 import stickynote from '../../../assets/sticky-note.png';
 
-const Login = () => {
+const Login = props => {
     
     // set variables
     let { dispatch } = useContext(UserContext);
@@ -28,7 +28,7 @@ const Login = () => {
 
     const [ helperText, setHelperText ] = useState('Welcome back!');
     const [ input, handleInputChange ] = UseInputChange();
-    const [ errors, setErrors ] = useState('bob');
+    const [ errors, setErrors ] = useState('');
     
     // logs user in
     let login = (data) => dispatch({
@@ -85,7 +85,8 @@ const Login = () => {
         .then(res => {
             // Once the token and id are posted
             // go to the root
-            login(res)
+            login(res);
+            props.onSuccess('log-in');
             history.push(config.FACTS_FEED);
         })
         .catch((res) => {
@@ -121,7 +122,6 @@ const Login = () => {
             </div>
         </div>
     );
-
 };
 
 export default Login;

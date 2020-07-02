@@ -22,7 +22,7 @@ import FactsApiService from '../../../services/facts-service';
 import './EditFact.scss'
 
 // fact is passed in as a prop
-const EditFact = (props) => {
+const EditFact = props => {
 
     // bring in itemsContext
     const itemsContext = useContext(ItemsContext);
@@ -78,7 +78,8 @@ const EditFact = (props) => {
                 itemsContext.dispatch({
                     type: 'refetch'
                 });
-                history.push(config.FACTS_FEED)
+                props.onSuccess('delete-fact');
+                history.push(config.FACTS_FEED);
             });
         };
     };
@@ -99,7 +100,7 @@ const EditFact = (props) => {
         if (Object.keys(errors).length !== 0) {
             return (setErrors(errors))
         } else {
-            submitForm()
+            submitForm();
         };
 
     };
@@ -119,6 +120,7 @@ const EditFact = (props) => {
                 itemsContext.dispatch({
                     type: 'refetch'
                 });
+                props.onSuccess('edit-fact');
                 // return user to facts feed
                 history.push(config.FACTS_FEED);
             });

@@ -31,6 +31,7 @@ let reducer = (state, action) => {
                     open: !state.menu.open
                 }
             }
+
         default:
             return {
                 ...initialState

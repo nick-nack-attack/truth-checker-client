@@ -22,3 +22,13 @@
 .align-left {
   text-align: left;
 }
+
+.hide {
+  transition: height 500ms 500ms, opacity 500ms 0ms;
+  opacity: 0.0;
+  height: 0px;
+}
+
+.show {
+  transition: height 500ms 0ms, opacity 500ms 500ms;
+}

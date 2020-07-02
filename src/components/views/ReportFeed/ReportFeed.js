@@ -18,7 +18,7 @@ import FactsApiService from '../../../services/facts-service';
 // styling
 import './ReportFeed.scss'
 
-const ReportFeed = () => {
+const ReportFeed = props => {
 
     // set context
     let itemsContext = useContext(ItemsContext);
@@ -39,6 +39,7 @@ const ReportFeed = () => {
                 itemsContext.dispatch({
                     type: 'refetch'
                 });
+                props.onSuccess();
                 history.push(config.FACTS_FEED);
             })
         }

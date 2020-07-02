@@ -18,21 +18,27 @@ const NoResult = (props) => {
     };
 
     return (
-        <div className='no-results-div'>
+        <div className="no-results-div">
             <Label type="noResults"/>
-            <p className='cta-text'> Serve your country by submitting a fact about
+            <p className="cta-text"> Serve your country by submitting a fact about
             <span>"{ props.searchTerm }"</span>
             to be approved by the Department of Truth and Facts!* </p>
             <Button
-                className='add-fact'
+                className="add-fact"
                 text={addNewFact}
                 onClick={handleAddNewFactClick}
             >
                 New fact
             </Button>
-            <p className='disclaimer top-item'>* excitment not included**</p>
-            <p className='disclaimer'>** nothing exciting is included***</p>
-            <p className='disclaimer'>*** nothing is included</p>
+            <p className="disclaimer top-item">
+                * excitment not included**
+            </p>
+            <p className="disclaimer">
+                ** nothing exciting is included***
+            </p>
+            <p className="disclaimer">
+                *** nothing is included
+            </p>
         </div>
     )
 }
