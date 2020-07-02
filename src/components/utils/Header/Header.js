@@ -27,11 +27,14 @@ const Header = props => {
     // set contexts
     let userContext = useContext(UserContext);
 
+    // if user clicks cancel on log out confirmation
     const handleCancel = ev => {
         ev.preventDefault();
         setShowMenu(false);
     };
 
+    // show log out confirmation to user
+    // timeout if no action is taken
     const handleClickLogout = ev => {
         ev.preventDefault();
         setShowMenu(true);

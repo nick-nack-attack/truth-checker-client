@@ -30,7 +30,7 @@ const ReportFeed = props => {
     const [ reportedFacts, setReportedFacts ] = useState([]);
 
     // delete a reported fact
-    const handleApproveReportClick = (fact_id) => {
+    const handleApproveReportClick = (ev, fact_id) => {
         if (window.confirm(`Are you sure you want to disapprove of Fact #${fact_id}? It will be deleted immediately and will have never existed.`)) {
             FactsApiService.deleteFact(
                 fact_id
@@ -39,7 +39,7 @@ const ReportFeed = props => {
                 itemsContext.dispatch({
                     type: 'refetch'
                 });
-                props.onSuccess();
+                props.onSuccess('delete-fact');
                 history.push(config.FACTS_FEED);
             })
         }
@@ -96,7 +96,7 @@ const ReportFeed = props => {
                                 </p>
                                 <div>
                                     <span>
-                                        <button onClick={e => handleApproveReportClick(ft.fact_id)}>
+                                        <button onClick={ev => handleApproveReportClick(ev, ft.fact_id)}>
                                             <Label type="delete"/>
                                         </button>
                                     </span>

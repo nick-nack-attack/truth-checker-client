@@ -35,6 +35,14 @@
         background-color: $gray;
     };
 
+    .hide {
+        display: none;
+    }
+
+    .show {
+        display: unset;
+    }
+
 };
 
 @media only screen and (min-width: 550px) {

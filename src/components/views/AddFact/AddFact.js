@@ -50,13 +50,6 @@ const AddFact = props => {
         }
     };
 
-    const verifyHuman = () => {
-        <ReCAPTCHA
-            sitekey="6Lf3TqwZAAAAAAYhA94IBjNuYd4flJdPqZb8ER2a"
-            onChange={onChange}
-        />
-    }
-
     // submit form if validation is passed
     const submitForm = () => {
 
