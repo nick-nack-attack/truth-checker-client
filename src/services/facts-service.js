@@ -1,8 +1,6 @@
 // import TokenService from '../services/token-service';
 import config from '../config.js';
 
-console.log(process.env.DEMO);
-console.log(process.env);
 const FactsApiService = {
     
     getFacts: () => {
