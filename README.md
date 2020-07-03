@@ -1,13 +1,5 @@
 # Truth Checker - a parody database for the truth
 
-## IMPORTANT: To run locally ...
-
-Navigate to the `config` file and replace the api endpoint with the local server url:
-
-`API_ENDPOINT: process.env.API_ENDPOINT ||` ~~"https://serene-chamber-88335.herokuapp.com/api"~~ `"http://localhost:8000/api",`
-
-Otherwise, you'll be connecting to the production backend and will be unable to connect.
-
 ## Description
 
 This application is a promotion piece for a music album. Users can submit facts to be approved by the fictitious Department of Truth and Facts. The admin login is purposely left exposed so users can modify and change "the truth." 
