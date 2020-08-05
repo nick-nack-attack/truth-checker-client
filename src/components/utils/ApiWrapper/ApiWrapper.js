@@ -46,7 +46,7 @@ const ApiWrapper = (props) => {
       FactsApiService.getReports()
     ])
     .then(([facts, reports]) => {
-      // set the contxt with the returned data
+      // set the context with the returned data
       itemsContext.dispatch({
         type: 'set-facts',
         payload: facts

@@ -1,156 +1,102 @@
 // admin can edit a fact on this page
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 
 // contexts and hooks
 import { ItemsContext } from '../../../contexts/ItemsContext';
-import { UseInputChange } from '../../../hooks/UseInputChange'
+import { UseInputChange } from '../../../hooks/UseInputChange';
 
 // helpers
 import config from '../../../config';
-import { inputDateFormat, findFactById } from '../../../helpers/helpers';
 
 // components
-import Error from '../../utils/Error/Error'
+import Error from '../../utils/Error/Error';
 import Form from '../../utils/Form/Form';
 
 // service
 import FactsApiService from '../../../services/facts-service';
 
 //styling
-import './EditFact.scss'
+import './EditFact.scss';
 
-// fact is passed in as a prop
 const EditFact = props => {
 
-    // bring in itemsContext
+    // initialize variables
     const itemsContext = useContext(ItemsContext);
-
-    // initialize history
     const history = useHistory();
-
-    // set hooks
     const [ input, handleInputChange ] = UseInputChange({});
-
-    // set fact variables
-    const currentFact = findFactById(props.fact_id, itemsContext.state.facts) || {title: ''};
-    const [ title, setTitle ] = useState();
-    const [ factId, setFactId ] = useState();
-    const [ submitted, setSubmitted ] = useState();
-    const [ underReview, setUnderReview ] = useState();
-    const [ approved, setApproved ] = useState();
-    const [ notTrue, setNotTrue ] = useState();
-    
-    // set errors
     const [ errors, setErrors ] = useState({});
+    const [ fact, ] = useState(props.fact);
 
-    // when facts are fetched, set the current fact data
-    useEffect(() => {
-        if ( itemsContext.state.fetched ) {
-            setTitle(currentFact.title);
-            setFactId(currentFact.fact_id);
-            setSubmitted( currentFact.date_submitted ? inputDateFormat(currentFact.date_submitted) : null )
-            setUnderReview( currentFact.date_under_review ? inputDateFormat(currentFact.date_under_review) : null )
-            setApproved( currentFact.date_approved ? inputDateFormat(currentFact.date_approved) : null )
-            setNotTrue( currentFact.date_not_true ? inputDateFormat(currentFact.date_not_true) : null )
-        }
-    }, 
-        [
-            currentFact.title,
-            currentFact.fact_id,
-            currentFact.date_submitted,
-            currentFact.date_under_review,
-            currentFact.date_approved,
-            currentFact.date_not_true,
-            itemsContext.state.fetched
-        ]
-    );
-
-    // delete fact after user confirmation
-    const handleClickDelete = (fact_id, e) => {
-        e.preventDefault()
-        if (window.confirm(`Are you sure you want to delete this Fact?`)) {
-            FactsApiService.deleteFact(
-                fact_id
-            )
-            .then(() => {
-                itemsContext.dispatch({
-                    type: 'refetch'
-                });
-                props.onSuccess('delete-fact');
-                history.push(config.FACTS_FEED);
-            });
-        };
-    };
-
-    // validate edit fact form submission
     const validateEditFactForm = (e) => {
-
-        e.preventDefault();
-        let errors = {};
-
-        // if title isn't set then set error
-        if ( title.length !== 0 && input.title !== undefined && input.title !== '' ) {
-            errors.title = { message: "Title is required" }
-        };
-        
-        // set errors if there are any
-        // otherwise submit the form
-        if (Object.keys(errors).length !== 0) {
-            return (setErrors(errors))
-        } else {
-            submitForm();
-        };
-
+      let errors = {};
+      e.preventDefault();
+      const numOfVals = Object.values(input).filter(Boolean).length;
+      if (numOfVals === 0) {
+        errors.title = { message: 'Must change at least one value to update' };
+        setErrors(errors);
+      } else {
+        setErrors({});
+        submitForm();
+      }
     };
 
-    // submit form when validation is passed
     const submitForm = () => {
-
-        const factFields = {
-            ...input,
-            // since public user, hard code it to 2 
-            user_id: 2
-        };
-
-        // update fact on server then refetch facts
-        FactsApiService.updateFact(props.fact_id, factFields)
-            .then(() => {
-                itemsContext.dispatch({
-                    type: 'refetch'
-                });
-                props.onSuccess('edit-fact');
-                // return user to facts feed
-                history.push(config.FACTS_FEED);
+      const fact_id = fact.fact_id;
+      const fields = {
+        ...input,
+        // public user is hardcoded to 2
+        user_id: 2
+      };
+      FactsApiService.updateFact(fact_id, fields)
+          .then(() => {
+            itemsContext.dispatch({
+              type: 'refetch'
             });
-
+            // on success, pass up to notification
+            // and push to fact feed
+            props.onSuccess('edit-fact');
+            history.push(config.FACTS_FEED);
+          })
     };
 
-    // return form with fact data as default
-    return (
-        
-        <>
-            <Form
-                formType="Edit-Fact"
-                validateEditFactForm={e => validateEditFactForm(e)}
-                handleInputChange={handleInputChange}
-                title={title}
-                submitted={submitted}
-                underReview={underReview}
-                approved={approved}
-                notTrue={notTrue}
-                handleCancelClick={() => history.push(config.FACTS_FEED)}
-                handleClickDelete={e => handleClickDelete(factId, e)}
-            />
+    const handleClickDelete = (id, e) => {
+      e.preventDefault();
+      if (window.confirm(`Are you sure you want to delete this Fact?`)) {
+        FactsApiService.deleteFact(id)
+            .then(() => {
+              itemsContext.dispatch({
+                type: 'refetch'
+              });
+              props.onSuccess('delete-fact');
+              history.push(config.FACTS_FEED);
+            });
+      }
+    };
 
-            { errors.title 
-                ?   <Error
-                            message={errors.title.message}
-                        />
-                : ""
-            }
-        </>
+    // return form
+    return (
+        <>
+          <Form
+              formType="Edit-Fact"
+              validateEditFactForm={ validateEditFactForm }
+              handleInputChange={ handleInputChange }
+              title={ fact.title }
+              submitted={ fact.date_submitted }
+              underReview={ fact.date_under_review }
+              approved={ fact.date_approved }
+              notTrue={ fact.date_not_true }
+              handleCancelClick={ () => history.push(config.FACTS_FEED) }
+              handleClickDelete={ e => handleClickDelete(fact.fact_id, e) }
+          />
+          { errors.title
+              ?   <Error
+                  message={errors.title.message}
+              />
+              : ""
+          }
+          </>
     )
 
 };

@@ -28,7 +28,11 @@ const Label = (props) => {
             : props.type === "date" 
                 ? <span className="fact-label bold white date"> Date</span> 
             : props.type === "id" 
-                ? <span className="fact-label bold white id"> Fact Id</span> 
+                ? <span className="fact-label bold white id"> Fact Id</span>
+            : props.type === 'certifiedFact'
+                ? <span className="fact-label bold white certifiedFact">Approved Fact</span>
+            : props.type === 'certifiedNotTrue'
+                ? <span className="fact-label bold white certifiedNotTrue">Certified False</span>
         // menu labels
             : props.type === "openedMenu"
                 ? <span className="black menu"><FontAwesomeIcon icon={faBars}/> Menu </span>
@@ -46,7 +50,7 @@ const Label = (props) => {
             : props.type === "logout"
                 ? <span className="black menu"><FontAwesomeIcon icon={faSignOutAlt}/> Log out </span>
             : props.type === "login"
-                ? <span className="black menu"><FontAwesomeIcon icon={faSignInAlt}/> Secure Admin Login </span>
+                ? <span className="black menu"><FontAwesomeIcon icon={faSignInAlt}/> Admin Login </span>
         // info labels
             : props.type === 'noResults'
                 ? <span className="fact-label black"><FontAwesomeIcon icon={faEyeSlash}/> No Results Found </span>
@@ -58,10 +62,10 @@ const Label = (props) => {
             : props.type === "delete"
                 ? <span className="fact-label"><FontAwesomeIcon icon={faTrash}/> Delete Fact </span>
             : props.type === "edit"
-                ? <span className="fact-label"><FontAwesomeIcon icon={faEdit}/> Edit Fact </span>
+                ? <span className="fact-label"><FontAwesomeIcon icon={faEdit}/> Edit </span>
             : props.type === "report"
-                ? <span className="fact-label"><FontAwesomeIcon icon={faFlag}/> Report Fact </span>
-            : <span></span>
+                ? <span className="fact-label"><FontAwesomeIcon icon={faFlag}/> Report </span>
+            : ''
     );
 };
 

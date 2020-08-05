@@ -4,6 +4,7 @@
 
     .main-feed-fact {
         background-color: $white;
+        filter: drop-shadow(0px 7px 5px #b5b5b5);
         padding: 15px;
         width: 80%;
         max-width: 325px;
@@ -11,21 +12,26 @@
         border-radius: 10px;
         text-align: left;
     };
+
+    .serial-number {
+        font-size: 12px;
+    }
     
     .main-feed-fact > div {
         margin-bottom: 20px;
     };
     
     .fact-title {
-        font-size: 30px;
+        font-size: 26px;
         margin-bottom: 20px;
         margin-left: 10px;
         margin-top: 10px;
     };
     
     .fact-logo {
-        float: right;
-        margin-top: -30px;
+        position: fixed;
+        bottom: 5%;
+        right: 3%;
     };
 
 };
@@ -35,7 +41,6 @@
     .main-feed-fact {
         max-width: 325px;
         min-width: 325px;
-        
         margin: 10px;
     }
 

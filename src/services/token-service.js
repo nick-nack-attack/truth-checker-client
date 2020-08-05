@@ -2,6 +2,7 @@
 import config from '../config';
 
 const TokenService = {
+
   // Save the user's authenticated token
   saveAuthToken: (token, user_id) => {
     window.localStorage.setItem(config.TOKEN_KEY, token)

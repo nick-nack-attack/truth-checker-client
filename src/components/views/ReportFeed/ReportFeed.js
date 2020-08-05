@@ -63,7 +63,7 @@ const ReportFeed = props => {
                     .sort((a,b) => b.number_of_reports - a.number_of_reports)
                     .map(ft => {
                         return (
-                            <div className='report-conntainer'>
+                            <div key={ft.fact_id} className='report-container'>
                                 <p>
                                     <span className="report-label">
                                         Fact Id

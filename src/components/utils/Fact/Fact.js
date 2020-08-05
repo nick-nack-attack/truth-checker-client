@@ -20,14 +20,16 @@ import Report from '../Report/Report';
 import './Fact.scss';
 
 // Fact takes the argument 'fact'
-// 'title', 'status', 'fact_id', and 'date'
+// 'title', 'status', 'fact_id', 'date', and 'serial'
 const Fact = props => {
 
     // set context
     let userContext = useContext(UserContext);
 
     // set variables
-    const [isAdmin, setIsAdmin] = useState();
+    const [ isAdmin, setIsAdmin ] = useState();
+    const [ approved, ] = useState(props.fact.date_approved);
+    const [ notTrue, ] = useState(props.fact.date_not_true)
     const history = useHistory();
 
     useEffect(() => {
@@ -45,38 +47,44 @@ const Fact = props => {
         : new Date();
 
     return (
-        <div className="main-feed-fact">
+        <div className={`main-feed-fact`}>
+
             <p className="fact-title"> 
                 "{ props.fact.title }"
             </p>
             <div>
-                <Label type="status"/>
-                { props.fact.status }
+                <Label type={ approved ? 'certifiedFact' : notTrue ? 'certifiedNotTrue' : 'status' }/>
+                { approved || notTrue ? prettyDate(primaryDate) : props.fact.status }
             </div>
             <div>
-                <Label type="date"/>
-                { prettyDate(primaryDate) }
+              { approved || notTrue ? '' : <Label type="date"/> }
+              { approved || notTrue ? '' : prettyDate(primaryDate) }
             </div>
             <div>
-                <Label type="id"/>
-                { props.fact.fact_id }
+              { approved || notTrue ? '' : <Label type="id"/> }
+              { approved || notTrue ? '' : props.fact.fact_id }
             </div>
+          <div>
+            { approved || notTrue ? <p className="center">U.S. Department of Truth and Facts</p> : '' }
+            { approved || notTrue ? <p className="center serial-number">{props.fact.serial}</p>:'' }
+          </div>
             <div>
-                <img className = "fact-logo" src={logo} alt="dtf logo"/>
+              { isAdmin ?
+                  <Button
+                      text={<Label type="edit"/>}
+                      onClick={() => history.push(`/facts/id/${props.fact.fact_id}/edit`)}
+                  />
+                  :
+                  <Report
+                      id={props.fact.fact_id}
+                      onSuccess={ev => props.onSuccess(ev)}
+                  />
+              }
             </div>
-
-            { isAdmin ? 
-                <Button
-                    text={<Label type="edit"/>}
-                    onClick={() => history.push(`/facts/id/${props.fact.fact_id}/edit`)}
-                /> 
-                :   
-                <Report 
-                    id={props.fact.fact_id}
-                    onSuccess={ev => props.onSuccess(ev)}
-                />
+            { approved || notTrue
+                ? <img className = "fact-logo" src={logo} alt="dtf logo"/>
+                : ''
             }
-
         </div>
     )
 };

@@ -30,7 +30,6 @@ const AddFact = props => {
     const [ hasReadTerms, setHasReadTerms ] = useState(false);
     const [ helperText, setHelperText ] = useState('Please enter a fact above');
     const [ errors, setErrors ] = useState({});
-    const recaptchaRef = React.createRef();
 
     // validate submission before sending to server
     const validateAddFact = (e) => {
@@ -74,6 +73,7 @@ const AddFact = props => {
                 errors.title = { message: "Something went wrong!" };
                 setErrors(errors);
             })
+
     };
 
     // return user to root (facts feed)
