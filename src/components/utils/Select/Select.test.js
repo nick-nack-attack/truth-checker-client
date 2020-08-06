@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
+import {BrowserRouter as Router} from 'react-router-dom';
 import Select from './Select';
 
-import { UserContextProvider } from '../../../contexts/UserContext'
+import {UserContextProvider} from '../../../contexts/UserContext'
 import AuthContextProvider from '../../../contexts/AuthContextProvider';
 
 describe('Select Component', () => {
@@ -12,18 +12,19 @@ describe('Select Component', () => {
     const div = document.createElement('div');
     const arrayForSelect = ['All', 'Pending', 'Under Review', 'Approved', 'Not True'];
     ReactDOM.render(
-      <Router>
+        <Router>
           <UserContextProvider>
-              <AuthContextProvider>
-                  <Select 
-                    array={arrayForSelect}
-                    value='All'
-                    onChange={() => {}} 
-                  />
-              </AuthContextProvider>
+            <AuthContextProvider>
+              <Select
+                  array={arrayForSelect}
+                  value='All'
+                  onChange={() => {
+                  }}
+              />
+            </AuthContextProvider>
           </UserContextProvider>
-      </Router>,
-      div
+        </Router>,
+        div
     );
 
     ReactDOM.unmountComponentAtNode(div);

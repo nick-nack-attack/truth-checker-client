@@ -10,9 +10,9 @@ body {
 }
 
 .nav {
-vertical-align: center;
-background-color: rgb(185, 185, 185);
-padding: 13px;
+    vertical-align: center;
+    background-color: rgb(185, 185, 185);
+    padding: 13px;
 }
 
 header > ul > li {
@@ -33,22 +33,19 @@ header > ul > li {
 }
 
 .card {
-text-align: left;
-padding: 20px;
-width: 200px;
-border: 2px solid gray;
-margin-left: auto;
-margin-right: auto;
-margin-bottom: 10px;
+    text-align: left;
+    padding: 20px;
+    width: 200px;
+    border: 2px solid gray;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
 }
 
 .bar {
-border: 2px solid black;
-padding: 5px;
-margin-top: 10px;
-margin-bottom: 10px;
-width: 200px;
-text-align: middle;
-margin-left: auto;
-margin-right: auto;
+    border: 2px solid black;
+    padding: 5px;
+    width: 200px;
+    text-align: center;
+    margin: 10px auto;
 }

@@ -1,5 +1,5 @@
 // Helper functions
-import { format } from 'date-fns';
+import {format} from 'date-fns';
 
 const prettyDate = (oldDate) => {
   return format(new Date(oldDate), 'MMM d, yyyy')

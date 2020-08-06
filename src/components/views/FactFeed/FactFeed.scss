@@ -1,40 +1,49 @@
 @media only screen and (min-width: 320px) {
 
-    .number-of-results {
-        margin-top: 15px;
-        text-align: center;
-    };
+  .number-of-results {
+    margin-top: 15px;
+    text-align: center;
+  }
+;
 
-    .search-bar-div {
-        text-align: -webkit-center;
-    }
+  .search-bar-div {
+    text-align: -webkit-center;
+  }
 
-};
+}
+
+;
 
 @media only screen and (min-width: 550px) {
 
-    .list-of-facts-div {
-        text-align: -webkit-center;
-    };
+  .list-of-facts-div {
+    text-align: -webkit-center;
+  }
+;
 
-};
+}
+
+;
 
 @media only screen and (min-width: 800px) {
 
-    .main-feed {
-        text-align: center;   
-    };
+  .main-feed {
+    text-align: center;
+  }
+;
 
-    .search-bar-div {
-        display: inline-flex;
-    }
+  .search-bar-div {
+    display: inline-flex;
+  }
 
-    .list-of-facts-div {
-        max-width: 90%;
-        display: inline-flex;
-        flex-flow: wrap-reverse;
-        text-align: -webkit-center;
-        justify-content: center;
-    }
+  .list-of-facts-div {
+    max-width: 90%;
+    display: inline-flex;
+    flex-flow: wrap-reverse;
+    text-align: -webkit-center;
+    justify-content: center;
+  }
 
-};
+}
+
+;

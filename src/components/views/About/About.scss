@@ -2,44 +2,53 @@
 
 @media only screen and (min-width: 320px) {
 
-    h2 {
-        font-weight: bold;
-    };
-    
-    h3 {
-        font-weight: bold;
-        margin-top: 10px;
-        margin-bottom: 10px;
-    };
-    
-    .about-div {
-        margin: 30px;
-    };
-    
-    .about-list {
-        list-style: square;
-        margin-left: 20px;
-    };
+  h2 {
+    font-weight: bold;
+  }
+;
 
-    .about-title {
-        font-weight: bold;
-        margin-bottom: 20px;
-    }
+  h3 {
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+;
 
-    .mid {
-        margin-top: 20px;
-    }
+  .about-div {
+    margin: 30px;
+  }
+;
+
+  .about-list {
+    list-style: square;
+    margin-left: 20px;
+  }
+;
+
+  .about-title {
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .mid {
+    margin-top: 20px;
+  }
 
 }
 
 @media only screen and (min-width: 550px) {
-    .about-div {
-        max-width: 500px;
-        margin-left: auto;
-        margin-right: auto;
-    };
-};
+  .about-div {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+;
+}
+
+;
 
 @media only screen and (min-width: 800px) {
-    // no changes needed for desktop
-};
+  // no changes needed for desktop
+}
+
+;

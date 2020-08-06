@@ -1,48 +1,56 @@
 @media only screen and (min-width: 320px) {
-    .terms-and-conditions {
-        margin-top: 20px;
-        padding-left: 40px;
-        padding-right: 40px;
-        max-width: 300px;
-        margin-left: auto;
-        margin-right: auto;
-        &>h3 {
-            margin-bottom: 20px;
-            font-weight: bold;
-        };
-    };
+  .terms-and-conditions {
+    margin-top: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
 
-    .helper-text-div {
-        font-style: italic;
-        margin-top: 30px;
-        text-align: center;
-    };
-    
-    ol.terms-and-conditions {
-        list-style: lower-roman;
-    };
-    
-    .strike {
-        text-decoration: line-through wavy;
-    };
-};
+    & > h3 {
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+  ;
+  }
+;
+
+  .helper-text-div {
+    font-style: italic;
+    margin-top: 30px;
+    text-align: center;
+  }
+;
+
+  ol.terms-and-conditions {
+    list-style: lower-roman;
+  }
+;
+
+  .strike {
+    text-decoration: line-through wavy;
+  }
+;
+}
+
+;
 
 @media only screen and (min-width: 550px) {
 
 }
 
 @media only screen and (min-width: 800px) {
-    .add-fact-div {
-        margin-top: 30px;
-        display: flex;
-        justify-content: space-evenly;
-        max-width: 800px;
-        margin-left: auto;
-        margin-right: auto;
-    }
+  .add-fact-div {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-evenly;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-    .terms-and-conditions {
-        margin-left: unset;
-        margin-right: unset;
-    }
+  .terms-and-conditions {
+    margin-left: unset;
+    margin-right: unset;
+  }
 }

@@ -9,7 +9,7 @@ import ErrorBoundary from './ErrorBoundary';
 
 // set context providers
 import AuthContextProvider from './contexts/AuthContextProvider';
-import { UserContextProvider } from './contexts/UserContext';
+import {UserContextProvider} from './contexts/UserContext';
 
 // components
 import ApiWrapper from './components/utils/ApiWrapper/ApiWrapper';
@@ -19,18 +19,18 @@ import App from './components/utils/App/App';
 import './index.css';
 
 ReactDOM.render(
-  <Router>
-    <ErrorBoundary>
-    <AuthContextProvider>
-      <UserContextProvider>
-        <ApiWrapper>
-          <App/>
-        </ApiWrapper>
-      </UserContextProvider>
-    </AuthContextProvider>
-    </ErrorBoundary>
-  </Router>,
-  document.getElementById('root')
+    <Router>
+      <ErrorBoundary>
+        <AuthContextProvider>
+          <UserContextProvider>
+            <ApiWrapper>
+              <App/>
+            </ApiWrapper>
+          </UserContextProvider>
+        </AuthContextProvider>
+      </ErrorBoundary>
+    </Router>,
+    document.getElementById('root')
 );
 
 serviceWorker.unregister();

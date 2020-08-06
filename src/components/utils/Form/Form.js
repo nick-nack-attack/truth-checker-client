@@ -1,12 +1,17 @@
+// this form component handles all forms in the app
+// passed in through props is the type of form
 import React from 'react';
 
-import { inputDateFormat } from '../../../helpers/helpers';
+// utils
+import {inputDateFormat} from '../../../helpers/helpers';
 
+// components
 import Input from '../Input/Input';
 import Label from '../Label/Label';
 import Select from '../Select/Select';
 import Button from '../Button/Button';
 
+// styling
 import './Form.scss'
 
 const Form = (props) => {
@@ -20,7 +25,7 @@ const Form = (props) => {
     // [4] selectOnChange  
     // [5] arrayForSelect
     const mainFeedForm = (
-        <form 
+        <form
             id="main-feed-form"
             onSubmit={e => e.preventDefault()}
         >
@@ -88,7 +93,7 @@ const Form = (props) => {
                     label="I agree to Terms and Conditions"
                     checked={props.hasReadTerms}
                     onChange={props.setHasReadTerms}
-                /> 
+                />
             </div>
 
             <Button
@@ -97,9 +102,9 @@ const Form = (props) => {
             />
             <Button
                 text="Cancel"
-                onClick={e=> props.handleCancelClick()}
+                onClick={e => props.handleCancelClick(e)}
             />
-    
+
 
         </form>
     );
@@ -125,7 +130,7 @@ const Form = (props) => {
                 defaultValue={props.title}
                 placeholder="Fact title"
             />
-            <p className="todays-date"> Today is { inputDateFormat(new Date()) } </p>
+            <p className="todays-date"> Today is {inputDateFormat(new Date())} </p>
             <Input
                 label="Submitted"
                 inputtype="text"
@@ -171,7 +176,7 @@ const Form = (props) => {
                 onClick={props.handleClickDelete}
             />
         </form>
-        
+
     );
 
     const loginForm = (
@@ -207,21 +212,20 @@ const Form = (props) => {
                 text="Cancel"
                 onClick={props.handleCancelClick}
             />
-            <p></p>
         </form>
     );
 
     return (
 
-        props.formType === 'Main-Feed' 
-            ? mainFeedForm 
+        props.formType === 'Main-Feed'
+            ? mainFeedForm
             : props.formType === 'Add-Fact'
             ? addFactForm
-            : props.formType === 'Login-Form' 
-            ? loginForm
-            : props.formType === 'Edit-Fact'
-            ? editFactForm
-            : <div>"Unsupported formType"</div>
+            : props.formType === 'Login-Form'
+                ? loginForm
+                : props.formType === 'Edit-Fact'
+                    ? editFactForm
+                    : <div>"Unsupported formType"</div>
 
     );
 

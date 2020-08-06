@@ -2,66 +2,78 @@
 
 @media only screen and (min-width: 320px) {
 
-    .report-feed > h2 {
-        margin: 20px auto;
-        text-align: center;
-        max-width: 700px;
-    };
+  .report-feed > h2 {
+    margin: 20px auto;
+    text-align: center;
+    max-width: 700px;
+  }
+;
 
-    .list-of-reports {
-        display: flex;
-        flex-flow: wrap;
+  .list-of-reports {
+    display: flex;
+    flex-flow: wrap;
 
+  }
+
+  .report-label {
+    background-color: $black;
+    color: $white;
+    margin-right: 10px;
+    padding: 5px;
+  }
+;
+
+  .report-container {
+    padding: 30px;
+    max-width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+
+    & > p {
+      margin-bottom: 15px;
     }
-    
-    .report-label {
-        background-color: $black;
-        color: $white;
-        margin-right: 10px;
-        padding: 5px;
-    };
-    
-    .report-container {
-        padding: 30px;
-        max-width: 280px;
-        margin-left: auto;
-        margin-right: auto;
-        & > p {
-            margin-bottom: 15px;
-        };
-    };
-    
-    .report-container:nth-child(even) {
-        background-color: $gray;
-    };
+  ;
+  }
+;
 
-    .hide {
-        display: none;
-    }
+  .report-container:nth-child(even) {
+    background-color: $gray;
+  }
+;
 
-    .show {
-        display: unset;
-    }
+  .hide {
+    display: none;
+  }
 
-};
+  .show {
+    display: unset;
+  }
+
+}
+
+;
 
 @media only screen and (min-width: 550px) {
 
-    .list-of-reports {
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-    }
+  .list-of-reports {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-};
+}
+
+;
 
 @media only screen and (min-width: 800px) {
 
-    .list-of-reports {
-        max-width: 900px;
-        margin-left: auto;
-        margin-right: auto;
-    }
+  .list-of-reports {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-};
+}
+
+;
 

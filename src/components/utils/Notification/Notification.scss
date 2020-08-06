@@ -2,48 +2,51 @@
 
 @media only screen and (min-width: 320px) {
 
-    .note-title {
-        border: 2px $white solid;
-        font-weight: bold;
-        padding: 5px 10px;
-        margin-right: 10px;
-    };
-    
-    .notification-div {
-        position: fixed;
-        color: $white;
-        display: flex;
-        place-content: center;
-        align-items: center;
-        border-radius: 10px;
-        padding: 10px 30px;
-        margin-top: -20px;
-        z-index: 1;
-        left: 5%;
-        right: 5%;
-    };
-    
-    .alert {
-        background-color: $error
-    };
-    
-    .success {
-        background-color: $teal
-    };
+  .note-title {
+    border: 2px $white solid;
+    font-weight: bold;
+    padding: 5px 10px;
+    margin-right: 10px;
+  }
+;
+
+  .notification-div {
+    position: fixed;
+    color: $white;
+    display: flex;
+    place-content: center;
+    align-items: center;
+    border-radius: 10px;
+    padding: 10px 30px;
+    margin-top: -20px;
+    z-index: 1;
+    left: 5%;
+    right: 5%;
+  }
+;
+
+  .alert {
+    background-color: $error
+  }
+;
+
+  .success {
+    background-color: $teal
+  }
+;
 
 }
 
 @media only screen and (min-width: 550px) {
 
 
-
 }
 
 @media only screen and (min-width: 800px) {
 
-    .notification-div {
-        left: 20%;
-        right: 20%;
-    }
+  .notification-div {
+    left: 20%;
+    right: 20%;
+  }
 
 }

@@ -12,10 +12,10 @@ https://truth-checker.vercel.app
 
 ## Table of Contents
 
-1. [Technologies](#technologies)
-2. [Planning](#planning)
-3. [Screenshots](#screenshots)
-4. [Requirements](#requirements)
+1. [Technologies](#Technology)
+2. [Planning](#Planning)
+3. [Screenshots](#Screenshots)
+4. [Requirements](#Requirements)
 5. [Available Scripts](#available-scripts)
 
 ## Technology
@@ -31,7 +31,7 @@ https://truth-checker.vercel.app
 
 [Wireframes](https://nick-nack-attack.github.io/truth-checker-client/) made in HTML
 
-## Images
+## Screenshots
 ![Screenshots 1-3](./docs/screenshots/screenshots1-3.jpg)
 
 ![Screenshots 4-6](./docs/screenshots/screenshots4-6.jpg)
@@ -46,12 +46,12 @@ https://truth-checker.vercel.app
 - Your app must be a full-stack app using React, CSS, Node, Express, and PostgreSQL.
 - The client and API should be deployed separately and stored in separate GitHub repos.
 - Both client-side and server-side code must be tested.
-- At a minimum, you should test the happy path for each endpoint in your API and include a smoke test for each component in your React client. If time permits, include tests for the unhappy paths for each endpoint and add snapshot tests for your client where appropriate.
+- At a minimum, you should test the happy path for each endpoint in your API and include a smoke test for each component in your React client app. If time permits, include tests for the unhappy paths for each endpoint and add snapshot tests for your client where appropriate.
 - Your app must be responsive and work just as well on mobile devices as it does on desktop devices.
 - All code must be high quality, error-free, commented as necessary, and clean. When a hiring manager looks at your code, you want them to think, "This person has great coding habits". There should be no errors in the console.
 - The styling on your client must be polished. That means choosing fonts and colors that make sense, correctly sizing different components, and ensuring that it looks great on both mobile and desktop devices.
 - The content of your app must be clear and readable.
-- You must use vanilla CSS for styling capstones. Frameworks like Bootstrap are not permitted. We've found that employers prefer to see candidates who demonstrate a true understanding of CSS.
+- You must use vanilla CSS for styling capstones. Frameworks, like Bootstrap, are not permitted. We've found that employers prefer to see candidates who demonstrate a true understanding of CSS.
 - You must have comprehensive README files for both GitHub repos (we'll discuss this step in detail at the end of this module).
 - Your app must have a landing page that explains what the app does and how to get started, in addition to pages required to deliver the main functionality.
 - You must deploy a live, publicly-accessible version of your app.

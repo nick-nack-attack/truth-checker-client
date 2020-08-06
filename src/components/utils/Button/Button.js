@@ -6,11 +6,11 @@ import './Button.scss';
 
 // requires 'text' from props
 const Button = (props) => {
-    return (
-        <button {...props}>
-            { props.text }
-        </button>
-    );
+  return (
+      <button {...props}>
+        {props.text}
+      </button>
+  );
 };
 
 export default Button;

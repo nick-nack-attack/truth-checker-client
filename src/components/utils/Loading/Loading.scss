@@ -1,22 +1,24 @@
-
 // contains loading gif and text
 .loading-div {
-    display: flex;
-    flex-direction: column;
-    place-items: center;
-    width: 150px;
-    padding: 50px;
-    &>div {
-        margin-top: 20px;
-        text-align: center;
-    };
-};
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  width: 150px;
+  padding: 50px;
+
+  & > div {
+    margin-top: 20px;
+    text-align: center;
+  }
+
+}
 
 #refresh-page {
-    margin-top: 25px;
+  margin-top: 25px;
 }
 
 #loading-gif {
-    height: 50px;
-    margin-bottom: 30px;
-};
+  height: 50px;
+  margin-bottom: 30px;
+}
+

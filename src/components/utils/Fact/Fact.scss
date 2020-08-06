@@ -2,50 +2,52 @@
 
 @media only screen and (min-width: 320px) {
 
-    .main-feed-fact {
-        background-color: $white;
-        filter: drop-shadow(0px 7px 5px #b5b5b5);
-        padding: 15px;
-        width: 80%;
-        max-width: 325px;
-        margin: 20px auto auto auto;
-        border-radius: 10px;
-        text-align: left;
-    };
+  .main-feed-fact {
+    background-color: $white;
+    filter: drop-shadow(0px 7px 5px #b5b5b5);
+    padding: 15px;
+    width: 80%;
+    max-width: 325px;
+    margin: 20px auto auto auto;
+    border-radius: 10px;
+    text-align: left;
+  }
 
-    .serial-number {
-        font-size: 12px;
-    }
-    
-    .main-feed-fact > div {
-        margin-bottom: 20px;
-    };
-    
-    .fact-title {
-        font-size: 26px;
-        margin-bottom: 20px;
-        margin-left: 10px;
-        margin-top: 10px;
-    };
-    
-    .fact-logo {
-        position: fixed;
-        bottom: 5%;
-        right: 3%;
-    };
+  .serial-number {
+    font-size: 12px;
+  }
 
-};
+  .main-feed-fact > div {
+    margin-bottom: 20px;
+  }
+
+  .fact-title {
+    font-size: 26px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+
+  .fact-logo {
+    position: fixed;
+    bottom: 5%;
+    right: 3%;
+  }
+
+}
 
 @media only screen and (min-width: 550px) {
 
-    .main-feed-fact {
-        max-width: 325px;
-        min-width: 325px;
-        margin: 10px;
-    }
+  .main-feed-fact {
+    max-width: 325px;
+    min-width: 325px;
+    margin: 10px;
+  }
 
-};
+}
 
 @media only screen and (min-width: 800px) {
 
-};
+    // No rules for desktop
+
+}
