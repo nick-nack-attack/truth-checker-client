@@ -13,8 +13,17 @@
     text-align: left;
   }
 
+  .fact-container {
+    display: grid;
+  }
+
   .serial-number {
     font-size: 12px;
+    padding: 5px 10px;
+    margin: auto;
+    background-color: $light-gray;
+    border-radius: 10px;
+    width: fit-content;
   }
 
   .main-feed-fact > div {
@@ -28,11 +37,11 @@
     margin-top: 10px;
   }
 
-  .fact-logo {
-    position: fixed;
-    bottom: 5%;
-    right: 3%;
-  }
+  //.fact-logo {
+  //  position: fixed;
+  //  bottom: 5%;
+  //  right: 3%;
+  //}
 
 }
 

@@ -3,7 +3,7 @@ import React, {useContext, useEffect, useState} from 'react';
 import {useHistory} from 'react-router-dom';
 
 // assets
-import logo from '../../../assets/logo-DTF.png';
+import logo from '../../../assets/dtf_header.png';
 
 // utils
 import {prettyDate} from '../../../helpers/helpers';
@@ -47,29 +47,32 @@ const Fact = props => {
                   : new Date();
 
   return (
-      <div className={`main-feed-fact`}>
-
-        <p className="fact-title">
-          "{props.fact.title}"
-        </p>
-        <div>
-          <Label type={approved ? 'certifiedFact' : notTrue ? 'certifiedNotTrue' : 'status'}/>
-          {approved || notTrue ? prettyDate(primaryDate) : props.fact.status}
+      <div className={'fact-container'}>
+        <div className={`main-feed-fact`}>
+          <p className="fact-title">
+            "{props.fact.title}"
+          </p>
+          <div>
+            <Label type={approved ? 'certifiedFact' : notTrue ? 'certifiedNotTrue' : 'status'}/>
+            {approved || notTrue ? prettyDate(primaryDate) : props.fact.status}
+          </div>
+          <div>
+            {approved || notTrue ? '' : <Label type="date"/>}
+            {approved || notTrue ? '' : prettyDate(primaryDate)}
+          </div>
+          <div>
+            {approved || notTrue ? '' : <Label type="id"/>}
+            {approved || notTrue ? '' : props.fact.fact_id}
+          </div>
+          <div>
+            { approved || notTrue ? <img className="fact-logo" src={logo} alt="dtf logo"/> : '' }
+            { approved || notTrue ? <p className="center serial-number">{props.fact.serial}</p> : '' }
+          </div>
+          <div>
+          </div>
         </div>
         <div>
-          {approved || notTrue ? '' : <Label type="date"/>}
-          {approved || notTrue ? '' : prettyDate(primaryDate)}
-        </div>
-        <div>
-          {approved || notTrue ? '' : <Label type="id"/>}
-          {approved || notTrue ? '' : props.fact.fact_id}
-        </div>
-        <div>
-          {approved || notTrue ? <p className="center">U.S. Department of Truth and Facts</p> : ''}
-          {approved || notTrue ? <p className="center serial-number">{props.fact.serial}</p> : ''}
-        </div>
-        <div>
-          {isAdmin ?
+          { isAdmin ?
               <Button
                   text={<Label type="edit"/>}
                   onClick={() => history.push(`/facts/id/${props.fact.fact_id}/edit`)}
@@ -81,10 +84,6 @@ const Fact = props => {
               />
           }
         </div>
-        {approved || notTrue
-            ? <img className="fact-logo" src={logo} alt="dtf logo"/>
-            : ''
-        }
       </div>
   )
 };

@@ -7,7 +7,7 @@ import config from '../../../config';
 
 // styling and assets
 import './Footer.scss';
-import logo from '../../../assets/logo-DTF-alt.png';
+import logo from '../../../assets/dtf_header.png';
 
 const Footer = () => {
 
