@@ -39,24 +39,26 @@ const ApiWrapper = (props) => {
     );
   };
 
+  const handlePromiseAll = ([facts, reports]) => {
+    // set the context with the returned data
+    itemsContext.dispatch({
+      type: 'set-facts',
+      payload: facts
+    });
+    itemsContext.dispatch({
+      type: 'set-reports',
+      payload: reports
+    })
+  }
+
   // get facts and reports from server
   useEffect(() => {
-    Promise.all([
-      FactsApiService.getFacts(),
-      FactsApiService.getReports()
-    ])
-        .then(([facts, reports]) => {
-          // set the context with the returned data
-          itemsContext.dispatch({
-            type: 'set-facts',
-            payload: facts
-          });
-          itemsContext.dispatch({
-            type: 'set-reports',
-            payload: reports
-          })
-          checkUserLoggedIn();
-        })
+    const promiseList = checkUserLoggedIn()
+        ? [FactsApiService.getFacts(), FactsApiService.getReports()]
+        : [FactsApiService.getFacts()];
+
+    Promise.all(promiseList)
+        .then(handlePromiseAll)
         .catch(err => {
           console.log(`catch ran`, err)
         })
