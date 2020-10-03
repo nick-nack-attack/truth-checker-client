@@ -16,13 +16,17 @@ import './ApiWrapper.scss';
 const ApiWrapper = (props) => {
 
   let itemsContext = useContext(ItemsContext);
-  let {dispatch} = useContext(UserContext);
+  let { dispatch, state: { isLoggedIn } } = useContext(UserContext);
 
   // logs the user in via context
-  let login = (settings) => dispatch({
-    type: 'login',
-    data: settings
-  });
+  let login = (settings) => {
+    dispatch({
+      type: 'login',
+      data: settings
+    });
+
+    return isLoggedIn;
+  }
 
   // logs the user out via context
   let logout = (settings) => dispatch({
