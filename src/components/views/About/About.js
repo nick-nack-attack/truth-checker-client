@@ -3,6 +3,7 @@ import React from 'react';
 
 // component
 import Label from '../../utils/Label/Label';
+import Iframe from 'react-iframe';
 
 // styling
 import './About.scss';
@@ -61,6 +62,12 @@ const About = () => {
           <p>The DTF has approximately <Label type="classified"/> employees located in its Headquarters in Washington,
             DC, and in regional field offices in <Label type="classified"/>, <Label type="classified"/>, <Label
                 type="classified"/>, and <Label type="classified"/>.</p>
+        </div>
+        <div>
+          <Iframe
+              url='https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/907112740&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true'
+              width={'400px'}
+          />
         </div>
       </div>
   )
