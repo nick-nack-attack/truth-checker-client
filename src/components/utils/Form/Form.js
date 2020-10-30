@@ -3,7 +3,7 @@
 import React from 'react';
 
 // utils
-import {inputDateFormat} from '../../../helpers/helpers';
+import { inputDateFormat } from '../../../helpers/helpers';
 
 // components
 import Input from '../Input/Input';
@@ -184,7 +184,7 @@ const Form = (props) => {
             id="Login_Form"
             onSubmit={props.validateAdminLoginForm}
         >
-            <legend className="center">Admin Login</legend>
+            <legend className="center">Welcome to Truth Checker</legend>
             <Input
                 inputtype="text"
                 id="email-field"
@@ -192,7 +192,6 @@ const Form = (props) => {
                 name="email"
                 label="Email"
                 autoComplete="email"
-                value="admin@dtf.gov"
                 onChange={props.handleInputChange}
             />
             <Input
@@ -206,12 +205,15 @@ const Form = (props) => {
             />
             <Button
                 type="submit"
-                text="Submit"
+                text="Create Account"
             />
             <Button
                 text="Cancel"
                 onClick={props.handleCancelClick}
             />
+            <br/>
+            <br/>
+            Already have an account? <a href="/">Log In</a>
         </form>
     );
 
@@ -219,13 +221,13 @@ const Form = (props) => {
 
         props.formType === 'Main-Feed'
             ? mainFeedForm
-            : props.formType === 'Add-Fact'
+                : props.formType === 'Add-Fact'
             ? addFactForm
-            : props.formType === 'Login-Form'
-                ? loginForm
+                : props.formType === 'Login-Form'
+            ? loginForm
                 : props.formType === 'Edit-Fact'
-                    ? editFactForm
-                    : <div>"Unsupported formType"</div>
+            ? editFactForm
+                : <div>"Unsupported formType"</div>
 
     );
 

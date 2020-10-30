@@ -18,7 +18,12 @@ const Footer = () => {
           <img id="dtf_logo_alt" src={logo} alt="Department of Truth and Facts alternative logo"/>
           <Link to={config.LOGIN_PAGE}>
             <div className="footer-label">
-              Admin Login
+              Log in
+            </div>
+          </Link>
+          <Link>
+            <div className="footer-label">
+              Sign Up
             </div>
           </Link>
         </div>

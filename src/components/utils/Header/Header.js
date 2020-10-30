@@ -1,5 +1,5 @@
-import React, {useContext, useState} from 'react';
-import {useHistory} from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 // import app routes from config file
 import config from '../../../config';
@@ -20,8 +20,7 @@ const Header = props => {
 
   // set variables
   const history = useHistory();
-  // track if menu is open or closed
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(true); // track if menu is open or closed
   const [showMenu, setShowMenu] = useState(false);
 
   // set contexts

@@ -25,7 +25,7 @@ const Login = props => {
   let {dispatch} = useContext(UserContext);
   const history = useHistory();
 
-  const [helperText, setHelperText] = useState('Welcome back!');
+  const [helperText, setHelperText] = useState('Truth Checker v1.0');
   const [input, handleInputChange] = UseInputChange();
   const [errors, setErrors] = useState('');
 
