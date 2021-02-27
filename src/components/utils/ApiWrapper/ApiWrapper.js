@@ -10,7 +10,7 @@ import {ItemsContext} from '../../../contexts/ItemsContext';
 import {UserContext} from '../../../contexts/UserContext';
 
 // assets and styling
-import './ApiWrapper.css';
+import './ApiWrapper.scss';
 
 // interacts with api and fetching content when needed
 const ApiWrapper = (props) => {
