@@ -1,13 +1,13 @@
 // this fetch wrapper will listen and refetch data if needed
-import React, {useContext, useEffect} from 'react';
+import React, { useContext, useEffect } from 'react';
 
 // services
 import FactsApiService from '../../../services/facts-service';
 import TokenService from '../../../services/token-service';
 
 // contexts
-import {ItemsContext} from '../../../contexts/ItemsContext';
-import {UserContext} from '../../../contexts/UserContext';
+import { ItemsContext } from '../../../contexts/ItemsContext';
+import { UserContext } from '../../../contexts/UserContext';
 
 // assets and styling
 import './ApiWrapper.scss';
@@ -72,7 +72,7 @@ const ApiWrapper = (props) => {
       <div>
 
         <div className="wrapper">
-          {props.children}
+          { props.children }
         </div>
 
       </div>

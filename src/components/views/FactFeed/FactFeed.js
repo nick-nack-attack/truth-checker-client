@@ -13,7 +13,7 @@ import Loading from '../../utils/Loading/Loading';
 // styling
 import './FactFeed.scss';
 
-const FactFeed = props => {
+const FactFeed = (props) => {
 
   // set context variable
   let itemsContext = useContext(ItemsContext);
@@ -30,14 +30,13 @@ const FactFeed = props => {
 
   // update state when status selected changes
   const handleSelect = (event) => {
-    setStatusSelected(event.target.value)
+    setStatusSelected(event.target.value);
   };
 
   // update state when SEARCH TERM or STATUS is changed by user
   useEffect(() => {
-
         // first, get the facts that match the selected status
-        const filterByStatus = itemsContext.state.facts.filter(fact => {
+        const filterByStatus = itemsContext.state.facts.filter((fact) => {
           return (statusSelected === "All"
                   ? fact
                   : fact.status === statusSelected
@@ -45,7 +44,7 @@ const FactFeed = props => {
         });
 
         // second, filter out the facts that don't match the search term
-        const filterByText = filterByStatus.filter(ft => {
+        const filterByText = filterByStatus.filter((ft) => {
           return (
               ft.title.toLowerCase().includes(searchTerm.toLowerCase())
           );
