@@ -76,12 +76,12 @@ const Login = props => {
 
     // use service to post the login
     UsersService.postLogin(loginCreds)
-        .then(res => {
+        .then((res) => {
           TokenService.saveAuthToken(res.authToken, res.user_id);
           loginCreds.email = '';
           loginCreds.password = '';
         })
-        .then(res => {
+        .then((res) => {
           // Once the token and id are posted
           // go to the root
           login(res);
