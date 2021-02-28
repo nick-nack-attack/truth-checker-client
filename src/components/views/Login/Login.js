@@ -1,15 +1,15 @@
 // login to the admin portal
-import React, {useContext, useState} from 'react';
+import React, { useContext, useState } from 'react';
 import config from '../../../config';
 
 // contexts
-import {UserContext} from '../../../contexts/UserContext';
+import { UserContext } from '../../../contexts/UserContext';
 
 // components
 import Error from '../../utils/Error/Error';
 import Form from '../../utils/Form/Form';
-import {useHistory} from 'react-router-dom';
-import {UseInputChange} from '../../../hooks/UseInputChange';
+import { useHistory } from 'react-router-dom';
+import { UseInputChange } from '../../../hooks/UseInputChange';
 
 // services
 import UsersService from '../../../services/users-service';
