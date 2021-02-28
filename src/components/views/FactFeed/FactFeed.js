@@ -1,14 +1,14 @@
 // view and search for facts - Root page for logged in users
-import React, {useContext, useEffect, useState} from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
 // contexts
-import {ItemsContext} from '../../../contexts/ItemsContext';
+import { ItemsContext } from '../../../contexts/ItemsContext';
 
 // components
 import NoResult from '../../utils/NoResult/NoResult';
-import Form from '../../utils/Form/Form';
-import Fact from '../../utils/Fact/Fact';
-import Loading from '../../utils/Loading/Loading';
+import Form     from '../../utils/Form/Form';
+import Fact     from '../../utils/Fact/Fact';
+import Loading  from '../../utils/Loading/Loading';
 
 // styling
 import './FactFeed.scss';

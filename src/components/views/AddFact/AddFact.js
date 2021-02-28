@@ -64,7 +64,7 @@ const AddFact = props => {
     FactsApiService.addFact(factProperties)
         .then(() => {
           itemsContext.dispatch({
-            type: 'refetch'
+            type: 'new-fact-added'
           });
           props.onSuccess('add-fact');
           history.push(config.FACTS_FEED);

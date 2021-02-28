@@ -1,4 +1,4 @@
-import React, {createContext, useReducer} from 'react';
+import React, { createContext, useReducer } from 'react';
 
 // utilities
 
@@ -7,8 +7,7 @@ let SessionContext = createContext();
 let initialState = {
   menu: {
     open: false,
-    toggleMenu: () => {
-    }
+    toggleMenu: () => {}
   }
 };
 
@@ -29,7 +28,6 @@ let reducer = (state, action) => {
           open: !state.menu.open
         }
       }
-
     default:
       return {
         ...initialState
@@ -49,4 +47,4 @@ const SessionContextProvider = (props) => {
 
 let SessionContextConsumer = SessionContext.Consumer;
 
-export {SessionContext, SessionContextProvider, SessionContextConsumer};
+export { SessionContext, SessionContextProvider, SessionContextConsumer };

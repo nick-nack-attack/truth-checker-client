@@ -1,5 +1,5 @@
 // Contexts for all the content
-import React, {createContext, useReducer} from 'react';
+import React, { createContext, useReducer } from 'react';
 
 let ItemsContext = createContext();
 
@@ -9,14 +9,14 @@ let initialState = {
   reports: [],
   all: [],
   error: null,
-  notification: []
+  notification: [],
 };
 
 // Allows dispatch actions to update state
 let reducer = (state, action) => {
   switch (action.type) {
       // set facts from the response
-    case 'set-items':
+    case "set-items":
       return {
         ...state,
         fetched: true,
@@ -25,37 +25,48 @@ let reducer = (state, action) => {
         all: action.payload.all
       }
       // update only the facts
-    case 'set-facts':
+    case "set-facts":
       return {
         ...state,
         facts: action.payload,
       }
-    case 'set-reports':
+    case "set-reports":
       return {
         ...state,
         reports: action.payload,
         fetched: true
       }
       // set all items
-    case 'set-all':
+    case "set-all":
       return {
         ...state,
         all: action.payload
       }
       // refetch items from database
-    case 'refetch':
+    case "refetch":
       return {
         ...state,
         fetched: false
       }
+    case "new-fact-added":
+      return {
+        ...state,
+        fetched: false,
+        notification: 'Fact has been added!'
+      }
       // set error in state
-    case 'set-error':
+    case "set-error":
       return {
         ...state,
         error: action.payload
       }
+    case "set-notification":
+      return {
+        ...state,
+        notification: action.payload,
+      }
       // clear notification
-    case 'clear-notification':
+    case "clear-notification":
       return {
         notification: ''
       }
