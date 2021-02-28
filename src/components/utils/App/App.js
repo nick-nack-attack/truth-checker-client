@@ -33,7 +33,7 @@ const App = () => {
   const itemsContext = useContext(ItemsContext);
   const [notification, setNotification] = useState(null);
 
-  const handleNotification = notification => {
+  const handleNotification = (notification) => {
     setNotification(notification);
     setTimeout(() => {
       setNotification(null);

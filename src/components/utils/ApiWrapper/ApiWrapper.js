@@ -2,12 +2,12 @@
 import React, { useContext, useEffect } from 'react';
 
 // services
-import FactsApiService from '../../../services/facts-service';
-import TokenService from '../../../services/token-service';
+import FactsApiService  from '../../../services/facts-service';
+import TokenService     from '../../../services/token-service';
 
 // contexts
 import { ItemsContext } from '../../../contexts/ItemsContext';
-import { UserContext } from '../../../contexts/UserContext';
+import { UserContext }  from '../../../contexts/UserContext';
 
 // assets and styling
 import './ApiWrapper.scss';

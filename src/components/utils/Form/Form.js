@@ -3,13 +3,13 @@
 import React from 'react';
 
 // utils
-import {inputDateFormat} from '../../../helpers/helpers';
+import { inputDateFormat } from '../../../helpers/helpers';
 
 // components
-import Input from '../Input/Input';
-import Label from '../Label/Label';
-import Select from '../Select/Select';
-import Button from '../Button/Button';
+import Input    from '../Input/Input';
+import Label    from '../Label/Label';
+import Select   from '../Select/Select';
+import Button   from '../Button/Button';
 
 // styling
 import './Form.scss'
@@ -22,7 +22,7 @@ const Form = (props) => {
     // [1] searchValue
     // [2] searchOnChange
     // [3] valueSelect
-    // [4] selectOnChange  
+    // [4] selectOnChange
     // [5] arrayForSelect
     const mainFeedForm = (
         <form
@@ -46,8 +46,8 @@ const Form = (props) => {
     );
 
     // PROPS:
-    // [1] validateAddFact 
-    // [2] handleInputChange 
+    // [1] validateAddFact
+    // [2] handleInputChange
     // [3] handleCancelClick
     // [4] 3 isChecked and onChange each
     const addFactForm = (
@@ -110,8 +110,8 @@ const Form = (props) => {
     );
 
     // PROPS:
-    // [1] validateEditFactForm 
-    // [2] handleInputChange 
+    // [1] validateEditFactForm
+    // [2] handleInputChange
     // [3] title, submitted, underReview, approved, notTrue
     // [4] handleCancelClick
     // [5] handleClickDelete
@@ -215,19 +215,18 @@ const Form = (props) => {
         </form>
     );
 
-    return (
-
-        props.formType === 'Main-Feed'
-            ? mainFeedForm
-            : props.formType === 'Add-Fact'
-            ? addFactForm
-            : props.formType === 'Login-Form'
-                ? loginForm
-                : props.formType === 'Edit-Fact'
-                    ? editFactForm
-                    : <div>"Unsupported formType"</div>
-
-    );
+    switch (props.formType) {
+        case "Main-Feed":
+            return mainFeedForm
+        case "Add-Fact":
+            return addFactForm
+        case "Login-Form":
+            return loginForm
+        case "Edit-Fact":
+            return editFactForm
+        default:
+            return <div>"Unsupported formType"</div>
+    }
 
 };
 

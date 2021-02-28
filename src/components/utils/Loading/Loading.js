@@ -8,10 +8,12 @@ const Loading = () => {
   const [timeOut, setTimeOut] = useState('Fetching data. Please wait...')
 
   setTimeout(() => {
-    setTimeOut(
+    return (
         <>
           <p>Are you even connected to the internet?</p>
-          <button id="refresh-page" onClick={() => window.location.reload()}>Refresh Page</button>
+            <button id="refresh-page" onClick={() => window.location.reload()}>
+              Refresh Page
+            </button>
         </>
     )
   }, 6000);

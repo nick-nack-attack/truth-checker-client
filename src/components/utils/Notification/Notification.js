@@ -11,29 +11,24 @@ const Notification = (props) => {
         <span className="note-title">Success</span>
         <p>{txt}</p>
       </div>
-  )
+  );
 
-  return (
-
-      props.flavor === 'add-fact'
-          ? success('Fact has been submitted', 'success')
-
-          : props.flavor === 'edit-fact'
-          ? success('Fact has been updated', 'success')
-
-          : props.flavor === 'delete-fact'
-              ? success('Fact has been deleted', 'alert')
-
-              : props.flavor === 'report-fact'
-                  ? success('Fact has been reported', 'alert')
-
-                  : props.flavor === 'log-in'
-                      ? success(`You've been logged in`, 'success')
-
-                      : props.flavor === 'log-out'
-                          ? success(`You've been logged out`, 'alert')
-                          : ''
-  )
+    switch(props.flavor) {
+        case "add-fact":
+            return success('Fact has been submitted', 'success');
+        case "edit-fact":
+            return success('Fact has been updated', 'success');
+        case "delete-fact":
+            return success('Fact has been deleted', 'alert');
+        case "report-fact":
+            return success('Fact has been reported', 'alert');
+        case "log-in":
+            return success(`You've been logged in`, 'success');
+        case "log-out":
+            return success(`You've been logged out`, 'alert');
+        default:
+            return '';
+    }
 
 };
 
