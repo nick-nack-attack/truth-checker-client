@@ -29,14 +29,13 @@ const Input = (props) => {
   )
 
   return (
-
       props.inputtype === 'text'
           ? textInput
           : props.inputtype === 'checkbox'
           ? checkBox
           : <div>Unsupported input type</div>
-
   );
+
 };
 
 export default Input;
