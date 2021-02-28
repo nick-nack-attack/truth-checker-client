@@ -1,15 +1,15 @@
 // Public user can submit a fact
-import React, {useContext, useState} from 'react';
-import {useHistory} from 'react-router-dom';
-import config from '../../../config';
+import React, { useContext, useState }  from 'react';
+import { useHistory }                   from 'react-router-dom';
+import config                           from '../../../config';
 
 // contexts and hooks
-import {ItemsContext} from '../../../contexts/ItemsContext';
-import {UseInputChange} from '../../../hooks/UseInputChange';
+import { ItemsContext }   from '../../../contexts/ItemsContext';
+import { UseInputChange } from '../../../hooks/UseInputChange';
 
 // components
-import Form from '../../utils/Form/Form';
-import Error from '../../utils/Error/Error';
+import Form   from '../../utils/Form/Form';
+import Error  from '../../utils/Error/Error';
 
 // service
 import FactsApiService from '../../../services/facts-service';
@@ -17,7 +17,7 @@ import FactsApiService from '../../../services/facts-service';
 // style
 import './AddFact.scss'
 
-const AddFact = props => {
+const AddFact = (props) => {
 
   // initialize hooks and contexts
   const history = useHistory();
@@ -58,6 +58,7 @@ const AddFact = props => {
     let errors = {};
     const factProperties = {
       ...input,
+      // this is hardcoded to the public user
       user_id: 2
     };
 

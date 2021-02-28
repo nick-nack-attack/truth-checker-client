@@ -69,7 +69,7 @@ const ItemsContextProvider = (props) => {
   let value = {state, dispatch};
   return (
       <ItemsContext.Provider value={value}>
-        {props.children}
+        { props.children }
       </ItemsContext.Provider>
   );
 };

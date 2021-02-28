@@ -1,27 +1,27 @@
 // fact component to display in feed
-import React, {useContext, useEffect, useState} from 'react';
-import {useHistory} from 'react-router-dom';
+import React, { useContext, useEffect, useState }   from 'react';
+import { useHistory }                               from 'react-router-dom';
 
 // assets
 import logo from '../../../assets/logo-DTF.png';
 
 // utils
-import {prettyDate} from '../../../helpers/helpers';
+import { prettyDate } from '../../../helpers/helpers';
 
 // contexts
-import {UserContext} from '../../../contexts/UserContext';
+import { UserContext } from '../../../contexts/UserContext';
 
 // components
-import Button from '../Button/Button';
-import Label from '../Label/Label';
-import Report from '../Report/Report';
+import Button   from '../Button/Button';
+import Label    from '../Label/Label';
+import Report   from '../Report/Report';
 
 // files
 import './Fact.scss';
 
 // Fact takes the argument 'fact'
 // 'title', 'status', 'fact_id', 'date', and 'serial'
-const Fact = props => {
+const Fact = (props) => {
 
   // set context
   let userContext = useContext(UserContext);
@@ -35,6 +35,8 @@ const Fact = props => {
   useEffect(() => {
     setIsAdmin(userContext.state.isLoggedIn)
   }, [userContext.state.isLoggedIn])
+
+
 
   let primaryDate = props.fact.status === "Not True"
       ? props.fact.date_not_true

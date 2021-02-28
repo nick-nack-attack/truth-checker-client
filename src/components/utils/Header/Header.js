@@ -1,22 +1,22 @@
-import React, {useContext, useState} from 'react';
-import {useHistory} from 'react-router-dom';
+import React, { useContext, useState }  from 'react';
+import { useHistory }                   from 'react-router-dom';
 
 // import app routes from config file
 import config from '../../../config';
 
 // components
 import Button from '../Button/Button';
-import Label from '../Label/Label';
-import Menu from '../Menu/Menu';
+import Label  from '../Label/Label';
+import Menu   from '../Menu/Menu';
 
 // User context
-import {UserContext} from '../../../contexts/UserContext';
-import logo from '../../../assets/logo-DTF.png';
+import { UserContext }  from '../../../contexts/UserContext';
+import logo             from '../../../assets/logo-DTF.png';
 
 // styling
 import './Header.scss';
 
-const Header = props => {
+const Header = (props) => {
 
   // set variables
   const history = useHistory();
@@ -28,14 +28,14 @@ const Header = props => {
   let userContext = useContext(UserContext);
 
   // if user clicks cancel on log out confirmation
-  const handleCancel = ev => {
+  const handleCancel = (ev) => {
     ev.preventDefault();
     setShowMenu(false);
   };
 
   // show log out confirmation to user
   // timeout if no action is taken
-  const handleClickLogout = ev => {
+  const handleClickLogout = (ev) => {
     ev.preventDefault();
     setShowMenu(true);
     setTimeout(() => {
@@ -44,7 +44,7 @@ const Header = props => {
   };
 
   // logs user out after confirmation
-  const handleLogout = ev => {
+  const handleLogout = (ev) => {
     ev.preventDefault();
     userContext.dispatch({
       type: "logout"
