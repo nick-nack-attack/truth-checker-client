@@ -9,7 +9,7 @@ let initialState = {
   reports: [],
   all: [],
   error: null,
-  notification: []
+  notification: null,
 };
 
 // Allows dispatch actions to update state
@@ -29,12 +29,13 @@ let reducer = (state, action) => {
       return {
         ...state,
         facts: action.payload,
+        fetched: true,
       }
     case 'set-reports':
       return {
         ...state,
         reports: action.payload,
-        fetched: true
+        fetched: true,
       }
       // set all items
     case 'set-all':
@@ -60,7 +61,7 @@ let reducer = (state, action) => {
         notification: ''
       }
     default:
-      return initialState
+      return initialState;
   }
 };
 

@@ -24,7 +24,6 @@ const ApiWrapper = (props) => {
       type: 'login',
       data: settings
     });
-
     return isLoggedIn;
   }
 
@@ -45,26 +44,27 @@ const ApiWrapper = (props) => {
 
   // get facts and reports from server
   useEffect(() => {
+      console.log('API FETCH HAPPENED')
     Promise.all([
       FactsApiService.getFacts(),
-      FactsApiService.getReports()
+      FactsApiService.getReports(),
     ])
         .then(([facts, reports]) => {
           // set the context with the returned data
           itemsContext.dispatch({
             type: 'set-facts',
-            payload: facts
+            payload: facts,
           });
           itemsContext.dispatch({
             type: 'set-reports',
-            payload: reports
+            payload: reports,
           })
           checkUserLoggedIn();
         })
         .catch(err => {
           console.log(`catch ran`, err)
         })
-  }, [checkUserLoggedIn, itemsContext, itemsContext.state.fetched]);
+  }, [ /*checkUserLoggedIn*/ /*itemsContext*/ itemsContext.state.fetched ]);
 
   return (
 
