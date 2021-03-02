@@ -1,23 +1,23 @@
 // admin can edit a fact on this page
-import React, {useContext, useState} from 'react';
-import PropTypes from 'prop-types';
-import {useHistory} from 'react-router-dom';
+import React, { useContext, useState }  from 'react';
+import PropTypes                        from 'prop-types';
+import { useHistory }                   from 'react-router-dom';
 
 // contexts and hooks
-import {ItemsContext} from '../../../contexts/ItemsContext';
-import {UseInputChange} from '../../../hooks/UseInputChange';
+import { ItemsContext }     from '../../../contexts/ItemsContext';
+import { UseInputChange }   from '../../../hooks/UseInputChange';
 
 // helpers
 import config from '../../../config';
 
 // components
-import Error from '../../utils/Error/Error';
-import Form from '../../utils/Form/Form';
+import Error    from '../../utils/Error/Error';
+import Form     from '../../utils/Form/Form';
 
 // service
 import FactsApiService from '../../../services/facts-service';
 
-const EditFact = props => {
+const EditFact = (props) => {
 
   // initialize variables
   const itemsContext = useContext(ItemsContext);

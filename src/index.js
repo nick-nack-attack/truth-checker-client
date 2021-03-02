@@ -16,7 +16,7 @@ import ApiWrapper from './components/utils/ApiWrapper/ApiWrapper';
 import App from './components/utils/App/App';
 
 // styling
-import './index.css';
+import './index.scss';
 
 ReactDOM.render(
     <Router>

@@ -1,21 +1,21 @@
 // handle when user reports a specific fact
-import React, {useContext, useState} from 'react';
-import PropTypes from 'prop-types';
+import React, { useContext, useState }  from 'react';
+import PropTypes                        from 'prop-types';
 
 // components
-import Label from '../Label/Label';
-import Button from '../Button/Button';
-import Menu from '../Menu/Menu';
+import Label    from '../Label/Label';
+import Button   from '../Button/Button';
+import Menu     from '../Menu/Menu';
 
 // contexts
-import {ItemsContext} from '../../../contexts/ItemsContext';
-import FactsApiService from '../../../services/facts-service';
+import { ItemsContext } from '../../../contexts/ItemsContext';
+import FactsApiService  from '../../../services/facts-service';
 
 // styling
 import './Report.scss';
 
 // send report after user confirms
-const Report = props => {
+const Report = (props) => {
 
   // set variables
   const [showMenu, setShowMenu] = useState(false);
@@ -23,12 +23,12 @@ const Report = props => {
   // bring in itemsContext
   const itemsContext = useContext(ItemsContext);
 
-  const handleCancel = ev => {
+  const handleCancel = (ev) => {
     ev.preventDefault();
     setShowMenu(false);
   };
 
-  const handleReportClick = ev => {
+  const handleReportClick = (ev) => {
     ev.preventDefault();
     setShowMenu(true);
     setTimeout(() => {
@@ -37,7 +37,7 @@ const Report = props => {
   };
 
   // submit report of a particular fact to be reviewed by an admin
-  const handleSubmit = ev => {
+  const handleSubmit = (ev) => {
     ev.preventDefault();
     const reportedFact = {
       fact_id: props.id

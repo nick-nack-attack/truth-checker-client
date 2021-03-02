@@ -1,6 +1,6 @@
 // footer for the app
-import React from 'react';
-import {Link} from 'react-router-dom';
+import React    from 'react';
+import { Link } from 'react-router-dom';
 
 // import app routes in config
 import config from '../../../config';

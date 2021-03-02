@@ -1,15 +1,15 @@
 // login to the admin portal
-import React, {useContext, useState} from 'react';
+import React, { useContext, useState } from 'react';
 import config from '../../../config';
 
 // contexts
-import {UserContext} from '../../../contexts/UserContext';
+import { UserContext } from '../../../contexts/UserContext';
 
 // components
 import Error from '../../utils/Error/Error';
 import Form from '../../utils/Form/Form';
-import {useHistory} from 'react-router-dom';
-import {UseInputChange} from '../../../hooks/UseInputChange';
+import { useHistory } from 'react-router-dom';
+import { UseInputChange } from '../../../hooks/UseInputChange';
 
 // services
 import UsersService from '../../../services/users-service';
@@ -76,12 +76,12 @@ const Login = props => {
 
     // use service to post the login
     UsersService.postLogin(loginCreds)
-        .then(res => {
+        .then((res) => {
           TokenService.saveAuthToken(res.authToken, res.user_id);
           loginCreds.email = '';
           loginCreds.password = '';
         })
-        .then(res => {
+        .then((res) => {
           // Once the token and id are posted
           // go to the root
           login(res);
