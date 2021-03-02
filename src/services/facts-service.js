@@ -2,16 +2,16 @@
 import config from '../config.js';
 
 const FactsApiService = {
-    
+
     getFacts: () => {
         return fetch(`${config.API_ENDPOINT}/facts`, {
             headers: {
                 'content-type': 'application/json'
             }
         })
-        .then(res => 
-            (!res.ok 
-                ? res.json().then(e => Promise.reject(e)) 
+        .then(res =>
+            (!res.ok
+                ? res.json().then(e => Promise.reject(e))
                 : res.json())
         )
     },
@@ -24,9 +24,9 @@ const FactsApiService = {
             },
             body: JSON.stringify(newFact)
         })
-        .then(res => 
-            (!res.ok 
-                ? res.json().then(e => Promise.reject(e)) 
+        .then(res =>
+            (!res.ok
+                ? res.json().then(e => Promise.reject(e))
                 : res.json())
         )
     },
@@ -39,9 +39,9 @@ const FactsApiService = {
             },
             body: JSON.stringify(updatedFact)
         })
-        .then(res => 
-            (!res.ok 
-                ? res.json().then(e => Promise.reject(e)) 
+        .then(res =>
+            (!res.ok
+                ? res.json().then(e => Promise.reject(e))
                 : res.json())
         )
     },
@@ -68,9 +68,9 @@ const FactsApiService = {
             },
             body: JSON.stringify(fact_id)
         })
-        .then(res => 
-            (!res.ok 
-                ? res.json().then(e => Promise.reject(e)) 
+        .then(res =>
+            (!res.ok
+                ? res.json().then(e => Promise.reject(e))
                 : res.json())
         )
     },
@@ -82,9 +82,9 @@ const FactsApiService = {
                 'content-type': 'application/json'
             }
         })
-        .then(res => 
-            (!res.ok 
-                ? res.json().then(e => Promise.reject(e)) 
+        .then(res =>
+            (!res.ok
+                ? res.json().then(e => Promise.reject(e))
                 : res.json())
         )
     },
@@ -96,9 +96,9 @@ const FactsApiService = {
                 'content-type': 'application/json'
             }
         })
-        .then(res => 
-            (!res.ok 
-                ? res.json().then(e => Promise.reject(e)) 
+        .then(res =>
+            (!res.ok
+                ? res.json().then(e => Promise.reject(e))
                 : res.json())
         )
     }

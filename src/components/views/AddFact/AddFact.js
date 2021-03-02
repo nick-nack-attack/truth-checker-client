@@ -51,7 +51,6 @@ const AddFact = (props) => {
 
   // submit form if validation is passed
   const submitForm = () => {
-
     setHelperText(
         'Submitting fact...'
     );
@@ -65,7 +64,7 @@ const AddFact = (props) => {
     FactsApiService.addFact(factProperties)
         .then(() => {
           itemsContext.dispatch({
-            type: 'refetch'
+            type: 'refetch',
           });
           props.onSuccess('add-fact');
           history.push(config.FACTS_FEED);
@@ -83,9 +82,7 @@ const AddFact = (props) => {
   };
 
   return (
-
       <div className="add-fact-div">
-
         <div>
           <Form
               // this form is structured in Form.js

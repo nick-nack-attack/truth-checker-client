@@ -1,5 +1,5 @@
 // Contexts for all the content
-import React, {createContext, useReducer} from 'react';
+import React, { createContext, useReducer } from 'react';
 
 let ItemsContext = createContext();
 
@@ -22,7 +22,6 @@ let reducer = (state, action) => {
         fetched: true,
         facts: action.payload.facts,
         reports: action.payload.reports,
-        all: action.payload.all
       }
       // update only the facts
     case 'set-facts':
@@ -41,24 +40,24 @@ let reducer = (state, action) => {
     case 'set-all':
       return {
         ...state,
-        all: action.payload
+        all: action.payload,
       }
       // refetch items from database
     case 'refetch':
       return {
         ...state,
-        fetched: false
+        fetched: false,
       }
       // set error in state
     case 'set-error':
       return {
         ...state,
-        error: action.payload
+        error: action.payload,
       }
       // clear notification
     case 'clear-notification':
       return {
-        notification: ''
+        notification: '',
       }
     default:
       return initialState;
@@ -77,4 +76,4 @@ const ItemsContextProvider = (props) => {
 
 let ItemsContextConsumer = ItemsContext.Consumer;
 
-export {ItemsContext, ItemsContextProvider, ItemsContextConsumer};
+export { ItemsContext, ItemsContextProvider, ItemsContextConsumer };
