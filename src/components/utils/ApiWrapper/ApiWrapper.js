@@ -64,7 +64,7 @@ const ApiWrapper = (props) => {
         .catch(err => {
           console.log(`catch ran`, err)
         })
-  }, [itemsContext.state.fetched]);
+  }, [checkUserLoggedIn, itemsContext, itemsContext.state.fetched]);
 
   return (
 

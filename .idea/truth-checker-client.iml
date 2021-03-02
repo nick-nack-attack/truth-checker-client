@@ -10,5 +10,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="jquery-3.4.1" level="application" />
     <orderEntry type="library" name="@types/react" level="application" />
+    <orderEntry type="module" module-name="truth-checker-api" />
   </component>
 </module>

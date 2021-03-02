@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$USER_HOME$/WebstormProjects/truth-checker-api/.idea/truth-checker-api.iml" filepath="$USER_HOME$/WebstormProjects/truth-checker-api/.idea/truth-checker-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/truth-checker-client.iml" filepath="$PROJECT_DIR$/.idea/truth-checker-client.iml" />
     </modules>
   </component>
