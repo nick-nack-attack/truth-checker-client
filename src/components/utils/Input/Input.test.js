@@ -9,7 +9,7 @@ describe('Input Component', () => {
     const div = document.createElement('div');
 
   it('renders without crashing', () => {
-    render(<Input/>, div);
+    render(<Input/>);
 
     ReactDOM.unmountComponentAtNode(div);
   });

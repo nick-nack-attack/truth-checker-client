@@ -1,28 +1,13 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { render } from "../../../helpers/test-utils";
 import Button from './Button';
-
-import { UserContextProvider } from '../../../contexts/UserContext'
-import AuthContextProvider from '../../../contexts/AuthContextProvider';
 
 describe('Button Component', () => {
 
     it('renders without crashing', () => {
-    const div = document.createElement('div');
-    
-    ReactDOM.render(
-        <Router>
-            <UserContextProvider>
-                <AuthContextProvider>
-                    <Button/>
-                </AuthContextProvider>
-            </UserContextProvider>
-        </Router>,
-        div
-    );
 
-    ReactDOM.unmountComponentAtNode(div);
+    render(<Button/>)
+
     });
 
 });
