@@ -1,5 +1,5 @@
 // Hook for easy to manage controlled form inputs.
-import {useState} from 'react';
+import { useState } from 'react';
 
 export const UseInputChange = (defaults = {}) => {
 

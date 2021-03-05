@@ -4,6 +4,12 @@ import React from 'react';
 // files
 import './Input.scss';
 
+/**
+ *
+ * @param props
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const Input = (props) => {
 
   // props needed are
